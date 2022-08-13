@@ -11,6 +11,7 @@
 		FA1369E228A7674D004C200F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1369E128A7674D004C200F /* ContentView.swift */; };
 		FA1369E428A7674E004C200F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1369E328A7674E004C200F /* Assets.xcassets */; };
 		FA1369E728A7674E004C200F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1369E628A7674E004C200F /* Preview Assets.xcassets */; };
+		FA1369EF28A76BC8004C200F /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1369EE28A76BC8004C200F /* Timetable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		FA1369E128A7674D004C200F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA1369E328A7674E004C200F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA1369E628A7674E004C200F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA1369EE28A76BC8004C200F /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		FA1369DE28A7674D004C200F /* iOSDC2022 */ = {
 			isa = PBXGroup;
 			children = (
+				FA1369ED28A76BBE004C200F /* Model */,
 				FA1369DF28A7674D004C200F /* iOSDC2022App.swift */,
 				FA1369E128A7674D004C200F /* ContentView.swift */,
 				FA1369E328A7674E004C200F /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				FA1369E628A7674E004C200F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FA1369ED28A76BBE004C200F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA1369EE28A76BC8004C200F /* Timetable.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			files = (
 				FA1369E228A7674D004C200F /* ContentView.swift in Sources */,
 				FA1369E028A7674D004C200F /* iOSDC2022App.swift in Sources */,
+				FA1369EF28A76BC8004C200F /* Timetable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
