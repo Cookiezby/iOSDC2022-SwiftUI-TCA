@@ -7,97 +7,86 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA1369E028A7674D004C200F /* iOSDC2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1369DF28A7674D004C200F /* iOSDC2022App.swift */; };
-		FA1369E228A7674D004C200F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1369E128A7674D004C200F /* ContentView.swift */; };
-		FA1369E428A7674E004C200F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1369E328A7674E004C200F /* Assets.xcassets */; };
-		FA1369E728A7674E004C200F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1369E628A7674E004C200F /* Preview Assets.xcassets */; };
-		FA1369EF28A76BC8004C200F /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1369EE28A76BC8004C200F /* Timetable.swift */; };
-		FA1369F328A7E33B004C200F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = FA1369F228A7E33B004C200F /* ComposableArchitecture */; };
+		FA63629F28A7F182003C56F8 /* iOSDC2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63629E28A7F182003C56F8 /* iOSDC2022App.swift */; };
+		FA6362A128A7F182003C56F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6362A028A7F182003C56F8 /* ContentView.swift */; };
+		FA6362A328A7F183003C56F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6362A228A7F183003C56F8 /* Assets.xcassets */; };
+		FA6362A728A7F183003C56F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6362A628A7F183003C56F8 /* Preview Assets.xcassets */; };
+		FA6362AF28A7F1E9003C56F8 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = FA6362AE28A7F1E9003C56F8 /* ComposableArchitecture */; };
+		FA6362B128A7F202003C56F8 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6362B028A7F202003C56F8 /* Timetable.swift */; };
+		FA6362B328A7F241003C56F8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6362B228A7F241003C56F8 /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA1369DC28A7674D004C200F /* iOSDC2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDC2022.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA1369DF28A7674D004C200F /* iOSDC2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSDC2022App.swift; sourceTree = "<group>"; };
-		FA1369E128A7674D004C200F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		FA1369E328A7674E004C200F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA1369E628A7674E004C200F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FA1369EE28A76BC8004C200F /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
+		FA63629B28A7F182003C56F8 /* iOSDC2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDC2022.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA63629E28A7F182003C56F8 /* iOSDC2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSDC2022App.swift; sourceTree = "<group>"; };
+		FA6362A028A7F182003C56F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FA6362A228A7F183003C56F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA6362A428A7F183003C56F8 /* iOSDC2022.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSDC2022.entitlements; sourceTree = "<group>"; };
+		FA6362A628A7F183003C56F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA6362B028A7F202003C56F8 /* Timetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
+		FA6362B228A7F241003C56F8 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FA1369D928A7674D004C200F /* Frameworks */ = {
+		FA63629828A7F182003C56F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA1369F328A7E33B004C200F /* ComposableArchitecture in Frameworks */,
+				FA6362AF28A7F1E9003C56F8 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FA1369D328A7674D004C200F = {
+		FA63629228A7F182003C56F8 = {
 			isa = PBXGroup;
 			children = (
-				FA1369DE28A7674D004C200F /* iOSDC2022 */,
-				FA1369DD28A7674D004C200F /* Products */,
+				FA63629D28A7F182003C56F8 /* iOSDC2022 */,
+				FA63629C28A7F182003C56F8 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FA1369DD28A7674D004C200F /* Products */ = {
+		FA63629C28A7F182003C56F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA1369DC28A7674D004C200F /* iOSDC2022.app */,
+				FA63629B28A7F182003C56F8 /* iOSDC2022.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FA1369DE28A7674D004C200F /* iOSDC2022 */ = {
+		FA63629D28A7F182003C56F8 /* iOSDC2022 */ = {
 			isa = PBXGroup;
 			children = (
-				FA1369F028A76DCD004C200F /* API */,
-				FA1369ED28A76BBE004C200F /* Model */,
-				FA1369DF28A7674D004C200F /* iOSDC2022App.swift */,
-				FA1369E128A7674D004C200F /* ContentView.swift */,
-				FA1369E328A7674E004C200F /* Assets.xcassets */,
-				FA1369E528A7674E004C200F /* Preview Content */,
+				FA6362B028A7F202003C56F8 /* Timetable.swift */,
+				FA63629E28A7F182003C56F8 /* iOSDC2022App.swift */,
+				FA6362A028A7F182003C56F8 /* ContentView.swift */,
+				FA6362A228A7F183003C56F8 /* Assets.xcassets */,
+				FA6362A428A7F183003C56F8 /* iOSDC2022.entitlements */,
+				FA6362A528A7F183003C56F8 /* Preview Content */,
+				FA6362B228A7F241003C56F8 /* AppState.swift */,
 			);
 			path = iOSDC2022;
 			sourceTree = "<group>";
 		};
-		FA1369E528A7674E004C200F /* Preview Content */ = {
+		FA6362A528A7F183003C56F8 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				FA1369E628A7674E004C200F /* Preview Assets.xcassets */,
+				FA6362A628A7F183003C56F8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		FA1369ED28A76BBE004C200F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				FA1369EE28A76BC8004C200F /* Timetable.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		FA1369F028A76DCD004C200F /* API */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA1369DB28A7674D004C200F /* iOSDC2022 */ = {
+		FA63629A28A7F182003C56F8 /* iOSDC2022 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA1369EA28A7674E004C200F /* Build configuration list for PBXNativeTarget "iOSDC2022" */;
+			buildConfigurationList = FA6362AA28A7F183003C56F8 /* Build configuration list for PBXNativeTarget "iOSDC2022" */;
 			buildPhases = (
-				FA1369D828A7674D004C200F /* Sources */,
-				FA1369D928A7674D004C200F /* Frameworks */,
-				FA1369DA28A7674D004C200F /* Resources */,
+				FA63629728A7F182003C56F8 /* Sources */,
+				FA63629828A7F182003C56F8 /* Frameworks */,
+				FA63629928A7F182003C56F8 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -105,28 +94,28 @@
 			);
 			name = iOSDC2022;
 			packageProductDependencies = (
-				FA1369F228A7E33B004C200F /* ComposableArchitecture */,
+				FA6362AE28A7F1E9003C56F8 /* ComposableArchitecture */,
 			);
 			productName = iOSDC2022;
-			productReference = FA1369DC28A7674D004C200F /* iOSDC2022.app */;
+			productReference = FA63629B28A7F182003C56F8 /* iOSDC2022.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FA1369D428A7674D004C200F /* Project object */ = {
+		FA63629328A7F182003C56F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					FA1369DB28A7674D004C200F = {
+					FA63629A28A7F182003C56F8 = {
 						CreatedOnToolsVersion = 14.0;
 					};
 				};
 			};
-			buildConfigurationList = FA1369D728A7674D004C200F /* Build configuration list for PBXProject "iOSDC2022" */;
+			buildConfigurationList = FA63629628A7F182003C56F8 /* Build configuration list for PBXProject "iOSDC2022" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -134,52 +123,53 @@
 				en,
 				Base,
 			);
-			mainGroup = FA1369D328A7674D004C200F;
+			mainGroup = FA63629228A7F182003C56F8;
 			packageReferences = (
-				FA1369F128A7E33B004C200F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				FA6362AD28A7F1E9003C56F8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
-			productRefGroup = FA1369DD28A7674D004C200F /* Products */;
+			productRefGroup = FA63629C28A7F182003C56F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA1369DB28A7674D004C200F /* iOSDC2022 */,
+				FA63629A28A7F182003C56F8 /* iOSDC2022 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FA1369DA28A7674D004C200F /* Resources */ = {
+		FA63629928A7F182003C56F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA1369E728A7674E004C200F /* Preview Assets.xcassets in Resources */,
-				FA1369E428A7674E004C200F /* Assets.xcassets in Resources */,
+				FA6362A728A7F183003C56F8 /* Preview Assets.xcassets in Resources */,
+				FA6362A328A7F183003C56F8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FA1369D828A7674D004C200F /* Sources */ = {
+		FA63629728A7F182003C56F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA1369E228A7674D004C200F /* ContentView.swift in Sources */,
-				FA1369E028A7674D004C200F /* iOSDC2022App.swift in Sources */,
-				FA1369EF28A76BC8004C200F /* Timetable.swift in Sources */,
+				FA6362A128A7F182003C56F8 /* ContentView.swift in Sources */,
+				FA63629F28A7F182003C56F8 /* iOSDC2022App.swift in Sources */,
+				FA6362B128A7F202003C56F8 /* Timetable.swift in Sources */,
+				FA6362B328A7F241003C56F8 /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		FA1369E828A7674E004C200F /* Debug */ = {
+		FA6362A828A7F183003C56F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -223,23 +213,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		FA1369E928A7674E004C200F /* Release */ = {
+		FA6362A928A7F183003C56F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -277,68 +265,83 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		FA1369EB28A7674E004C200F /* Debug */ = {
+		FA6362AB28A7F183003C56F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOSDC2022/iOSDC2022.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSDC2022/Preview Content\"";
 				DEVELOPMENT_TEAM = 2RNKT55WYW;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bingyi.iOSDC2022;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		FA1369EC28A7674E004C200F /* Release */ = {
+		FA6362AC28A7F183003C56F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOSDC2022/iOSDC2022.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSDC2022/Preview Content\"";
 				DEVELOPMENT_TEAM = 2RNKT55WYW;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bingyi.iOSDC2022;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -348,20 +351,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA1369D728A7674D004C200F /* Build configuration list for PBXProject "iOSDC2022" */ = {
+		FA63629628A7F182003C56F8 /* Build configuration list for PBXProject "iOSDC2022" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA1369E828A7674E004C200F /* Debug */,
-				FA1369E928A7674E004C200F /* Release */,
+				FA6362A828A7F183003C56F8 /* Debug */,
+				FA6362A928A7F183003C56F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA1369EA28A7674E004C200F /* Build configuration list for PBXNativeTarget "iOSDC2022" */ = {
+		FA6362AA28A7F183003C56F8 /* Build configuration list for PBXNativeTarget "iOSDC2022" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA1369EB28A7674E004C200F /* Debug */,
-				FA1369EC28A7674E004C200F /* Release */,
+				FA6362AB28A7F183003C56F8 /* Debug */,
+				FA6362AC28A7F183003C56F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -369,23 +372,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FA1369F128A7E33B004C200F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		FA6362AD28A7F1E9003C56F8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA1369F228A7E33B004C200F /* ComposableArchitecture */ = {
+		FA6362AE28A7F1E9003C56F8 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FA1369F128A7E33B004C200F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			package = FA6362AD28A7F1E9003C56F8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = FA1369D428A7674D004C200F /* Project object */;
+	rootObject = FA63629328A7F182003C56F8 /* Project object */;
 }

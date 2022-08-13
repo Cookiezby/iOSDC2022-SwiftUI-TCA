@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+
+let appReducer = Reducer<AppState, AppAction, AppEnvironment> { start, action, environemnt in
+    switch action {}
+}
 
 @main
 struct iOSDC2022App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(store: Store(initialState: AppState(), reducer: appReducer, environment: AppEnvironment()))
         }
     }
 }

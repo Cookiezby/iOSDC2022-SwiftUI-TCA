@@ -6,7 +6,11 @@ struct Timetable: Codable {
     let timetable: [TimetableElement]
 }
 
-struct TimetableElement: Codable {
+struct TimetableElement: Codable, Equatable {
+    static func == (lhs: TimetableElement, rhs: TimetableElement) -> Bool {
+        lhs.uuid == rhs.uuid
+    }
+    
     let type: TimetableType
     let uuid: String
     let url: String?
