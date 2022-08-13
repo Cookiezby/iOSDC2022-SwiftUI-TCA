@@ -1,0 +1,29 @@
+{
+    "tracks": [
+        {
+            "id": "90003904-2f5f-4238-bbc1-0387a8d11640",
+            "name": "Track A",
+            "hashtag": "#iosdc #a"
+        },
+        {
+            "id": "3e4dc88c-4045-4e09-85d0-3ac74ce8f279",
+            "name": "Track B",
+            "hashtag": "#iosdc #b"
+        },
+        {
+            "id": "3c09ee40-09af-49d1-a821-591784dcb698",
+            "name": "Track C",
+            "hashtag": "#iosdc #c"
+        },
+        {
+            "id": "1098757c-5e7d-4d62-9136-e1f17ec9c527",
+            "name": "Track D",
+            "hashtag": "#iosdc #d"
+        },
+        {
+            "id": "9a7f7a70-e21a-455c-8160-6b651d3c9699",
+            "name": "Track E",
+            "hashtag": "#iosdc #e"
+        }
+    ]
+}
