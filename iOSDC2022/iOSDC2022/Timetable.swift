@@ -18,28 +18,57 @@ struct TimetableElement: Codable, Equatable {
     let abstract: String?
     let accepted: Bool?
     let track: Track?
-    let startsAt: Date?
+    let startsAt: String?
     let lengthMin: Int?
     let tags: [Tag]?
     let speaker: Speaker?
     let favCount: Int?
     let feedback: Feedback?
+    
+    enum CodingKeys: String, CodingKey {
+        case type
+        case uuid
+        case url
+        case title
+        case abstract
+        case accepted
+        case track
+        case startsAt = "starts_at"
+        case lengthMin = "length_min"
+        case tags
+        case speaker
+        case favCount = "fav_count"
+        case feedback
+    }
 }
 
 struct Feedback: Codable {
-    let feedbackOpen: Bool
+    let open: Bool
 }
 
 struct Speaker: Codable {
     let name, kana: String
     let twitter: String?
     let avatarURL: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case kana
+        case twitter
+        case avatarURL = "avatar_url"
+    }
 }
 
 struct Tag: Codable {
     let name: String
     let colorText: String
     let colorBackground: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case colorText = "color_text"
+        case colorBackground = "color_background"
+    }
 }
 
 struct Track: Codable {
@@ -47,15 +76,15 @@ struct Track: Codable {
     let sort: Int
 }
 
-enum TrackName: Codable {
-    case trackA
-    case trackB
-    case trackC
-    case trackD
-    case trackE
+enum TrackName: String, Codable {
+    case trackA = "Track A"
+    case trackB = "Track B"
+    case trackC = "Track C"
+    case trackD = "Track D"
+    case trackE = "Track E"
 }
 
-enum TimetableType: Codable {
+enum TimetableType: String, Codable {
     case talk
     case timeslot
 }
