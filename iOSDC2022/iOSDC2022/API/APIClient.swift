@@ -11,7 +11,7 @@ final class APIClient {
             throw APIClientError.invalidURL
         }
         do {
-            let (data, httpResponse) = try await URLSession.shared.data(from: url)
+            let (data, _) = try await URLSession.shared.data(from: url)
             let decoder = JSONDecoder()
             let response = try decoder.decode(Timetable.self, from: data)
             print(response)
