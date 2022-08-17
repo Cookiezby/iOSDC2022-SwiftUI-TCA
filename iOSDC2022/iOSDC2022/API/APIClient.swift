@@ -5,19 +5,23 @@ enum APIClientError: Error {
     case unknow
 }
 
-final class APIClient {
-    func getAllTimetables() async throws -> Result<[TimetableElement], APIClientError> {
-        guard let url = URL(string: "https://fortee.jp/iosdc-japan-2022/api/timetable") else {
+protocol TimetableAPI {
+    func getTimetable() async throws -> Result<Timetable, APIClientError>
+}
+
+final class APIClient: TimetableAPI {
+    private let baseURL = "https://fortee.jp/iosdc-japan-2022/api/"
+    
+    func getTimetable() async throws -> Result<Timetable, APIClientError> {
+        guard let url = URL(string: baseURL + "timetable") else {
             throw APIClientError.invalidURL
         }
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             let decoder = JSONDecoder()
             let response = try decoder.decode(Timetable.self, from: data)
-            print(response)
-            return .success(response.timetable)
+            return .success(response)
         } catch {
-            print(error)
             return .failure(.unknow)
         }
     }

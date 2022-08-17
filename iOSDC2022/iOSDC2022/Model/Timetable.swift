@@ -2,8 +2,77 @@
 
 import Foundation
 
+struct DayTimetable: Identifiable, Equatable {
+    var id: String {
+        return ISO8601DateFormatter().string(from: date)
+    }
+    var date: Date // the start time of the date
+    var timetables: [Proposal]
+}
+
 struct Timetable: Codable {
     let timetable: [TimetableElement]
+}
+
+extension Timetable {
+    func extractDayTimetables() -> [DayTimetable] {
+        let dateForamt = ISO8601DateFormatter()
+        var proposals: [Proposal] = []
+        for element in timetable {
+            if let startsAt = element.startsAt,
+               element.type == .talk,
+               let startsDate = dateForamt.date(from: startsAt),
+               let abstract = element.abstract,
+               let track = element.track,
+               let lengthMin = element.lengthMin,
+               let speaker = element.speaker {
+                let proposal = Proposal(
+                    uuid: element.uuid,
+                    title: element.title,
+                    abstract: abstract,
+                    track: track,
+                    startsDate: startsDate,
+                    lengthMin: lengthMin,
+                    speaker: speaker
+                )
+                proposals.append(proposal)
+            }
+        }
+        
+        proposals.sort(){$0.startsDate < $1.startsDate }
+        
+        var dic = [Date: [Proposal]]()
+        var result: [DayTimetable] = []
+      
+        for element in proposals {
+            let startOfDate = Calendar.current.startOfDay(for: element.startsDate)
+            dic[startOfDate, default: []].append(element)
+        }
+        
+        for (key, value) in dic {
+            result.append(DayTimetable(date: key, timetables: value))
+        }
+        
+        result.sort() {$0.date < $1.date}
+        return result
+    }
+}
+
+struct Proposal: Equatable, Identifiable {
+    var id: String { uuid }
+    var uuid: String
+    var url: String?
+    var title: String
+    var abstract: String
+    var track: Track
+    var startsDate: Date
+    var lengthMin: Int
+    var tags: [Tag]?
+    var speaker: Speaker
+    
+    static func == (lhs: Proposal, rhs: Proposal) -> Bool {
+        lhs.uuid == rhs.uuid
+    }
 }
 
 struct TimetableElement: Codable, Equatable {
@@ -11,7 +80,7 @@ struct TimetableElement: Codable, Equatable {
         lhs.uuid == rhs.uuid
     }
     
-    let type: TimetableType
+    let type: TimetableElementType
     let uuid: String
     let url: String?
     let title: String
@@ -84,7 +153,7 @@ enum TrackName: String, Codable {
     case trackE = "Track E"
 }
 
-enum TimetableType: String, Codable {
+enum TimetableElementType: String, Codable {
     case talk
     case timeslot
 }
