@@ -8,12 +8,12 @@ struct AppState: Equatable {
 
 enum AppAction {
     case sidebar(SidebarAction)
-    case requestTimetable
-    case receiveTimetableResponse(TaskResult<Timetable>)
+    case loadTimetable
+    case timetableResponse(TaskResult<Timetable>)
 }
 
 struct AppEnvironment {
-    var timetableAPI: TimetableAPI
+    var fetchTimetable: () async throws -> Timetable
 }
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
@@ -31,24 +31,18 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             return .none
         case .sidebar:
             return .none
-        case .requestTimetable:
-            return .task {
-                await .receiveTimetableResponse(TaskResult{
-                    let result = try await environment.timetableAPI.getTimetable()
-                    switch result {
-                    case .success(let response):
-                        print(response)
-                        return response
-                    case .failure(let failure):
-                        return Timetable(timetable: [])
-                    }
-                })
+        case .loadTimetable:
+            return Effect.task {
+                await .timetableResponse(
+                    TaskResult{ try await environment.fetchTimetable() }
+                )
             }
-        case let .receiveTimetableResponse(.success(timetable)):
+        case let .timetableResponse(.success(timetable)):
             let dates = timetable.extractDayTimetables().map { $0.date }
             state.sidebarState = SidebarState(days: dates)
             return .none
-        case .receiveTimetableResponse(.failure):
+        case .timetableResponse(.failure):
+            print("load timetable faild")
             return .none
         }
     }

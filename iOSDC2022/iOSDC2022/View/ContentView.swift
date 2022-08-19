@@ -20,7 +20,7 @@ struct ContentView: View {
                     path.removeLast(path.count)
                 }
                 .onAppear(perform: {
-                    viewStore.send(.requestTimetable)
+                    viewStore.send(.loadTimetable)
                 })
             }
         #else
@@ -38,6 +38,6 @@ extension ContentView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(store: Store(initialState: AppState(), reducer: appReducer, environment: AppEnvironment(timetableAPI: APIClient())))
+        ContentView(store: Store(initialState: AppState(), reducer: appReducer, environment: AppEnvironment(fetchTimetable: APIClient().getTimetable)))
     }
 }
