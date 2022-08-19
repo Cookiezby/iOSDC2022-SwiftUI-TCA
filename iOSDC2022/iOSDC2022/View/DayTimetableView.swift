@@ -3,8 +3,8 @@ import ComposableArchitecture
 import Foundation
 
 struct DayTimetableState: Equatable, Identifiable {
-    var id: String { dayTimetable.id }
-    var dayTimetable: DayTimetable
+    var id = UUID()
+    var dayTimetable: DayTimetable?
 }
 
 enum DayTimetableAction: Equatable {
@@ -27,8 +27,14 @@ struct DayTimetableView: View {
     
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            List {
-                Text("Hello")
+            if let timetables = viewStore.dayTimetable?.timetables {
+                List {
+                    ForEach(timetables) { timetable in
+                        Text(timetable.title)
+                    }
+                }
+            } else {
+                Text("Empty")
             }
         }
     }

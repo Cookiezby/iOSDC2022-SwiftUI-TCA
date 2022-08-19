@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		FA63629F28A7F182003C56F8 /* iOSDC2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63629E28A7F182003C56F8 /* iOSDC2022App.swift */; };
-		FA6362A128A7F182003C56F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6362A028A7F182003C56F8 /* ContentView.swift */; };
+		FA6362A128A7F182003C56F8 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6362A028A7F182003C56F8 /* AppView.swift */; };
 		FA6362A328A7F183003C56F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6362A228A7F183003C56F8 /* Assets.xcassets */; };
 		FA6362A728A7F183003C56F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6362A628A7F183003C56F8 /* Preview Assets.xcassets */; };
 		FA6362AF28A7F1E9003C56F8 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = FA6362AE28A7F1E9003C56F8 /* ComposableArchitecture */; };
 		FA6362B128A7F202003C56F8 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6362B028A7F202003C56F8 /* Timetable.swift */; };
-		FA6362B328A7F241003C56F8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6362B228A7F241003C56F8 /* AppState.swift */; };
 		FA6362B628AA8CBE003C56F8 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6362B528AA8CBE003C56F8 /* APIClient.swift */; };
 		FA8D76F628ABE2B1000F2627 /* DayTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D76F528ABE2B0000F2627 /* DayTimetableView.swift */; };
 		FA8D76FC28ACB238000F2627 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D76FB28ACB238000F2627 /* Sidebar.swift */; };
@@ -22,12 +21,11 @@
 /* Begin PBXFileReference section */
 		FA63629B28A7F182003C56F8 /* iOSDC2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDC2022.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA63629E28A7F182003C56F8 /* iOSDC2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSDC2022App.swift; sourceTree = "<group>"; };
-		FA6362A028A7F182003C56F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FA6362A028A7F182003C56F8 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		FA6362A228A7F183003C56F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA6362A428A7F183003C56F8 /* iOSDC2022.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSDC2022.entitlements; sourceTree = "<group>"; };
 		FA6362A628A7F183003C56F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA6362B028A7F202003C56F8 /* Timetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
-		FA6362B228A7F241003C56F8 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		FA6362B528AA8CBE003C56F8 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FA8D76F528ABE2B0000F2627 /* DayTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTimetableView.swift; sourceTree = "<group>"; };
 		FA8D76FB28ACB238000F2627 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				FA8D76F828ABE488000F2627 /* Model */,
-				FA8D76F728ABE420000F2627 /* TCAComponent */,
 				FA8D76F428ABE296000F2627 /* View */,
 				FA6362B428AA8CAF003C56F8 /* API */,
 				FA63629E28A7F182003C56F8 /* iOSDC2022App.swift */,
@@ -95,19 +92,11 @@
 		FA8D76F428ABE296000F2627 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FA6362A028A7F182003C56F8 /* ContentView.swift */,
+				FA6362A028A7F182003C56F8 /* AppView.swift */,
 				FA8D76F528ABE2B0000F2627 /* DayTimetableView.swift */,
 				FA8D76FB28ACB238000F2627 /* Sidebar.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		FA8D76F728ABE420000F2627 /* TCAComponent */ = {
-			isa = PBXGroup;
-			children = (
-				FA6362B228A7F241003C56F8 /* AppState.swift */,
-			);
-			path = TCAComponent;
 			sourceTree = "<group>";
 		};
 		FA8D76F828ABE488000F2627 /* Model */ = {
@@ -194,13 +183,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6362A128A7F182003C56F8 /* ContentView.swift in Sources */,
+				FA6362A128A7F182003C56F8 /* AppView.swift in Sources */,
 				FA63629F28A7F182003C56F8 /* iOSDC2022App.swift in Sources */,
 				FA8D76FC28ACB238000F2627 /* Sidebar.swift in Sources */,
 				FA6362B128A7F202003C56F8 /* Timetable.swift in Sources */,
 				FA6362B628AA8CBE003C56F8 /* APIClient.swift in Sources */,
 				FA8D76F628ABE2B1000F2627 /* DayTimetableView.swift in Sources */,
-				FA6362B328A7F241003C56F8 /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
