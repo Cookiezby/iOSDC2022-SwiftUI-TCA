@@ -27,10 +27,15 @@ struct DayTimetableView: View {
     
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            if let timetables = viewStore.dayTimetable?.timetables {
-                List {
+            if let timetables = viewStore.dayTimetable?.trackTimetables {
+                HStack {
                     ForEach(timetables) { timetable in
-                        Text(timetable.title)
+                        VStack {
+                            Text(timetable.track.name.rawValue)
+                            ForEach(timetable.proposal) {
+                                Text($0.title)
+                            }
+                        }
                     }
                 }
             } else {

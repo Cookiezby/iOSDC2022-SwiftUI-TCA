@@ -2,12 +2,17 @@
 
 import Foundation
 
+struct TrackTimetable: Equatable, Identifiable {
+    var id: UUID = UUID()
+    var track: Track
+    var proposal: [Proposal]
+}
+
 struct DayTimetable: Identifiable, Equatable {
-    var id: String {
-        return ISO8601DateFormatter().string(from: date)
-    }
-    var date: Date // the start time of the date
-    var timetables: [Proposal]
+    var id: UUID = UUID()
+    // Start time of the date
+    var date: Date
+    var trackTimetables: [TrackTimetable]
 }
 
 struct Timetable: Codable {
@@ -41,16 +46,23 @@ extension Timetable {
         
         proposals.sort(){$0.startsDate < $1.startsDate }
         
-        var dic = [Date: [Proposal]]()
+        var dic = [Date: [Track: [Proposal]]]()
         var result: [DayTimetable] = []
       
         for element in proposals {
             let startOfDate = Calendar.current.startOfDay(for: element.startsDate)
-            dic[startOfDate, default: []].append(element)
+            var trackDic = dic[startOfDate] ?? [Track: [Proposal]]()
+            trackDic[element.track, default: []].append(element)
+            dic[startOfDate] = trackDic
         }
         
         for (key, value) in dic {
-            result.append(DayTimetable(date: key, timetables: value))
+            let tracks = value.keys.sorted()
+            var trackTimetables: [TrackTimetable] = []
+            for track in tracks {
+                trackTimetables.append(TrackTimetable(track: track, proposal: value[track]!))
+            }
+            result.append(DayTimetable(date: key, trackTimetables: trackTimetables))
         }
         
         result.sort() {$0.date < $1.date}
@@ -140,7 +152,11 @@ struct Tag: Codable {
     }
 }
 
-struct Track: Codable {
+struct Track: Codable, Hashable, Comparable {
+    static func < (lhs: Track, rhs: Track) -> Bool {
+        lhs.sort < rhs.sort
+    }
+    
     let name: TrackName
     let sort: Int
 }
