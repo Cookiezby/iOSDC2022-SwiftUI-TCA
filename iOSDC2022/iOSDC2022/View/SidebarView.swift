@@ -18,7 +18,7 @@ let sidebarReducer = Reducer<SidebarState, SidebarAction, SidebarEnvironment>.in
     }
 }
 
-struct Sidebar: View {
+struct SiderbarView: View {
     let store: Store<SidebarState, SidebarAction>
     var body: some View {
         WithViewStore(self.store) { viewStore in
@@ -37,6 +37,6 @@ struct Sidebar: View {
 
 struct SideBar_Previews: PreviewProvider {
     static var previews: some View {
-        Sidebar(store: Store<SidebarState, SidebarAction>(initialState: SidebarState(), reducer: sidebarReducer, environment: SidebarEnvironment()))
+        SiderbarView(store: Store<SidebarState, SidebarAction>(initialState: SidebarState(), reducer: sidebarReducer, environment: SidebarEnvironment()))
     }
 }

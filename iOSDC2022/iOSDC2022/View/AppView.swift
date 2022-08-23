@@ -2,6 +2,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct AppState: Equatable {
+    var navigationPath = NavigationPath()
     var sidebar = SidebarState()
     var dayTimetable = DayTimetableState()
     var selectedDate: Date?
@@ -13,6 +14,7 @@ enum AppAction {
     case dayTimetable(DayTimetableAction)
     case loadTimetable
     case timetableResponse(TaskResult<Timetable>)
+    case sendNavigationPathChanged(NavigationPath)
 }
 
 struct AppEnvironment {
@@ -27,6 +29,13 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             SidebarEnvironment()
         }
     ),
+    dayTimetableReducer.pullback(
+        state: \AppState.dayTimetable,
+        action: /AppAction.dayTimetable,
+        environment: { _ in
+            DayTimetableEnvironment()
+        }
+    ),
     .init { state, action, environment in
         switch action {
         case .sidebar(.selectDate(let date)):
@@ -35,6 +44,13 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             state.dayTimetable = DayTimetableState(dayTimetable: dayTimetable)
             return .none
         case .sidebar:
+            return .none
+        case .dayTimetable(.clickProposal(let proposal)):
+//            state.navigationPath.append(proposal)
+//            print(state.navigationPath)
+            state.dayTimetable.selectedProposal = proposal
+            return .none
+        case .dayTimetable:
             return .none
         case .loadTimetable:
             return .task {
@@ -52,9 +68,9 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
 
             return .none
         case .timetableResponse(.failure):
-            print("load timetable faild")
             return .none
-        case .dayTimetable:
+        case .sendNavigationPathChanged(let path):
+            state.navigationPath = path
             return .none
         }
     }
@@ -63,22 +79,21 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
 
 struct AppView: View {
     let store: Store<AppState, AppAction>
-    @State private var path = NavigationPath()
-    @State private var day: Int  = 1
     
     var body: some View {
         #if os(macOS)
             WithViewStore(self.store) { viewStore in
                 NavigationSplitView {
-                    Sidebar(store: sidebarStore)
+                    SiderbarView(store: sidebarStore)
                 } detail: {
-                    NavigationStack(path: $path){
+                    NavigationStack(path: viewStore.binding(get: \.navigationPath, send: AppAction.sendNavigationPathChanged)){
                         DayTimetableView(store: dayTimetableStore)
+                            .navigationDestination(for: Proposal.self, destination: { value in
+                                ProposalView(proposal: value)
+                            })
                     }
                 }
-                .onChange(of: day) { _ in
-                    path.removeLast(path.count)
-                }
+                
                 .onAppear(perform: {
                     viewStore.send(.loadTimetable)
                 })

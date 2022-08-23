@@ -81,9 +81,15 @@ struct Proposal: Equatable, Identifiable {
     var lengthMin: Int
     var tags: [Tag]?
     var speaker: Speaker
-    
+}
+
+extension Proposal: Hashable {
     static func == (lhs: Proposal, rhs: Proposal) -> Bool {
-        lhs.uuid == rhs.uuid
+        return lhs.uuid == rhs.uuid
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid)
     }
 }
 
