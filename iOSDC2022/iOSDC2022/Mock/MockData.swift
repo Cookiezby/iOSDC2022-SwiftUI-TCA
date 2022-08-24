@@ -4,8 +4,11 @@ class MockData {
     static let shared = MockData()
     var timetable: Timetable
     var dayTimetable: DayTimetable
+    var days: [Date]
     var trackTimetable: TrackTimetable
-    var proposal: Proposal
+    var proposal: Proposal {
+        trackTimetable.proposals.randomElement()!
+    }
     
     
     init() {
@@ -13,8 +16,10 @@ class MockData {
         let jsonData = try! Data(contentsOf: URL(fileURLWithPath: path!))
         let timetable = try! JSONDecoder().decode(Timetable.self, from: jsonData)
         self.timetable = timetable
-        self.dayTimetable = timetable.extractDayTimetables().first!
+        let dayTimetables = timetable.extractDayTimetables()
+        self.dayTimetable = dayTimetables.first!
         self.trackTimetable = self.dayTimetable.trackTimetables.first!
-        self.proposal = self.trackTimetable.proposals.first!
+        self.days = dayTimetables.map { $0.date }
+        //self.proposal = self.trackTimetable.proposals.first!
     }
 }

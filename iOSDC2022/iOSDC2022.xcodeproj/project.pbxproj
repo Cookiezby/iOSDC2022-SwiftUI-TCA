@@ -19,6 +19,8 @@
 		FA8D771828B51E3E000F2627 /* ProposalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D771728B51E3E000F2627 /* ProposalView.swift */; };
 		FA8D771A28B521C3000F2627 /* timetable.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8D771928B521C3000F2627 /* timetable.json */; };
 		FA8D771C28B521D4000F2627 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D771B28B521D4000F2627 /* MockData.swift */; };
+		FA8D771F28B656D0000F2627 /* DayTimetableProposalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D771E28B656D0000F2627 /* DayTimetableProposalView.swift */; };
+		FA8D772228B65B8E000F2627 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D772128B65B8E000F2627 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		FA8D771728B51E3E000F2627 /* ProposalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalView.swift; sourceTree = "<group>"; };
 		FA8D771928B521C3000F2627 /* timetable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = timetable.json; sourceTree = "<group>"; };
 		FA8D771B28B521D4000F2627 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		FA8D771E28B656D0000F2627 /* DayTimetableProposalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTimetableProposalView.swift; sourceTree = "<group>"; };
+		FA8D772128B65B8E000F2627 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 		FA63629D28A7F182003C56F8 /* iOSDC2022 */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D772028B65B7B000F2627 /* Help */,
 				FA8D771D28B521DA000F2627 /* Mock */,
 				FA8D76F828ABE488000F2627 /* Model */,
 				FA8D76F428ABE296000F2627 /* View */,
@@ -103,6 +108,7 @@
 				FA8D76F528ABE2B0000F2627 /* DayTimetableView.swift */,
 				FA8D76FB28ACB238000F2627 /* SidebarView.swift */,
 				FA8D771728B51E3E000F2627 /* ProposalView.swift */,
+				FA8D771E28B656D0000F2627 /* DayTimetableProposalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,6 +128,14 @@
 				FA8D771928B521C3000F2627 /* timetable.json */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		FA8D772028B65B7B000F2627 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D772128B65B8E000F2627 /* Date+Extension.swift */,
+			);
+			path = Help;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +218,9 @@
 				FA6362A128A7F182003C56F8 /* AppView.swift in Sources */,
 				FA63629F28A7F182003C56F8 /* iOSDC2022App.swift in Sources */,
 				FA8D771828B51E3E000F2627 /* ProposalView.swift in Sources */,
+				FA8D771F28B656D0000F2627 /* DayTimetableProposalView.swift in Sources */,
 				FA8D76FC28ACB238000F2627 /* SidebarView.swift in Sources */,
+				FA8D772228B65B8E000F2627 /* Date+Extension.swift in Sources */,
 				FA6362B128A7F202003C56F8 /* Timetable.swift in Sources */,
 				FA8D771C28B521D4000F2627 /* MockData.swift in Sources */,
 				FA6362B628AA8CBE003C56F8 /* APIClient.swift in Sources */,

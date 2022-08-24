@@ -64,9 +64,9 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             let dates = dayTimetables.map { $0.date }
             state.dayTimetables = dayTimetables
             state.selectedDate = dates.first
-            state.sidebar = SidebarState(days: dates)
+            state.sidebar = SidebarState(selectedDate: dates.first, days: dates)
             state.dayTimetable = DayTimetableState(dayTimetable: dayTimetables[0])
-
+            
             return .none
         case .timetableResponse(.failure):
             return .none
@@ -87,12 +87,10 @@ struct AppView: View {
                 NavigationSplitView {
                     SiderbarView(store: sidebarStore)
                 } detail: {
-                    NavigationStack(path: viewStore.binding(get: \.navigationPath, send: AppAction.sendNavigationPathChanged)){
-                        DayTimetableView(store: dayTimetableStore)
-                            .navigationDestination(for: Proposal.self, destination: { value in
-                                ProposalView(proposal: value)
-                            })
-                    }
+                    DayTimetableView(store: dayTimetableStore)
+                        .navigationDestination(for: Proposal.self, destination: { value in
+                            ProposalView(proposal: value)
+                        })
                 }
                 
                 .onAppear(perform: {
