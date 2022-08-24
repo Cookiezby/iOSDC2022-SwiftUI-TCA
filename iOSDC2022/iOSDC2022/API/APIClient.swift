@@ -9,7 +9,7 @@ enum APIClientError: Error {
 }
 
 final class APIClient {
-    var getTimetable: (Int) async throws -> Timetable = { _ in
+    var getTimetable: @Sendable (Int) async throws -> Timetable = { _ in
         let url = URL(string: "https://fortee.jp/iosdc-japan-2022/api/timetable")!
         let (data, _) = try await URLSession.shared.data(from: url)
         let decoder = JSONDecoder()

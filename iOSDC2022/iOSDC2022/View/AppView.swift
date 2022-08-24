@@ -4,6 +4,7 @@ import ComposableArchitecture
 struct AppState: Equatable {
     var navigationPath = NavigationPath()
     var sidebar = SidebarState()
+    var selectedProposal: Proposal?
     var dayTimetable = DayTimetableState()
     var selectedDate: Date?
     var dayTimetables: [DayTimetable] = []
@@ -118,6 +119,12 @@ extension AppView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        AppView(store: Store(initialState: AppState(), reducer: appReducer, environment: AppEnvironment(fetchTimetable: APIClient().getTimetable)))
+        AppView(
+            store: Store(
+                initialState: AppState(),
+                reducer: appReducer,
+                environment: AppEnvironment(fetchTimetable: APIClient().getTimetable)
+            )
+        )
     }
 }

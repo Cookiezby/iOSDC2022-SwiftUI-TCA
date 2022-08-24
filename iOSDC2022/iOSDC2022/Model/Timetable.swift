@@ -5,12 +5,11 @@ import Foundation
 struct TrackTimetable: Equatable, Identifiable {
     var id: UUID = UUID()
     var track: Track
-    var proposal: [Proposal]
+    var proposals: [Proposal]
 }
 
 struct DayTimetable: Identifiable, Equatable {
     var id: UUID = UUID()
-    // Start time of the date
     var date: Date
     var trackTimetables: [TrackTimetable]
 }
@@ -60,7 +59,7 @@ extension Timetable {
             let tracks = value.keys.sorted()
             var trackTimetables: [TrackTimetable] = []
             for track in tracks {
-                trackTimetables.append(TrackTimetable(track: track, proposal: value[track]!))
+                trackTimetables.append(TrackTimetable(track: track, proposals: value[track]!))
             }
             result.append(DayTimetable(date: key, trackTimetables: trackTimetables))
         }

@@ -17,8 +17,8 @@ struct ProposalView: View {
     }
 }
 
-//struct ProposalView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProposalView()
-//    }
-//}
+struct ProposalView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProposalView(proposal: MockData.shared.proposal)
+    }
+}

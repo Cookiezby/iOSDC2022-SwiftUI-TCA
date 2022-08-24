@@ -6,6 +6,14 @@ struct DayTimetableState: Equatable, Identifiable {
     var id = UUID()
     var selectedProposal: Proposal?
     var dayTimetable: DayTimetable?
+    
+    init(
+        selectedProposal: Proposal? = nil,
+        dayTimetable: DayTimetable? = nil
+    ) {
+        self.selectedProposal = selectedProposal
+        self.dayTimetable = dayTimetable
+    }
 }
 
 enum DayTimetableAction: Equatable {
@@ -37,7 +45,7 @@ struct DayTimetableView: View {
                         ForEach(timetables) { timetable in
                             VStack {
                                 Text(timetable.track.name.rawValue)
-                                ForEach(timetable.proposal) { proposal in
+                                ForEach(timetable.proposals) { proposal in
                                     Button(proposal.title, action: {
                                         viewStore.send(.clickProposal(proposal))
                                     })
@@ -62,8 +70,14 @@ struct DayTimetableView: View {
 }
 
 
-//struct DayTimetableView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DayTimetableView()
-//    }
-//}
+struct DayTimetableView_Previews: PreviewProvider {
+    static var previews: some View {
+        DayTimetableView(
+            store: Store(
+                initialState: DayTimetableState(selectedProposal: nil, dayTimetable: MockData.shared.dayTimetable),
+                reducer: dayTimetableReducer,
+                environment: DayTimetableEnvironment()
+            )
+        )
+    }
+}
