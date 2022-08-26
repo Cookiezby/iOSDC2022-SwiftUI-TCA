@@ -10,7 +10,9 @@ import SwiftUI
 struct DayTimetableProposalView: View {
     var proposal: Proposal
     var body: some View {
-        Text(proposal.title)
+        VStack {
+            Text(proposal.title)
+        }
     }
 }
 

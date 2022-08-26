@@ -3,7 +3,7 @@ import ComposableArchitecture
 
 struct AppState: Equatable {
     var navigationPath = NavigationPath()
-    var sidebar = SidebarState()
+    var daySelect = DaySelectState()
     var selectedProposal: Proposal?
     var dayTimetable = DayTimetableState()
     var selectedDate: Date?
@@ -11,10 +11,10 @@ struct AppState: Equatable {
 }
 
 enum AppAction {
-    case sidebar(SidebarAction)
+    case daySelect(DaySelectAction)
     case dayTimetable(DayTimetableAction)
     case loadTimetable
-    case timetableResponse(TaskResult<Timetable>)
+    case timetableResponse(Timetable)
     case sendNavigationPathChanged(NavigationPath)
 }
 
@@ -23,11 +23,11 @@ struct AppEnvironment {
 }
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
-    sidebarReducer.pullback(
-        state: \AppState.sidebar,
-        action: /AppAction.sidebar,
+    daySelectReducer.pullback(
+        state: \AppState.daySelect,
+        action: /AppAction.daySelect,
         environment: { _ in
-            SidebarEnvironment()
+            DaySelectEnvironment()
         }
     ),
     dayTimetableReducer.pullback(
@@ -39,12 +39,12 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
     ),
     .init { state, action, environment in
         switch action {
-        case .sidebar(.selectDate(let date)):
+        case .daySelect(.selectDate(let date)):
             state.selectedDate = date
             let dayTimetable = state.dayTimetables.first(where: {$0.date == date})
             state.dayTimetable = DayTimetableState(dayTimetable: dayTimetable)
             return .none
-        case .sidebar:
+        case .daySelect:
             return .none
         case .dayTimetable(.clickProposal(let proposal)):
 //            state.navigationPath.append(proposal)
@@ -55,20 +55,18 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             return .none
         case .loadTimetable:
             return .task {
-                await .timetableResponse(
-                    TaskResult{ try await environment.fetchTimetable(5) }
-                )
+                let timetable = try await environment.fetchTimetable(5)
+                let action = AppAction.timetableResponse(timetable)
+                return action
             }
-        case let .timetableResponse(.success(timetable)):
+        case let .timetableResponse(timetable):
             let dayTimetables = timetable.extractDayTimetables()
             let dates = dayTimetables.map { $0.date }
             state.dayTimetables = dayTimetables
             state.selectedDate = dates.first
-            state.sidebar = SidebarState(selectedDate: dates.first, days: dates)
+            state.daySelect = DaySelectState(selectedDate: dates.first, days: dates)
             state.dayTimetable = DayTimetableState(dayTimetable: dayTimetables[0])
             
-            return .none
-        case .timetableResponse(.failure):
             return .none
         case .sendNavigationPathChanged(let path):
             state.navigationPath = path
@@ -84,15 +82,16 @@ struct AppView: View {
     var body: some View {
         #if os(macOS)
             WithViewStore(self.store) { viewStore in
-                NavigationSplitView {
-                    SiderbarView(store: sidebarStore)
-                } detail: {
-                    DayTimetableView(store: dayTimetableStore)
-                        .navigationDestination(for: Proposal.self, destination: { value in
-                            ProposalView(proposal: value)
-                        })
-                }
-                
+                DayTimetableView(store: dayTimetableStore)
+                    .navigationDestination(for: Proposal.self, destination: { value in
+                        ProposalView(proposal: value)
+                    }).overlay {
+                        VStack {
+                            Spacer()
+                            DaySelectionView(store: daySelectStore)
+                                .padding(.bottom, 20)
+                        }
+                    }
                 .onAppear(perform: {
                     viewStore.send(.loadTimetable)
                 })
@@ -104,8 +103,8 @@ struct AppView: View {
 }
 
 extension AppView {
-    private var sidebarStore: Store<SidebarState, SidebarAction> {
-        store.scope(state: \.sidebar, action: AppAction.sidebar)
+    private var daySelectStore: Store<DaySelectState, DaySelectAction> {
+        store.scope(state: \.daySelect, action: AppAction.daySelect)
     }
     
     private var dayTimetableStore: Store<DayTimetableState, DayTimetableAction> {

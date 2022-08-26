@@ -35,7 +35,6 @@ let dayTimetableReducer = Reducer<DayTimetableState, DayTimetableAction, DayTime
 
 struct DayTimetableView: View {
     let store:Store<DayTimetableState, DayTimetableAction>
-    
     var body: some View {
         WithViewStore(self.store) { viewStore in
             ZStack {
@@ -44,11 +43,16 @@ struct DayTimetableView: View {
                     HStack {
                         ForEach(timetables) { timetable in
                             VStack {
-                                Text(timetable.track.name.rawValue)
-                                ForEach(timetable.proposals) { proposal in
-                                    Button(proposal.title, action: {
-                                        viewStore.send(.clickProposal(proposal))
-                                    })
+                                HStack {
+                                    Text(timetable.track.name.rawValue)
+                                    Spacer()
+                                }
+                                ScrollView(showsIndicators: false){
+                                    ForEach(timetable.proposals) { proposal in
+                                        Button(proposal.title, action: {
+                                            viewStore.send(.clickProposal(proposal))
+                                        })
+                                    }
                                 }
                             }
                         }
