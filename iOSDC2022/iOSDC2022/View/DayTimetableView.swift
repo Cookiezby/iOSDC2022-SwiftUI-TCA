@@ -38,7 +38,6 @@ struct DayTimetableView: View {
     var body: some View {
         WithViewStore(self.store) { viewStore in
             ZStack {
-                
                 if let timetables = viewStore.dayTimetable?.trackTimetables {
                     HStack {
                         ForEach(timetables) { timetable in
@@ -49,9 +48,12 @@ struct DayTimetableView: View {
                                 }
                                 ScrollView(showsIndicators: false){
                                     ForEach(timetable.proposals) { proposal in
-                                        Button(proposal.title, action: {
+                                        Button {
                                             viewStore.send(.clickProposal(proposal))
-                                        })
+                                        } label: {
+                                            ProposalCell(proposal: proposal)
+                                        }
+                                        .buttonStyle(PlainButtonStyle())
                                     }
                                 }
                             }
@@ -67,8 +69,7 @@ struct DayTimetableView: View {
                     }
                     
                 }
-            }
-            
+            }.background(Color.white)
         }
     }
 }
