@@ -1,7 +1,14 @@
 import SwiftUI
 import ComposableArchitecture
 
+enum AppSideMenu {
+    case timetable
+    case myTimetable
+    case about
+}
+
 struct AppState: Equatable {
+    var sideMenu: AppSideMenu = .timetable
     var navigationPath = NavigationPath()
     var daySelect = DaySelectState()
     var selectedProposal: Proposal?
@@ -16,6 +23,7 @@ enum AppAction {
     case loadTimetable
     case timetableResponse(Timetable)
     case sendNavigationPathChanged(NavigationPath)
+    case selectSideMenu(AppSideMenu)
 }
 
 struct AppEnvironment {
@@ -75,6 +83,9 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .sendNavigationPathChanged(let path):
             state.navigationPath = path
             return .none
+        case .selectSideMenu(let menu):
+            state.sideMenu = menu
+            return .none
         }
     }
 )
@@ -88,28 +99,54 @@ struct AppView: View {
         WithViewStore(self.store) { viewStore in
             NavigationSplitView(columnVisibility: $columnVisibility){
                 List {
-                    Label {
-                        Text("Timetable")
-                    } icon: {
-                        Image(systemName: "rectangle.grid.3x2")
-                    }
-
-                    Label {
-                        Text("About")
-                    } icon: {
-                        Image(systemName: "questionmark.circle")
-                    }
+                    Button {
+                        viewStore.send(.selectSideMenu(.timetable))
+                    } label: {
+                        Label {
+                            Text("Timetable")
+                        } icon: {
+                            Image(systemName: "rectangle.grid.3x2")
+                        }
+                    }.buttonStyle(PlainButtonStyle())
+                    
+                    Button {
+                        viewStore.send(.selectSideMenu(.myTimetable))
+                    } label: {
+                        Label {
+                            Text("MyTimetable")
+                        } icon: {
+                            Image(systemName: "rectangle.grid.3x2")
+                        }
+                    }.buttonStyle(PlainButtonStyle())
+                    
+                    Button {
+                        viewStore.send(.selectSideMenu(.about))
+                    } label: {
+                        Label {
+                            Text("About")
+                        } icon: {
+                            Image(systemName: "questionmark.circle")
+                        }
+                    }.buttonStyle(PlainButtonStyle())
                 }.background(Color.white)
             } detail: {
-                NavigationStack(path: viewStore.binding(get: \.navigationPath, send: AppAction.sendNavigationPathChanged)) {
-                    DayTimetableView(store: dayTimetableStore)
-                        .onAppear(perform: {
-                            viewStore.send(.loadTimetable)
-                        })
-                        .navigationDestination(for: Proposal.self) { value in
-                            ProposalView(proposal: value)
-                        }
+                switch viewStore.sideMenu {
+                case .timetable:
+                    NavigationStack(path: viewStore.binding(get: \.navigationPath, send: AppAction.sendNavigationPathChanged)) {
+                        DayTimetableView(store: dayTimetableStore)
+                            .onAppear(perform: {
+                                viewStore.send(.loadTimetable)
+                            })
+                            .navigationDestination(for: Proposal.self) { value in
+                                ProposalView(proposal: value)
+                            }
+                    }
+                case .myTimetable:
+                    MyTimetableView()
+                case .about:
+                    Text("About")
                 }
+                
             }.toolbar {
                 DaySelectionView(store: daySelectStore)
             }

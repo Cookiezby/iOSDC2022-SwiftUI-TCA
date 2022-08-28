@@ -69,7 +69,7 @@ extension Timetable {
     }
 }
 
-struct Proposal: Equatable, Identifiable {
+struct Proposal: Equatable, Identifiable, Codable {
     var id: String { uuid }
     var uuid: String
     var url: String?
