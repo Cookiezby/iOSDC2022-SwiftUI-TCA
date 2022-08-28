@@ -9,17 +9,22 @@ enum AppSideMenu {
 
 struct AppState: Equatable {
     var sideMenu: AppSideMenu = .timetable
+    var myTimetable: MyTimetable
     var navigationPath = NavigationPath()
     var daySelect = DaySelectState()
-    var selectedProposal: Proposal?
     var dayTimetable = DayTimetableState()
     var selectedDate: Date?
     var dayTimetables: [DayTimetable] = []
+    
+    init() {
+        self.myTimetable = LocalData.shared.myTimetable
+    }
 }
 
 enum AppAction {
     case daySelect(DaySelectAction)
     case dayTimetable(DayTimetableAction)
+    case proposalAction(ProposalAction)
     case loadTimetable
     case timetableResponse(Timetable)
     case sendNavigationPathChanged(NavigationPath)
@@ -55,9 +60,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .daySelect:
             return .none
         case .dayTimetable(.clickProposal(let proposal)):
-            //            state.navigationPath.append(proposal)
-            //            print(state.navigationPath)
-            print(proposal.title)
             state.navigationPath.append(proposal)
             return .none
         case .dayTimetable:
@@ -78,13 +80,17 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             state.selectedDate = dates.first
             state.daySelect = DaySelectState(selectedDate: dates.first, days: dates)
             state.dayTimetable = DayTimetableState(dayTimetable: dayTimetables[0])
-            
+            state.myTimetable.dayTimetables = state.dayTimetables.map {
+                MyDayTimetable(date: $0.date, proposals: [])
+            }
             return .none
         case .sendNavigationPathChanged(let path):
             state.navigationPath = path
             return .none
         case .selectSideMenu(let menu):
             state.sideMenu = menu
+            return .none
+        case .proposalAction(.saveToMyTimetable(proposal: let proposal)):
             return .none
         }
     }
@@ -138,11 +144,11 @@ struct AppView: View {
                                 viewStore.send(.loadTimetable)
                             })
                             .navigationDestination(for: Proposal.self) { value in
-                                ProposalView(proposal: value)
+                                //ProposalView(store: proposalStore(selected: value))
                             }
                     }
                 case .myTimetable:
-                    MyTimetableView()
+                    MyTimetableView(myTimetable: viewStore.myTimetable)
                 case .about:
                     Text("About")
                 }
@@ -195,6 +201,14 @@ extension AppView {
     private var dayTimetableStore: Store<DayTimetableState, DayTimetableAction> {
         store.scope(state: \.dayTimetable, action: AppAction.dayTimetable)
     }
+    
+//    private func proposalStore(selected: Proposal) -> Store<ProposalState, ProposalAction> {
+//        return store.scope(state: { _ in
+//            return ProposalState(proposal: selected)
+//        }, action: {
+//            return $0
+//        })
+//    }
 }
 
 

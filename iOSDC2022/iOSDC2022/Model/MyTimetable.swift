@@ -27,11 +27,12 @@ struct LocalData {
     }
 }
 
-struct MyTimetable: Codable {
+struct MyTimetable: Codable, Equatable {
     var dayTimetables: [MyDayTimetable] = []
 }
 
-struct MyDayTimetable: Codable {
+struct MyDayTimetable: Codable, Equatable, Identifiable {
+    var id: UUID = UUID()
     var date: Date
     var proposals: [Proposal]
 }

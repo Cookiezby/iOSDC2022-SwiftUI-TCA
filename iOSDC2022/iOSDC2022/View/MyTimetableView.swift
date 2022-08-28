@@ -1,13 +1,32 @@
 import SwiftUI
+import ComposableArchitecture
+
+struct MyTimetableState: Equatable {
+    
+}
+
+enum MyTimetableAction {
+    
+}
+
+struct MyTimatableEnvironment {
+    
+}
+
 
 struct MyTimetableView: View {
+    var myTimetable: MyTimetable
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            ForEach(myTimetable.dayTimetables) {
+                Text($0.date.dayString)
+            }
+        }
     }
 }
 
 struct MyListView_Previews: PreviewProvider {
     static var previews: some View {
-        MyTimetableView()
+        MyTimetableView(myTimetable: MyTimetable())
     }
 }
