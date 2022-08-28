@@ -40,6 +40,7 @@ struct DayTimetableView: View {
             ZStack {
                 if let timetables = viewStore.dayTimetable?.trackTimetables {
                     HStack(spacing: 0) {
+                        
                         ForEach(timetables) { timetable in
                             VStack(spacing: 0){
                                 HStack {
@@ -62,9 +63,7 @@ struct DayTimetableView: View {
                                             .buttonStyle(PlainButtonStyle())
                                         }
                                     }
-                                    
                                 }
-                                
                             }
                         }
                         .padding(.leading, 5)

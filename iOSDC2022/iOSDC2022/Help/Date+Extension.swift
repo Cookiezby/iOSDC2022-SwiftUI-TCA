@@ -1,6 +1,5 @@
 import Foundation
 
-
 extension Date {
     var siderBarString: String {
         let style = Date.FormatStyle()

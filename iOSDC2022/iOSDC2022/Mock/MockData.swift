@@ -1,6 +1,6 @@
 import Foundation
 
-class MockData {
+final class MockData {
     static let shared = MockData()
     var timetable: Timetable
     var dayTimetable: DayTimetable
