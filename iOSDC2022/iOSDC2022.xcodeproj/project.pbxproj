@@ -22,6 +22,7 @@
 		FA8D771C28B521D4000F2627 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D771B28B521D4000F2627 /* MockData.swift */; };
 		FA8D771F28B656D0000F2627 /* DayTimetableProposalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D771E28B656D0000F2627 /* DayTimetableProposalView.swift */; };
 		FA8D772228B65B8E000F2627 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D772128B65B8E000F2627 /* Date+Extension.swift */; };
+		FAA59B9628B999B3002F1D86 /* MyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA59B9528B999B3002F1D86 /* MyListView.swift */; };
 		FAB8FBBD28B8922D0043D8B9 /* DaySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8FBBC28B8922D0043D8B9 /* DaySelectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		FA8D771B28B521D4000F2627 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		FA8D771E28B656D0000F2627 /* DayTimetableProposalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTimetableProposalView.swift; sourceTree = "<group>"; };
 		FA8D772128B65B8E000F2627 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		FAA59B9528B999B3002F1D86 /* MyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListView.swift; sourceTree = "<group>"; };
 		FAB8FBBC28B8922D0043D8B9 /* DaySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 				FA8D771E28B656D0000F2627 /* DayTimetableProposalView.swift */,
 				FAB8FBBC28B8922D0043D8B9 /* DaySelectionView.swift */,
 				FA242BA028B8990C00ECBC93 /* ProposalCell.swift */,
+				FAA59B9528B999B3002F1D86 /* MyListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				FA6362B628AA8CBE003C56F8 /* APIClient.swift in Sources */,
 				FAB8FBBD28B8922D0043D8B9 /* DaySelectionView.swift in Sources */,
 				FA8D76F628ABE2B1000F2627 /* DayTimetableView.swift in Sources */,
+				FAA59B9628B999B3002F1D86 /* MyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

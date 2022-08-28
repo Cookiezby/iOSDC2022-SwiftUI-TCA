@@ -172,6 +172,21 @@ enum TrackName: String, Codable {
     case trackC = "Track C"
     case trackD = "Track D"
     case trackE = "Track E"
+    
+    var displayName: String {
+        switch self {
+        case .trackA:
+            return "A"
+        case .trackB:
+            return "B"
+        case .trackC:
+            return "C"
+        case .trackD:
+            return "D"
+        case .trackE:
+            return "E"
+        }
+    }
 }
 
 enum TimetableElementType: String, Codable {

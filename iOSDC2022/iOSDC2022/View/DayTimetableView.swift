@@ -39,38 +39,57 @@ struct DayTimetableView: View {
         WithViewStore(self.store) { viewStore in
             ZStack {
                 if let timetables = viewStore.dayTimetable?.trackTimetables {
-                    HStack {
+                    HStack(spacing: 0) {
                         ForEach(timetables) { timetable in
-                            VStack {
+                            VStack(spacing: 0){
                                 HStack {
-                                    Text(timetable.track.name.rawValue)
+                                    Text(timetable.track.name.displayName)
+                                        .font(Font.system(size: 14, weight: .semibold))
+                                        .foregroundColor(Color.gray)
                                     Spacer()
                                 }
+                                .padding(.bottom, 8)
+                        
                                 ScrollView(showsIndicators: false){
-                                    ForEach(timetable.proposals) { proposal in
-                                        Button {
-                                            viewStore.send(.clickProposal(proposal))
-                                        } label: {
-                                            ProposalCell(proposal: proposal)
+                                    VStack(spacing: 10){
+                                        ForEach(Array(timetable.proposals.enumerated()), id: \.offset) { index, proposal in
+                                            Button(action: {
+                                                viewStore.send(.clickProposal(proposal))
+                                            }, label: {
+                                                ProposalCell(proposal: proposal)
+                                                    .frame(height: 80)
+                                            })
+                                            .buttonStyle(PlainButtonStyle())
                                         }
-                                        .buttonStyle(PlainButtonStyle())
                                     }
+                                    
                                 }
+                                
                             }
                         }
+                        .padding(.leading, 5)
+                        .padding(.trailing, 5)
                     }
+                    .padding(.leading, 5)
+                    .padding(.trailing, 5)
                 } else {
                     EmptyView()
                 }
-                HStack {
-                    Spacer()
-                    if let proposal = viewStore.selectedProposal {
-                        ProposalView(proposal: proposal).frame(width: 300)
+                if let proposal =
+                    viewStore.selectedProposal {
+                    GeometryReader { geo in
+                        ProposalView(proposal: proposal).frame(width: max(geo.size.width * 0.5, 300))
                     }
                     
                 }
-            }.background(Color.white)
+            }
+            .background(Color.white)
         }
+    }
+    
+    func select(proposals: [Proposal], index: Int) {
+        print(index)
+        ViewStore(self.store).send(.clickProposal(proposals[index]))
     }
 }
 

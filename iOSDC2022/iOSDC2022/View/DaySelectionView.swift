@@ -24,7 +24,7 @@ struct DaySelectionView: View {
     let store: Store<DaySelectState, DaySelectAction>
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            HStack {
+            HStack(alignment: .center){
                 ForEach(Array(viewStore.days.enumerated()), id: \.offset) { index, element in
                     Button {
                         viewStore.send(.selectDate(element))
@@ -33,14 +33,10 @@ struct DaySelectionView: View {
                     }
                 }
             }
-            
             .padding()
             .clipped()
-            .frame(width: 150, height: 40)
+            .frame(height: 40)
             .cornerRadius(10)
-            .background(Capsule().foregroundColor(Color.red))
-            .opacity(viewStore.days.isEmpty ? 0.0 : 1.0)
-            
         }
     }
 }

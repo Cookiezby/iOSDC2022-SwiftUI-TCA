@@ -47,13 +47,17 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .daySelect:
             return .none
         case .dayTimetable(.clickProposal(let proposal)):
-//            state.navigationPath.append(proposal)
-//            print(state.navigationPath)
-            state.dayTimetable.selectedProposal = proposal
+            //            state.navigationPath.append(proposal)
+            //            print(state.navigationPath)
+            print(proposal.title)
+            state.navigationPath.append(proposal)
             return .none
         case .dayTimetable:
             return .none
         case .loadTimetable:
+            guard state.dayTimetables.isEmpty else {
+                return .none
+            }
             return .task {
                 let timetable = try await environment.fetchTimetable(5)
                 let action = AppAction.timetableResponse(timetable)
@@ -78,27 +82,71 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
 
 struct AppView: View {
     let store: Store<AppState, AppAction>
-    
+    @State private var columnVisibility = NavigationSplitViewVisibility.automatic
     var body: some View {
-        #if os(macOS)
-            WithViewStore(self.store) { viewStore in
-                DayTimetableView(store: dayTimetableStore)
-                    .navigationDestination(for: Proposal.self, destination: { value in
-                        ProposalView(proposal: value)
-                    }).overlay {
-                        VStack {
-                            Spacer()
-                            DaySelectionView(store: daySelectStore)
-                                .padding(.bottom, 20)
-                        }
+#if os(macOS)
+        WithViewStore(self.store) { viewStore in
+            NavigationSplitView(columnVisibility: $columnVisibility){
+                List {
+                    Label {
+                        Text("Timetable")
+                    } icon: {
+                        Image(systemName: "rectangle.grid.3x2")
                     }
-                .onAppear(perform: {
-                    viewStore.send(.loadTimetable)
-                })
+
+                    Label {
+                        Text("About")
+                    } icon: {
+                        Image(systemName: "questionmark.circle")
+                    }
+                }.background(Color.white)
+            } detail: {
+                NavigationStack(path: viewStore.binding(get: \.navigationPath, send: AppAction.sendNavigationPathChanged)) {
+                    DayTimetableView(store: dayTimetableStore)
+                        .onAppear(perform: {
+                            viewStore.send(.loadTimetable)
+                        })
+                        .navigationDestination(for: Proposal.self) { value in
+                            ProposalView(proposal: value)
+                        }
+                }
+            }.toolbar {
+                DaySelectionView(store: daySelectStore)
             }
-        #else
-            Text("Hello")
-        #endif
+        }
+#else
+        
+        WithViewStore(self.store) { viewStore in
+            NavigationSplitView(columnVisibility: $columnVisibility){
+                List {
+                    Label {
+                        Text("Timetable")
+                    } icon: {
+                        Image(systemName: "rectangle.split.3x3")
+                    }
+
+                    Label {
+                        Text("Help")
+                    } icon: {
+                        Image(systemName: "questionmark.circle")
+                    }
+                }.background(Color.white)
+            } detail: {
+                NavigationStack(path: viewStore.binding(get: \.navigationPath, send: AppAction.sendNavigationPathChanged)) {
+                    DayTimetableView(store: dayTimetableStore)
+                        .onAppear(perform: {
+                            viewStore.send(.loadTimetable)
+                        })
+                        .navigationDestination(for: Proposal.self) { value in
+                            ProposalView(proposal: value)
+                        }
+                        .navigationBarTitleDisplayMode(.inline)
+                }
+                
+            }
+        }
+        
+#endif
     }
 }
 
