@@ -104,9 +104,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             state.selectedDate = dates.first
             state.daySelect = DaySelectState(selectedDate: dates.first, days: dates)
             state.dayTimetable = DayTimetableState(dayTimetable: dayTimetables[0])
-//            state.myTimetable.dayTimetables = state.dayTimetables.map {
-//                MyDayTimetable(date: $0.date, proposals: [])
-//            }
             return .none
         case .sendNavigationPathChanged(let path):
             
@@ -115,11 +112,9 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .selectSideMenu(let menu):
             state.sideMenu = menu
             return .none
-        case .proposal(.saveToMyTimetable(proposal: let proposal)):
-            state.myTimetable.add(proposal: proposal)
+        case .proposal(.saveToMyTimetable):
             return .none
-        case .proposal(.removeFromMyTimetable(proposal: let proposal)):
-            state.myTimetable.remove(proposal: proposal)
+        case .proposal(.removeFromMyTimetable):
             return .none
         }
     }

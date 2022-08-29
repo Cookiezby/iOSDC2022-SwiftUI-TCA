@@ -28,10 +28,6 @@ import Foundation
 //}
 
 struct MyTimetable: Codable, Equatable {
-    static func == (lhs: MyTimetable, rhs: MyTimetable) -> Bool {
-        lhs.dayTimetables == rhs.dayTimetables
-    }
-    
     var dayTimetables: [MyDayTimetable]
     
     init() {
@@ -52,6 +48,10 @@ struct MyTimetable: Codable, Equatable {
         if let index = dayTimetables.firstIndex(where: {$0.date == startDate }) {
             dayTimetables[index].proposals.remove(proposal)
         }
+    }
+    
+    static func == (lhs: MyTimetable, rhs: MyTimetable) -> Bool {
+        lhs.dayTimetables == rhs.dayTimetables
     }
 }
 

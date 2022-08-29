@@ -16,10 +16,10 @@ struct ProposalEnvironment {}
 let proposalReducer: Reducer<ProposalState, ProposalAction, ProposalEnvironment> = .init{ state, action, environment in
     switch action {
     case .saveToMyTimetable(let proposal):
-//        state.myTimetable.add(proposal: proposal)
+        state.myTimetable.add(proposal: proposal)
         return .none
     case .removeFromMyTimetable(let proposal):
-//        state.myTimetable.remove(proposal: proposal)
+        state.myTimetable.remove(proposal: proposal)
         return .none
     }
 }
