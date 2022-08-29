@@ -1,0 +1,2962 @@
+{
+    "timetable": [
+        {
+            "type": "timeslot",
+            "uuid": "b647ccdb-bbb8-414f-b66f-b4f00690c47a",
+            "title": "前夜祭説明",
+            "abstract": null,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-10T16:20:00+09:00",
+            "length_min": 15
+        },
+        {
+            "type": "talk",
+            "uuid": "aad51596-674f-4b8a-a24b-868e84453e9a",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/aad51596-674f-4b8a-a24b-868e84453e9a",
+            "title": "ノートアプリのテキストエディタの解体新書",
+            "abstract": "note の iOS アプリのテキストエディタはテキストや画像、埋め込みなど様々な要素を入力できます。\r\nまた、今年には V4 エディタと呼んでいるエディタの拡張も行い、箇条書きや罫線などのサポートも追加しました。\r\nスクロールする画面に複数の UITextView を入れる UI を作る時に、みなさんはどのように設計するでしょうか？\r\nnote の iOS アプリでは伸び縮みする画面を作る方法として、UIScrollView の中に UIStackView を入れて、その中に UITextView を含むビューを配置するように実装しました。\r\nこのセッションでは UIKit を活用して、伸び縮みするような画面を作る際の考え方と実装する際に困ったことなどをお話しします。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-10T16:40:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "かっくん",
+                "kana": "カックン",
+                "twitter": "fromkk",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/67aad253-9c62-41f9-83c4-96a3440b16f5.jpg"
+            },
+            "fav_count": 10,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "6c4615f5-b471-4f78-9044-4ae3f8dd75d4",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/6c4615f5-b471-4f78-9044-4ae3f8dd75d4",
+            "title": "施策基盤としてのディープリンク 〜なめらかにアプリが開く体験のために〜",
+            "abstract": "SNSにおけるプロモーションや、Webのユーザーをアプリユーザーに転換させるような施策を実施したい場合にディープリンクを利用したいケースはよくあるでしょう。\r\n\r\nディープリンクを利用してユーザーをアプリに連れてくる際「ユーザーが文脈を理解できている状態」というのは重要で、ユーザー状態に応じたフローを組むだけでは施策の効果を十分に発揮できない可能性があります。\r\n\r\nこのセッションでは、滑らかな体験でアプリにユーザーを連れてくるために「ディープリンク」を効果的に活用する方法やその仕組みについて紹介します。\r\n\r\n話すトピック \r\n・概念としてのディープリンクおよび、ディープリンクを実現するための機能紹介\r\n・アプリのインストール状況や初回設定状況などのユーザー状態に応じた適切な遷移方法\r\n・ユーザーに文脈を理解した状態のままアプリに来てもらうために活用できる仕組み\r\n・コンバージョンの計測方法",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-10T16:40:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "あつや",
+                "kana": "アツヤ",
+                "twitter": "n_atmark",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/678b54ad-c083-422a-a910-2919dd9467a4.jpg"
+            },
+            "fav_count": 9,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "6b5012f2-6252-44aa-858d-925898684da5",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/6b5012f2-6252-44aa-858d-925898684da5",
+            "title": "iPhoneのセンサで”位置情報”を得るために",
+            "abstract": "みなさんiPhoneのセンサで取得できる位置情報と聞いて何を思い浮かべますか？\r\nおそらくCore Location Frameworkを使った緯度経度情報を思い浮かべる方が多いのではないでしょうか。\r\nロボット開発の観点では自己位置推定と呼ばれるLiDAR,カメラ,加速度センサなどを組み合わせることによってロボットの位置を推定する技術が日々研究されています。\r\n本トークでは位置情報を得るという目的のためにiPhoneのセンサを使って検証した結果を\r\n- どのようなセンサを使う方法があるか\r\n- 取得できる位置情報の精度\r\n\r\nについて紹介します。",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-10T16:40:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "Shinya Todaka",
+                "kana": "シンヤ トダカ",
+                "twitter": "shinya_todaka",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/a7323b7b-b7f3-4fc3-bc44-cf6f94e87be9.jpg"
+            },
+            "fav_count": 8,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "b271a27f-bf58-4eec-94f5-2c881d072618",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/b271a27f-bf58-4eec-94f5-2c881d072618",
+            "title": "ShazamKitの遊び方",
+            "abstract": "WWDC2021で発表されたShazamKitは、膨大な音楽カタログをベースに何百万曲の音楽検索を行える音声認識フレームワークです。\r\n音楽に全く詳しくない私(ミスチル好き)ですが音声認識機能には興味があり、\r\nレンタルスペースを予約できる「SpaceMarket」のiOS\/Androidアプリへ遊びで勝手に組み込んでみたので\r\n・ShazamKitの機能紹介\r\n・両OSへの導入の仕方\r\n・使い道の検討\/実際に作ってみた機能\/社員の反応\r\nについてお伝えできればと思っています。",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-10T16:40:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "Naoyuki Murata",
+                "kana": "ムラタ",
+                "twitter": "namu767676",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/0240d843-0e7a-4769-8127-9fc03cc82937.jpg"
+            },
+            "fav_count": 4,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "0b6f453a-68f0-4300-9ab2-cb1e3457eb53",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/0b6f453a-68f0-4300-9ab2-cb1e3457eb53",
+            "title": "SwiftUI Navigation のすべて",
+            "abstract": "SwiftUIのNavigation APIは「Tab, Alert, Sheet, Navigation Link...」など様々な種類が存在し、OSによるインターフェースの変化も激しいです。\r\nまた、これらのAPIを利用して画面遷移を実現する際には多くの選択肢があり、画面遷移が増えれば状態管理も複雑になります。\r\n\r\nこのトークでは、そんなSwiftUI Navigationについて以下の内容で発表します。\r\n\r\n・SwiftUIのシンプルな画面遷移と状態駆動型の画面遷移について俯瞰\r\n・状態駆動型の画面遷移の利用時に起きる状態の不整合、不要な状態の管理を改善するswiftui-navigationの手法\r\n\r\n本トークではPoint-Free製のswiftui-navigationを深掘ることによって、よりSwiftUIのNavigationについて理解できるようになることを目指します。",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-10T17:15:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "アイカワ",
+                "kana": "アイカワ",
+                "twitter": "kalupas226",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/af92f5ac-c913-48db-9ecd-7d2db0b5ffda.jpg"
+            },
+            "fav_count": 27,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "841f38a0-f3e4-4b39-b14c-de6f80521eee",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/841f38a0-f3e4-4b39-b14c-de6f80521eee",
+            "title": "Swiftで我が家をより便利に、安全に！",
+            "abstract": "我が家にはたくさんのIoTガジェットがあって、カーテンや玄関の鍵を開け閉めしたり、大活躍です。\r\nしかしエンジニアという人種は、既存の機能では満足できず、カスタムして、色々作り込みたくなるものです!\r\nそこで日頃お世話になっているSwift、我が家に余ってたラズパイ、そしてiPhoneの力を借りて、より便利で安全なスマートホームを目指した取り組みを共有します。\r\n具体的には…\r\n●ラズパイでのSwiftやServerSideSwiftフレームワークのセットアップ\r\n●iPhoneのセンサー情報をServerSideSwiftのAPI経由でラズパイのDBに書き込む方法\r\n●ラズパイと既存のIoTガジェットの連携方法\r\n●SwiftでラズパイのGPIO経由でセンサーやLEDを操作する方法\r\nなどをデモを交えて紹介する予定です。\r\n\r\nぜひ皆さんもSwiftを使った自宅のスマートホーム化、電子工作を楽しみましょう！",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-10T17:15:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "すぎー",
+                "kana": "スギー",
+                "twitter": "u5_03",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/b2eabbb6-7a5f-46d0-9d6a-bae13d2a682a.jpg"
+            },
+            "fav_count": 13,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "f9ec6cc3-bc06-4749-a6b4-a472b9234684",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/f9ec6cc3-bc06-4749-a6b4-a472b9234684",
+            "title": "PiPを応用した配信コメントバー機能の開発秘話と技術の詳解",
+            "abstract": "WWDC21 が開催されていた昨年の6月、AVKit に追加されたひとつの機能に社内がざわつきました。\r\nPiP（ピクチャ・イン・ピクチャ）の機能を応用して、Android の画面オーバーレイのようにアプリ外に自由なコンテンツを描画できる期待感を経験のあるエンジニアは感じていましたが、既存のアプリに機能を組み込むまでには R&D 的な開発やパフォーマンスとの戦いがありました。\r\n\r\nこのトークでは、ゲーム配信アプリミラティブに実装され多くのユーザーに利用されている、視聴者からのコメントや各種配信情報をアプリ外で表示する「配信コメントバー」機能の開発の裏側と技術の詳細、また更なる応用についてご紹介します。\r\n\r\n・「配信コメントバー」機能の概要\r\n・実装の解説\r\n・R&D 開発の勘所\r\n・パフォーマンスの解決\r\n・PiP と AVAudioSession との関係\r\n・PiP のカスタマイズ性\r\n・更なる応用",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-10T17:15:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "千吉良 成紀",
+                "kana": "チギラ ナルキ",
+                "twitter": "_naru_jpn",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/fe245250-08ca-4ab7-833f-945c1ee979e5.jpg"
+            },
+            "fav_count": 9,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "28a7ecff-a0f1-40c9-80a5-b8ed2fb0fd94",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/28a7ecff-a0f1-40c9-80a5-b8ed2fb0fd94",
+            "title": "ウーニャ、しってる。みんなふんいきでSwiftUIをつかってる。",
+            "abstract": "SwiftUIでViewを構築するのは難しいです。\r\n\r\n何も考えずに書くとクソデカViewになります。\r\n複数のViewに分割する場合も、プロパティやメソッドに切り出すのがいいか、構造体を定義するのがいいか迷います。\r\n\r\nViewの命名も迷います。\r\nAtomic Designに沿うのもいいですが、iOSと馴染めない気がします。\r\nUIKitに近い命名はわかりやすいですが、SwiftUIではスマートでないと感じます。\r\n\r\n---\r\n\r\n「いきなりぐちってごめんなさい。ウーニャほんとはSwiftUIとなかよくしたいです…！」\r\n\r\nこのトークは、ウーニャ（私）とみんながSwiftUIのViewの分割と命名について一緒に考えます。\r\nまずはウーニャがViewの分割や命名の考え方を話すので、それについてコメントを頂き、議論してよりいいViewの構築を考えます。\r\n\r\nかなりふあんですが、だいじょうぶます。がんばるます。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-10T17:15:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "uhooi",
+                "kana": "ウホーイ",
+                "twitter": "the_uhooi",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/ef3805a0-b669-493a-9cae-f5ecad9e67e5.jpg"
+            },
+            "fav_count": 19,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "3e62853f-464f-4a8c-8d2b-216cdb05e1f4",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/3e62853f-464f-4a8c-8d2b-216cdb05e1f4",
+            "title": "CICD構築・自動化入門",
+            "abstract": "プログラマーの三大美徳の一つと言われる怠惰さを一番発揮しやすい場所はどこでしょうか？\r\nそれはCICDを含む自動化の仕組みの構築にあると思います。\r\n\r\nソフトウェアの開発においてCICDはもはや必須です。\r\nではCICDで得られるものはなんでしょうか？\r\nそれは我々が余分な仕事をしなくて済む時間です。\r\n例えば、アプリをビルドするのに自分のPCを何十分も専有され、その間コードは一行も触れないなんてのは嫌なのです。\r\nそんな時間があるなら我々はもっと他にやりたいことがあるのです。\r\n面倒なことは機械が勝手にやって欲しいのです。\r\n\r\n本セッションでは今まで面倒な仕事を勤勉にこなしてきた人が明日から怠惰に過ごせるよう、普段の仕事を自動化していくための考え方と進め方についてお話します。\r\nそして導入した仕組みをコスト的に効率良く運用するためにどうすればいいか、導入した後の改善法についてもお話します。",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-10T18:10:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "くろるり",
+                "kana": "クロルリ",
+                "twitter": "kuroruri",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/d0c45480-d0b3-4440-ac41-ae8d6da461d0.jpg"
+            },
+            "fav_count": 5,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "fa1db2d6-2db6-489c-a2cc-cfbc4abeb34c",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/fa1db2d6-2db6-489c-a2cc-cfbc4abeb34c",
+            "title": "Dive into Mac Catalyst",
+            "abstract": "Mac Catalystは，iOS\/iPad OSと共通のプロジェクト，コードでmacOS Nativeアプリケーションも提供できるフレームワークです．さらに，Mac Catalystには，iOS\/iPad OSでしか扱えないHomeKit.frameworkなどのフレームワークを使ったアプリを開発できるなどの開発効率以上の価値をもたらす側面も持ちます．しかしながら，それを使った開発には，AppKitのAPIを利用できない，起動時に勝手にウィンドウが表示されてしまうなどの課題もあります．本セッションでは，Mac Catalystでアプリを開発する上で必須のテクを筆者が公開しているオープンソースのアプリをベースに紹介します．",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-10T18:10:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "吉田悠一",
+                "kana": "ヨシダユウイチ",
+                "twitter": "sonson_twit",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/a337a3b4-965f-4684-8898-b443f749d68f.png"
+            },
+            "fav_count": 11,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "4f56de04-0d5c-49ba-b2f8-12b25e36ad32",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/4f56de04-0d5c-49ba-b2f8-12b25e36ad32",
+            "title": "SwiftPMのプラグイン機能をiOSアプリ開発に活用する",
+            "abstract": "iOSアプリ開発にSwift Package Manager（SwiftPM）を活用するパターンを見かけるようになってきました。アプリ内のモジュール分割をSwift Packageを使って実現するパターンです。\r\n\r\nこの際、Swift 5.5以前のSwiftPMはビルド時に（SwiftGenなどで）コード生成する、などの処理を記述できませんでした。そのため、Xcodeプロジェクトのビルドスクリプト機能を使う必要がありました。\r\nしかし、Swift 5.6でSwiftPMにプラグイン機能が追加されたことで、Xcodeのビルドスクリプト機能に頼る必要がなくなりました。\r\n\r\n本トークでは、SwiftPMのプラグイン機能について解説し、iOSアプリ開発でSwiftPMをより一層活用するためのプラクティスをお話しします。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-10T18:10:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "宇佐見 公輔",
+                "kana": "ウサミ コウスケ",
+                "twitter": "usamik26",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/a2e3859e-b0bf-4863-8d9d-c24fe5329c6c.jpg"
+            },
+            "fav_count": 17,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "d3d878aa-3d10-42bc-b1a5-455a420aae38",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/d3d878aa-3d10-42bc-b1a5-455a420aae38",
+            "title": "PWAの今とこれから、iOSでの対応状況",
+            "abstract": "ネイティブアプリと同様の機能をウェブアプリに追加できる技術、それがProgressive Web Apps (PWA)です。iOSでも近年、徐々にPWAの機能が追加されています。これらの流れは、ユーザービリティに重きを置く昨今の潮流に即しているように感じます。\r\n\r\nこの発表では、PWAの現状とその可能性についてお話しします。\r\n- PWAとは？\r\n  - ウェブアプリのリーチと、ネイティブアプリの機能性を併せ持ったアプリ\r\n- PWAの各機能\r\n  - ホーム画面へのアイコンの追加\r\n  - キャッシュによるオフラインでの利用\r\n  - カメラなどのハードウェアの利用\r\n  - プッシュ通知　など\r\n- iOSでの対応状況\r\n  - 各バージョンでの対応の歴史\r\n  - プッシュ通知実装などの今後の対応\r\n- PWAの事例とこれから\r\n  - アプリストア内外でのインストール\r\n- PWAを使うべきタイミング\r\n",
+            "accepted": true,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-10T18:10:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "木下郁英",
+                "kana": "キノシタイクヒデ",
+                "twitter": "i_kinopee",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/298c8d3b-20f9-4f42-99d1-053906e38cf2.jpg"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "912757f8-b8ef-4faf-8697-3a8a6eb38363",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/912757f8-b8ef-4faf-8697-3a8a6eb38363",
+            "title": "MLOps for Core ML",
+            "abstract": "MLOpsはML Operationsの略で、データ収集・前処理・学習・デプロイ・監視といった機械学習のライフサイクルの継続的な運用を効率化するための考え方や手法を総称してこう呼ばれています。たとえば、蓄積したデータを用いたモデルの再学習を定期的に自動実行し最新データに合うようモデルを改善し続ける仕組み、モデルを本番システムに自動デプロイする仕組み等が含まれます。機械学習をビジネスで本番運用するために不可欠な考え方として昨今ホットなトピックとなっています。\r\n\r\n一方で、Core MLモデルの世界ではMLOpsという考え方はまだそれほど広がっていないように思います。多くの場合は一度学習したモデルを利用し続けるか、手運用で再学習等を行っているのではないでしょうか。Core MLにMLOpsの考え方を導入しするとどのように継続的な運用を効率化できるのか、そのパターンを解説します。",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-10T18:10:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "堤 修一",
+                "kana": "ツツミ シュウイチ",
+                "twitter": "shu223",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/7f1dd104-099a-4fcd-a563-6297b1db0636.jpg"
+            },
+            "fav_count": 11,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "bf42ca20-8dae-4cbe-88d2-cb8dd4ce8536",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/bf42ca20-8dae-4cbe-88d2-cb8dd4ce8536",
+            "title": "広まれSafari Web Extensions！Safari Web Extensions の始め方",
+            "abstract": "iOS 15 から Safari の拡張機能である Safari Web Extensions の開発が出来るようになりました。\r\nすでに素晴らしい拡張機能がいつかかリリースされているものの、まだまだその数が少ないように感じます。\r\nそこで今回は Safari Web Extensions の開発が広まるように、その始め方を紹介します。\r\n具体的には、Safari Extension App のテンプレートの中身を解説しつつ、ある要素をHTMLから削除する拡張機能を作るまでの手順を紹介します。\r\nSafari Web Extensions の持つ可能性を感じて頂ければと思います。",
+            "accepted": true,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-10T18:45:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "matsue",
+                "kana": "マツエ",
+                "twitter": "base_front",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/f10291c4-dee2-48ca-b4a7-cabe9d239856.jpg"
+            },
+            "fav_count": 8,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "e4cf73c0-f66c-4a73-8499-6670de8c1a75",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/e4cf73c0-f66c-4a73-8499-6670de8c1a75",
+            "title": "iOSアプリ開発あるある4コマ〜2022年版〜",
+            "abstract": "iOSアプリ開発でよくあること（俗にいう「あるある」）を4コママンガでめちゃくちゃ面白く表現します。\r\n一昨年に続き昨年もXcodeがインストールできなかったので、今年こそ実際の開発のあるあるが言いたいです。",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "uhooi",
+                "kana": "ウホーイ",
+                "twitter": "the_uhooi",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/ef3805a0-b669-493a-9cae-f5ecad9e67e5.jpg"
+            },
+            "fav_count": 10,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "d7f13f0d-346d-41d7-9697-f93749294131",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/d7f13f0d-346d-41d7-9697-f93749294131",
+            "title": "令和時代のXML処理を考える 〜もしあなたが巨大なXMLと相見える(あいまみえる)ことになったら〜",
+            "abstract": "アプリがネットワークなど外部サービスを通じてデータをやり取りすることはもはや当たり前になっています。\r\nそのデータの代表的な形式としてJSONがあり、これはSwiftではCodableを通して簡易に変換することができます。\r\n\r\nしかしデータ形式というものはJSONに限らず様々なものがあり、例えばXMLもその一種です。\r\n「iOSにはXMLParserというものが用意されているから、ドキュメント見ながら実装すれば余裕っしょ」\r\nもし、そのドキュメント通りに動作しなかったらどう思いますか？\r\n\r\nこのトークは、XMLを処理するにあたって、XMLParserを中心に、iOSでできること、できないことを洗い出していかに効率的に処理ができるかを突き詰めるトークとなります。",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-10T18:45:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "日向強",
+                "kana": "ヒュウガツヨシ",
+                "twitter": "coffeegyunyu",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/0c8845ab-4898-48ce-86c6-38b0a2129d34.jpg"
+            },
+            "fav_count": 3,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "0eaf51be-3d6a-41f1-935a-bb771ab3837f",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/0eaf51be-3d6a-41f1-935a-bb771ab3837f",
+            "title": "iOSDC Japan 2022のパンフレットを盛り上げるイラスト",
+            "abstract": "何らかの形でiOSDC Japanに貢献したいので、パンフレットを盛り上げる奇妙で陽気なイラストを描きます。\r\n昨今、エンジニアの働き方としてリモートでの働き方も多くなりました。皆様はどんな働き方をしていますでしょうか？\r\n\r\n今回は、「まだ世の中には存在していないだろうけど、こんなリモートワークスタイルもあったらいいのでは？」をいくつかピックアップしてイラストにします。\r\n\r\n共感出来ないこと、間違いなし！！！！！",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "リルオッサ",
+                "kana": "リルオッサ",
+                "twitter": "littleossa",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/a249a303-5425-4507-a722-e28f77b6e1f1.jpg"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "4111383e-07b4-4b1d-8798-6b4e75b71a51",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/4111383e-07b4-4b1d-8798-6b4e75b71a51",
+            "title": "AkkeyLab流イミフクラッシュ解読術",
+            "abstract": "・手元で再現できない\r\n・心当たりのないクラッシュ\r\n・何ヶ月も触ってない行でクラッシュ\r\n\r\nこのように嫌な予感がする現象に皆さん一度は遭遇したことがあるのではないでしょうか。\r\nそして、調査手順次第ではもっと早く原因特定できたのに…と悔しい思いをしたこともあるかもしれません。\r\nそこで、本稿では効率的な原因探索方法を図を用いて解説いたします。\r\n\r\n・直近でアプリのリリースがなければサーバ側の調査（GCP を例にご紹介）\r\n・スタックトレースと合わせてクラッシュ直前のログも確認\r\n・外部要因が疑われる場合は Twitter を活用\r\nなどなど\r\n\r\nこのような調査手順に絶対的正解は存在しないため、チームでも属人化しがちな箇所ではないでしょうか。\r\nそこで、本稿を元にチームでアレンジを加え、秘伝のタレとして育ててみてはいかがでしょうか？ドメイン知識の薄い新メンバーも爆速で難問解読のプロになること間違いなしです！",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "AkkeyLab",
+                "kana": "アッキーラボ",
+                "twitter": "AkkeyLab",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/34c44ff4-7d0f-4e23-b783-13538313cf72.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "8f531f86-e463-4137-a5cf-d2758cbe2669",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/8f531f86-e463-4137-a5cf-d2758cbe2669",
+            "title": "Apple Silicon から学ぶ CPU の歴史",
+            "abstract": "・x86_64 と arm64\r\n・Rosetta から Rosetta2 へ\r\n・CPU アーキテクチャ変更2回目の Apple\r\n\r\n皆さんは現在利用している Mac の CPU アーキテクチャをご存知でしょうか？アーキテクチャと言っても MVVM とか Clean Architecture のようなソフトウェアアーキテクチャではなく、命令セットアーキテクチャと呼ばれるものになります。\r\n例えば、Intel であれば x64, Apple Silicon であれば ARM が命令セットアーキテクチャです。\r\n\r\n本稿では Apple Silicon を中心に CPU に関する歴史を文系・理系関係なく楽しんでいただけるようにご紹介します。\r\n日頃使っている開発環境がどのようなハードウェア設計のもとで動作しているかを知ることで、Apple の素晴らしいハードウェアが更に好きになること間違いなしです！",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "AkkeyLab",
+                "kana": "アッキーラボ",
+                "twitter": "AkkeyLab",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/34c44ff4-7d0f-4e23-b783-13538313cf72.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "0b3cdd25-e4c9-4f67-a609-d386b88d61b7",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/0b3cdd25-e4c9-4f67-a609-d386b88d61b7",
+            "title": "SwiftUIやAttributedStringで使えるMarkdown記法入門",
+            "abstract": "iOS 15とXcode 13のリリースにより、SwiftUIのTextやAttributedString等で指定する文字列の中でMarkdown記法を使用できるようになりました。全てのMarkdown記法が使えるわけではありませんが、ボールドやイタリックなどの簡単な文字装飾であれば文言と一緒に文字装飾も定義できるため、文言変更と同時に文字装飾を変更したい場合でも文言定義を変更するだけで対応できるといったメリットがあります。\r\n\r\n本稿では、そんなMarkdown記法について、特徴や使い方、さらにはカスタム属性構文の使い方について解説します。\r\n\r\nコンテンツ(予定):\r\n\r\n1. iOS 15から使えるようになったMarkdown記法について\r\n2. AttributedString、SwiftUIでの利用方法\r\n3. iOS 13 \/ 14での利用について\r\n4. カスタム属性構文について",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "栗山 徹",
+                "kana": "クリヤマ トオル",
+                "twitter": "kotetu",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/8c55895d-0a5f-4b18-a6e1-d1661fcb9569.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "729f1545-38df-4309-88f6-0481ab42e27a",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/729f1545-38df-4309-88f6-0481ab42e27a",
+            "title": "輝け！俺のViewController  Part.2",
+            "abstract": "freddi氏「今年もクソ漫画、パンフに載せたります。」（参考: https:\/\/twitter.com\/___freddi___\/status\/1525016756095688706 ）」今年は正攻法でプロポーザルで大胆にGo！いったい、iOS開発の地獄を見ているふれもんやロパ太たちの運命はどうなっちゃうの？！次回! freddi 伏す、ビルドスタンバイ！",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "freddi",
+                "kana": "フレディ",
+                "twitter": "___freddi___",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/b4794539-cc02-45e6-b08a-c75df3357f03.jpg"
+            },
+            "fav_count": 5,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "c7306ef2-0e84-442d-a043-1a558403ad7d",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/c7306ef2-0e84-442d-a043-1a558403ad7d",
+            "title": "SwiftPMプラグインの実装と活用",
+            "abstract": "Swift 5.6でSwift Package Manager（SwiftPM）にプラグイン機能が追加されました。ビルドツールプラグインはSwiftPMのビルド時に外部ツールを実行します。また、コマンドプラグインはSwiftPMのコマンドを拡張して外部ツールを実行できるようにします。\r\n\r\nしかし、SwiftPMプラグインの情報はSwiftのプロポーザル以外にはあまりありません。そのため、実際にどのように実装すれば良いのかわからないと感じる人もいるのではないでしょうか。この記事では、プラグインの実装方法を具体的な実装コードを挙げながら解説します。また、プラグインの活用のしかたも紹介します。\r\n\r\n参考記事：Swift Package Managerのプラグイン機能 (https:\/\/qiita.com\/usamik26\/items\/1c2cec0903fea2e03344)",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "宇佐見 公輔",
+                "kana": "ウサミ コウスケ",
+                "twitter": "usamik26",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/a2e3859e-b0bf-4863-8d9d-c24fe5329c6c.jpg"
+            },
+            "fav_count": 10,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "dfd8c56c-468a-4115-804c-d1ca103eed62",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/dfd8c56c-468a-4115-804c-d1ca103eed62",
+            "title": "Swift-DocCによるチュートリアルの作り方",
+            "abstract": "Swift-DocCは、Swiftフレームワークやパッケージのためのドキュメント作成ツールです。Xcode 13に同梱される形でリリースされ、その後オープンソースソフトウェアになりました。\r\n\r\nSwift-DocCの面白い特徴に、チュートリアルを作成できるという点があります。AppleはSwiftUIのチュートリアルを公開していますが、このチュートリアルと同様のものがSwift-DocCを使えば作成できるのです。\r\n\r\nこの記事では、Swift-DocCを使ったチュートリアルの書き方を、具体的なコードを挙げて解説します。以前Swift-DocCの技術同人誌を執筆しましたが、今回の記事ではチュートリアルに焦点を当てて、より詳細に解説します。\r\n\r\n参考：Swift-DocCでドキュメントをつくる (https:\/\/type-d4-lab.booth.pm\/items\/3622327)",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "宇佐見 公輔",
+                "kana": "ウサミ コウスケ",
+                "twitter": "usamik26",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/a2e3859e-b0bf-4863-8d9d-c24fe5329c6c.jpg"
+            },
+            "fav_count": 15,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "7d448927-025e-4412-baff-e60ff857c2f7",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/7d448927-025e-4412-baff-e60ff857c2f7",
+            "title": "Swift Package Manager Command Plugins で任意の処理を実行してみよう",
+            "abstract": "Swift 5.6 から Swift Package Manager に Command Plugins の機能が追加されました。\r\nこの機能を用いることで、 Swift Package Manager のコマンドを拡張し、独自にカスタマイズしたコマンドを実行することができるようになります。\r\nこれによって、タスクランナーのようなものを Swift のコードで実装し、 CI やコマンドラインから実行することが可能になります。\r\nこの原稿では、 Command Plugins の作り方を実際のコードを交えて紹介していきます。",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "多鹿豊",
+                "kana": "タジカユタカ",
+                "twitter": "yut_taj",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/de8c8bd1-071d-4202-8206-9abf3e03de2a.jpg"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "3947fe8c-b132-4b4c-a79c-b5ebfdffd044",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/3947fe8c-b132-4b4c-a79c-b5ebfdffd044",
+            "title": "不具合や仕様もれを減らすための勘所とユニットテストで学ぶ簡単事例集",
+            "abstract": "アプリ開発の過程で、仕様のミスリード・不十分な仕様把握・説明の解釈ミス等で、本来の意図との実際の成果物で齟齬が生まれる事は、常に起こる可能性はありますが、ユニットテストによって事前にそのリスクを防止する取り組みは、仕様把握や機能担保の面で有効な手段になります。\r\n\r\n本稿ではその「ありがたみ」と感じられる簡単な例を、RxSwift \/ Quick \/ Nimble \/ SwiftyMockyを利用を想定したコードを通して解説する予定です。\r\n\r\nその中でも特に、\r\n\r\n1. 仕様で本当に抜け漏れがないかを確認する場合\r\n2. 言葉ではシンプルだが実際に正しいかが見えにくい場合\r\n3. 実は細かな点に気を配ってみると疑問が生まれる場合\r\n4. その他画面の中でテストがあると良さそうな部分を探り出す着想\r\n\r\n等の簡単な実装コードやテストコードの事例を交えながら解説できればと思います。",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "酒井文也",
+                "kana": "サカイフミヤ",
+                "twitter": "fumiyasac",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/1ead0d90-6aa1-42cc-b8cd-eae61b5ea168.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "e9662262-5a4a-4b11-96a1-908765688d30",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/e9662262-5a4a-4b11-96a1-908765688d30",
+            "title": "API 繋ぎこみトラブル撲滅委員会",
+            "abstract": "API 繋ぎこみを後回しにした経験、皆さんありますでしょうか。\r\n\r\n・API 側の問題に気づくのが遅れる\r\n・サーバ側の開発スピードによって、作業を中断せざるを得ない\r\n・API 側の仕様を無視した実装になっていることに気づき、UI から作り直し\r\n\r\n実装順序次第ではこのような現象に遭遇してしまうかもしれません。\r\n本稿では、本業と複数の副業で実践済みのテクニックをご紹介します！\r\n\r\n・アプリ開発者目線で見る OpenAPI\r\n・XcodePreviews 活用術\r\n・[Moya](https:\/\/github.com\/Moya\/Moya) 利用時の Stub 活用術\r\n\r\n上記3項目を実例とともに初心者〜中級者向けに執筆いたします。大規模なリファクタリング不要で、読んでいただいた直後から実践・成果を実感していただけます！",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "AkkeyLab",
+                "kana": "アッキーラボ",
+                "twitter": "AkkeyLab",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/34c44ff4-7d0f-4e23-b783-13538313cf72.jpg"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "aadc6007-ccf6-42e5-9318-aae24cde62c8",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/aadc6007-ccf6-42e5-9318-aae24cde62c8",
+            "title": "async\/awaitで作るCLIツール",
+            "abstract": "WWDC2021で発表されたasync\/awaitを始めとするSwift Concurrencyですが、CLIツールの実装でも使うことができます。\r\nまた、実はSwift5.5.2からLinuxでも扱えるようになっているんです。\r\n\r\n本稿では、自作のCLIツールを一部抜粋してBefore\/Afterの形でasync\/awaitをどのように適用したかご紹介します。",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "417.72KI",
+                "kana": "シイナナツキ",
+                "twitter": "417_72ki",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/0668ee6a-114e-4dfa-a4a4-c2118b208c31.jpg"
+            },
+            "fav_count": 8,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "cd5bf840-2dbc-4683-844e-07b999fbbe31",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/cd5bf840-2dbc-4683-844e-07b999fbbe31",
+            "title": "Apple Archive Frameworkの使い方",
+            "abstract": "iOS 14およびmacOS Big Sur以降ではApple製のファイル圧縮・展開のフレームワークであるApple Archive Frameworkが利用できます。データのエクスポート機能やシェア機能などで、複数のファイルを一つにまとめて送信したいときに便利です。サードパーティ製のアーカイブフレームワークなどを導入しなくても、一通りの機能が揃っています。ただApple Archive Frameworkはドキュメントが最低限しか書かれておらず、ドキュメントに掲載のサンプルコードをそのまま写せば使えるのですが、パラメータの意味などを理解せずに使うことはよくありません。本稿ではApple Archive Frameworkの使い方とドキュメントに載っていないパラメータの意味などを実際のコードを用いて解説します。",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "岸川克己",
+                "kana": "キシカワカツミ",
+                "twitter": "k_katsumi",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/45e5a383-abb8-4424-9c7f-186eb802a1d2.jpg"
+            },
+            "fav_count": 23,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "ec4235b4-ce48-40b5-8eae-94027753a7f7",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/ec4235b4-ce48-40b5-8eae-94027753a7f7",
+            "title": "XCFramework を Swift Package Manager でもっと便利に扱う",
+            "abstract": "Xcode 11 からバイナリフレームワークを配信するための新たな方法として、 XCFramework が登場しました。\r\nこれ1つで様々なプラットフォームをターゲットにビルドできます。\r\n\r\nまた、Xcode 上で Swift Package Manager (SPM) も利用できるようになりました。\r\nしかし、現状では SPM に対応できていない、もしくは XCFramework のみ配信されているライブラリも依然存在し、全てを SPM で管理することが困難です。\r\n\r\nSPM では、XCFramework も Binary Target として登録することで全てを SPM で管理することが擬似的に実現できます。\r\n\r\n本稿では、 XCFramework を SPM に対応させるために必要なステップと、プライベートリポジトリで管理しているパッケージにアクセスするための Tips を紹介します。",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "shimastripe",
+                "kana": "シマストライプ",
+                "twitter": "shimastriper",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/317a9359-3457-45f3-9fa4-452e1a7f7feb.jpg"
+            },
+            "fav_count": 8,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "a5b23fcf-2f6b-479b-99f4-58654d0ff5ae",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/a5b23fcf-2f6b-479b-99f4-58654d0ff5ae",
+            "title": "20分間で振り返るIn-App Purchaseの歴史",
+            "abstract": "iOSにおけるIn-App Purchase(アプリ内課金)はiOS 3から利用可能であり、その歴史は10年以上に及びます。\r\nこの長い歴史の中で、Ask to BuyやUpgrade \/ Downgrade、お試しオファーなどの多くの仕組みが追加され、やれることが格段に増えました。\r\nアプリ内課金をサポートするための仕組みも、Store Kit 2による実装方法の変更やアプリ内での返金機能をはじめ、Server NotificationsやTransaction Receiptのフォーマットの変更など、新しいものが次々にリリースされたり、StoreKit Testingによって自動テストが出来たりSandbox環境がアップデートされたりなど、課金のテストにまつわる状況も大きく変わりました。\r\n本トークでは、20分間でIn-App Purchaseの激動の歴史をじっくり振り返っていきます。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-10T18:45:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "inokinn",
+                "kana": "イノキン",
+                "twitter": "inokinn",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/6e9347db-5cf8-4f32-8dfe-7da08f4c78aa.jpg"
+            },
+            "fav_count": 8,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "c39553cc-c340-455e-b2f1-bcc07113ef42",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/c39553cc-c340-455e-b2f1-bcc07113ef42",
+            "title": "ChaChaPoly and You, CryptoKit Explained",
+            "abstract": "「え、CryptoKitを使いたいけど、いつ、何を使うべきかわからない。。。」の方はもう心配いらない。このトークで一緒にCryptoKitの謎を解きましょう！\r\n\r\nユーザーのデータを暗号化しないといけない開発案件が出てきて「CryptoKitを使うチャンス！」を思って調べてきました。それでみんなにそのKnowledgeを共有したいと思っています！みんなCryptoKitマスターになりましょう！\r\n\r\nContent\r\n- CryptoKitでできること\r\n- CryptoKitを使った対象鍵暗号（Symmetric Encryption）について\r\n- いつそのEncryptionを使うべきか\r\n- 実装方法\r\n\r\nデータセキュリティーのために知っておきましょう！",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-10T18:45:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "Adam Henry",
+                "kana": "アダムヘンリー",
+                "twitter": "monolithic_adam",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/750c04d5-4c26-4267-bc94-fd45150220bf.jpg"
+            },
+            "fav_count": 5,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "46aaee33-31f5-4872-8cef-ff18ca7a1b4c",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/46aaee33-31f5-4872-8cef-ff18ca7a1b4c",
+            "title": "量子情報工学への招待 〜iOSアプリ開発を通して学んでみよう〜",
+            "abstract": "量子コンピュータや量子情報、量子暗号といった言葉を聞いたことがある人は多いと思います。これらには量子力学という物理の学問が使われています。\r\nそんな量子力学が作り出す不思議な世界へiOSアプリ開発、Xcodeのシュミレータを用いてご説明します。\r\n物理学の専門性がない方にもご理解いただけるように難しい話はしません。量子力学の面白さ、不思議さを知ってもらうためのトークです。",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-10T18:45:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "REON",
+                "kana": "レオン",
+                "twitter": "reon_ios_cat",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/544ee29a-af1b-4eb8-bd46-cedd86a8a6bf.jpg"
+            },
+            "fav_count": 14,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "42f8c563-8ca4-43a5-b9da-70cdc57258ea",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/42f8c563-8ca4-43a5-b9da-70cdc57258ea",
+            "title": "「問題はソースコードではない！?」長生きするアプリの「品質低下」の謎",
+            "abstract": "アプリを一から作り直したことはありますか？\r\n\r\nソースコードがごちゃごちゃで可読性が低かったり、\r\n修正が難しいバグが多かったりして「一旦作り直し」と\r\n判断されたこともあるかもれません。\r\n\r\n作り直したものも最初はピカピカだったが、時間と共に\r\n汚くなり、またバグの多いごちゃごちゃした\r\nソースコードになり、開発が難しい状態に戻ってしまいます。\r\n\r\nそしてまた、作り直すか、大規模なリファクタをするか、\r\n我慢してごちゃごちゃなまま開発を継続するかの選択が\r\n迫られます。\r\n\r\nどの選択も非常にコストがかかります。\r\n\r\nどうしてこういうことが起きるのでしょうか？\r\n\r\n今回は\r\n- なぜ多くのアプリは長生きするとごちゃごちゃになるのか\r\n- なぜ作り直しても同じ問題が再発するのか\r\n- これらの問題を避けることができるのか\r\nについて話したいと思います。\r\n\r\nヒント: 問題はソースコード以外のところにあるかもしれません！",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-10T19:20:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "アンドレカンドレ",
+                "kana": "アンドレカンドレ",
+                "twitter": "andrekandore",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/9822f483-1c1f-432c-9085-bd63b0a41dcc.jpeg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "e9b641fa-33be-43c9-829e-44a69a595fd2",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/e9b641fa-33be-43c9-829e-44a69a595fd2",
+            "title": "メタバースを支えるエンジニアの生態について",
+            "abstract": "iOSDCに参加のエンジニアのみなさん、メタバースの開発は Unity や Unreal Engine を駆使するような 3DCG エンジニアの担当領域だと思って敬遠していませんか? 私達クラスター株式会社のカジュアル面談でも、よく聞かれる質問の一つは iOS\/Andoird\/Web\/etc… エンジニアでも活躍する場所が有りますか? というものです。実際は iOS\/Andoird\/Webエンジニアが多数在籍していますし、更には音響技術が得意なエンジニアから機械学習の研究者まで様々な人材が所属しています。また、その出身となった業界もゲームメーカーやWeb系開発会社、金融機関などなど様々です。本公演では、どんなエンジニアがどんな得意分野をもってクラスターに参画してきたかをご紹介するとともに、もう一つのよくある質問である、どんな開発フローで業務を進めているのかについてをお話しします。",
+            "accepted": true,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-10T19:20:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "倉井 龍太郎",
+                "kana": "クライ リュウタロウ",
+                "twitter": "kurain",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/c972770d-1dcc-4d86-9d0e-f83be22bd19e.png"
+            },
+            "fav_count": 3,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "4fcfd131-2313-46dd-bd1b-f1a917148c46",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/4fcfd131-2313-46dd-bd1b-f1a917148c46",
+            "title": "2022年の新規アプリ開発で採用した技術",
+            "abstract": "メドピア株式会社では、2022年2月にアプリ slis[スリス] をリリースしました。0からの新規開発ということで既存関連の制約などはなく、Swift Package Manager、Swift Concurrency、Xcode Cloud など新しいものを取り入れて開発しています。\r\nこのセッションではこれら採用した技術を中心に今回の新規開発について紹介します。",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-10T19:20:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "新井 美香",
+                "kana": "アライ ミカ",
+                "twitter": "satsukiasa",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/b5613d13-ea5f-4b7c-ac9a-232e0fc9d86d.jpg"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "timeslot",
+            "uuid": "d0c3eaa8-31f8-40fc-bd51-1fb46f9feeb5",
+            "title": "Today's Update",
+            "abstract": null,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-10T19:50:00+09:00",
+            "length_min": 10
+        },
+        {
+            "type": "timeslot",
+            "uuid": "d82e1bcd-5578-438e-9785-1c78a5525804",
+            "title": "オープニング",
+            "abstract": null,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T10:00:00+09:00",
+            "length_min": 40
+        },
+        {
+            "type": "talk",
+            "uuid": "1bbc3929-1302-4d62-9d0d-19de7083562d",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/1bbc3929-1302-4d62-9d0d-19de7083562d",
+            "title": "Swift Concurrency Next Step",
+            "abstract": "Swift5.5で登場したSwift Concurrencyは、非同期処理を簡潔で安全に扱える機能です。主な機能は既に追加済ですが、現在も新しい機能の追加や改善が行われています。\r\n今回は、この1年で見られた進化や実装上のTipsなどを紹介します。また、Swift6以降に既存のコードが動かなくなるリスクを最小限に抑えるための段階的導入方法など、ちょっと先の未来についても見ていきます。\r\n\r\n例:\r\n\r\n- Swift5.6以降の新機能や変更\r\n- エラーやキャンセル時の子タスクの挙動\r\n- Taskのinitとselfの関係\r\n- Actorが切り替わるタイミング\r\n- swift-async-algorithmsから見る実装方法\r\n- iOS frameworkとの連携\r\n- Swift6で何が起こるのか？\r\n\r\nこれからConcurrencyをもっと使ってみようと思っているみなさまのお役に立ちましたら幸いです。",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-11T11:05:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "shiz",
+                "kana": "しず",
+                "twitter": "stzn3",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/f774feb6-6744-4bad-93f5-7c3fe516058b.jpg"
+            },
+            "fav_count": 25,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "517cb156-3905-4dd7-b666-d2200049d822",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/517cb156-3905-4dd7-b666-d2200049d822",
+            "title": "アニメーションAPIのすべて",
+            "abstract": "iOSにはさまざまなアニメーションAPIがあります。思いつくだけでもUIView.animate()、Core Animation、UIViewPropertyAnimatorがあり、Core Animationが提供するAPIは膨大ですべてを使った人は稀でしょう。物理演算を追加するUIKit Dynamicsもあります。さらにSwiftUIでは.animation()や.withAnimation()というModifierによる手段が提供されています。\r\nこれらのAPIがカバーする範囲は重なっていて、同じことを別のAPIでも実現できます。それぞれのAPIをどのように使い分けるのでしょうか？\r\n\r\nこの講演では各APIの使い方を実用的なパターンの実例を示しながら解説し、どのような判断で使い分けるべきかを示します。すべてを明確に理解し、表現の引き出しを増やして、アニメーションをマスターしましょう！",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T11:05:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "岸川克己",
+                "kana": "キシカワカツミ",
+                "twitter": "k_katsumi",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/45e5a383-abb8-4424-9c7f-186eb802a1d2.jpg"
+            },
+            "fav_count": 36,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "889edc71-f96f-47a1-bc0e-36e8ffe3a3c3",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/889edc71-f96f-47a1-bc0e-36e8ffe3a3c3",
+            "title": "Unreal EngineとiPhoneを使って始めるリアルタイムAR配信",
+            "abstract": "ここ数年、格好良いAR表現が付いた映像が増え、皆も色々な所で目にしていると思います。\r\nエンジニアなら自分でも実装して実現したくないでしょうか？\r\n\r\n私は昨年からARを本業としてAR表現があるリアルタイム配信をいくつか実施してきました。\r\nUnreal Engineを使いカメラとトラッキング機材を中心に連携し作成していきます。\r\n\r\nその実現に必要な要素を解説しスキルを伝授していきます！\r\n\r\n- ワークフロー解説\r\n- CG原点を置きCGの空間と現実空間を一致させる方法\r\n- カメラトラッキング方法\r\n- Unreal Engineを使った基本的なシーン作成\r\n- iPhoneを使う手法\r\n- PTZカメラを使う手法\r\n\r\nデモと手法解説を軸に、AR表現に興味を持った人がさらに興味を持つようなセッションです。",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-11T11:05:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "服部 智",
+                "kana": "ハットリ サトシ",
+                "twitter": "shmdevelop",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/cb749312-75d9-4dbe-8fe9-01f297722d67.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "91c9a436-a974-43aa-afdf-31f263f77c31",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/91c9a436-a974-43aa-afdf-31f263f77c31",
+            "title": "あなたの知らない AR の可能性を空間レベルで拡げる VPS の世界",
+            "abstract": "SnapのCustom Landmarker、ARCoreのGeospatial API、NianticのLightship、そしてARKit 6のLocation Anchor、他にもありますが、これらはすべてVPSと呼ばれるものです。\r\n\r\nここで言うVPSは“Virtual Private Server”ではなく“Visual Positioning Service\/System”です。\r\n\r\n緯度経度をもとにするGPSとして馴染み深い“Global Positioning System”に対し、画像による空間情報をもとに自己位置推定する技術がVPSです。\r\n\r\n本セッションでは、今後のARに関する要素技術として重大な位置づけになると考えられる “VPS”そのものとその周辺技術、実際のユースケースや概況に加え、いずれかのVPSソリューションを用いた「実際に動作するデモ」を交えて解説します。\r\n",
+            "accepted": true,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-11T11:05:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "HEAVEN chan \/ ikkou",
+                "kana": "イッコウ",
+                "twitter": "ikkou",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/6a65f059-8be6-4a25-96fd-51841bbb8f28.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "aa8ecff3-682b-4127-93ac-321b9ec4cf30",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/aa8ecff3-682b-4127-93ac-321b9ec4cf30",
+            "title": "Swift アクターモデルと Elm Architecture の融合",
+            "abstract": "この発表では、Swift アクターモデルと Elm Architecture を融合したフレームワーク「Actomaton」について、実用例を中心に紹介します。\r\n\r\nhttps:\/\/github.com\/Actomaton\/Actomaton\r\n\r\nComposable Architecture では飽き足らないマニア向けの内容を予定しています。\r\n\r\n1. Actomaton の簡単な紹介\r\n2. アプリの状態管理の基本的な例：「ディープリンク」「タイムトラベル」\r\n3. 並行タスクキューを用いた副作用管理の例：「並行ダウンローダー」「並行 Web クローラー」\r\n4. アクター（オブジェクト指向）と Elm Architecture （関数型プログラミング）の両方を用いた計算モデルの親和性について\r\n5. （時間があれば）やはり圏論。圏論は全てを解決する。",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-11T11:05:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "稲見 泰宏",
+                "kana": "イナミ ヤスヒロ",
+                "twitter": "inamiy",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/725c08cd-e222-453f-b65e-0127a387b903.jpg"
+            },
+            "fav_count": 10,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "f5526982-6ec8-4214-8236-c95d9523d529",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/f5526982-6ec8-4214-8236-c95d9523d529",
+            "title": "Kotlin Multiplatform Mobile でiOSとAndroidの実装差異を無くす",
+            "abstract": "iOSアプリと一緒に、Androidアプリを作成することはよくあります。\r\n2つのアプリを同時に開発すると問題がよく起きます。「iOSとAndroidで動きが違う」と。\r\n実装するエンジニアの認識のズレ、言語仕様の違い、例えどれだけ念入りにやったとしてもこの問題はいつか必ず発生することでしょう。\r\n\r\nそのような問題をKMM(Kotlin Multiplatform Mobile)を用いて解決します。\r\nアプリのビジネスロジックをコードレベルから共通化し、OS間での差異が起こらないような開発ができる上に、ビジネスロジック部分の記述はKMM一つで済むようになります。\r\n\r\nこのセッションでは、基本的なKMMの概念の説明から、実際にiOSのプロジェクトへのKMM導入し動作させるまでを、弊社での取り組みを交えて解説いたします。",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-11T12:00:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "新田 陸",
+                "kana": "ニッタ リク",
+                "twitter": "hal8563",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/b99d8e5e-66b3-4d52-a64f-cf7b484762e9.png"
+            },
+            "fav_count": 4,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "0dff3a16-52ee-43fc-882d-c45b96e43df3",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/0dff3a16-52ee-43fc-882d-c45b96e43df3",
+            "title": "React NativeからNativeアプリへ ~スタートアップ企業における「機能開発と保守性担保」の両立への挑戦~",
+            "abstract": "ビットキーは「テクノロジーの力であらゆるものを安全で、便利で、気持ちよく繋げる」をミッションに掲げるスタートアップ企業です。\r\n自社プラットフォームからハードウェア、ソフトウェアまで開発している弊社ですが、\r\n本セッションではReact Native製iOSアプリworkhubを取り上げます。\r\n\r\nworkhubは\"働く空間において人と仕事の間のあらゆるものを繋げ、新しい働き方に即した体験を提供する\"アプリです。\r\nスタートアップにおいて求められる\"機能開発のスピード感\"と、決して無視できない\"保守性の担保\"をいかに両立するか？をテーマに、\r\n1年半の間取り組んだNative化をご紹介します。\r\n\r\n・スタートアップにおけるソフトウェア開発に求められるもの\r\n・なぜReact NativeアプリをNative化するに至ったか\r\n・Native化の方法論\r\n・Native化により得られたもの \/ 難しかった点",
+            "accepted": true,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-11T12:00:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "ShogoSaito",
+                "kana": "サイトウショウゴ",
+                "twitter": "GoS_67",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/c016577a-3bbb-4ac0-bb02-f6aa7a48966d.png"
+            },
+            "fav_count": 3,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "db912d81-3d13-46bd-81e1-8ae6dcc9e7b6",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/db912d81-3d13-46bd-81e1-8ae6dcc9e7b6",
+            "title": "iOSライブラリをセルフサービスで生成する仕組み",
+            "abstract": "弊社では様々な自動化の仕組みに取り組んでいますが、その中でiOS\/Androidのライブラリ、特にAPIクライアントについて、セルフサービスで生成する仕組みについて話したいと思います。\r\n\r\nほぼ全てのアプリで欠かせないのがRESTを主としたAPIサーバーと対話するネットワーキングの実装だと思いますが、APIごとに毎回同じような開発をするのは非効率的です。そこで目をつけたのがOpenAPIでした。\r\n\r\nOpenAPIとはAPI設計を行う仕様のことですが、このトークでは、OpenAPIを元にしたコード自動生成からデプロイまでを開発者が1行もコードを書かずに生成できるようにした過程を紹介します。\r\nまた、中〜大規模チームでのOpenAPI導入の背景やメリットに触れると共に、開発者の要望に応じて、生成されるコードをどうカスタマイズしたかなどもお話ししようと思います。",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-11T12:00:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "Yusuke Ohashi",
+                "kana": "オオハシ ユウスケ",
+                "twitter": "junkpiano",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/3bd1eba2-0bf3-4e84-964e-6abb4c301f95.jpg"
+            },
+            "fav_count": 2,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "5e883ff1-3323-4911-b38c-53bf91141e09",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/5e883ff1-3323-4911-b38c-53bf91141e09",
+            "title": "CoreGraphicsでドット絵を描こう",
+            "abstract": "このトークを通して、ドット絵を描くアプリを作ってみましょう。\r\nドット絵は、イメージの最小単位であるピクセルを塗ることで描くことが出来ます。\r\nCoreGraphicsの世界を通してピクセルを見ることで、普段意識しないイメージがどのようにしてメモリ内に格納されているかを知ることもできます。\r\nまた、CGContextを直接操作することでCGContextに存在しない描画APIの開発もしてみましょう！\r\nこのトークはドット絵エディタEditormodeの開発者がお送りします。\r\nhttps:\/\/apple.co\/3GJyqRF",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-11T13:00:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "noppe",
+                "kana": "ノッペ",
+                "twitter": "noppefoxwolf",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/4efbdf7a-368f-4ac8-bd23-1a61282bcaba.png"
+            },
+            "fav_count": 15,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "6ce89b3f-8f08-47ba-a78d-deaee335c215",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/6ce89b3f-8f08-47ba-a78d-deaee335c215",
+            "title": "Swift 5.7で変わる正規表現を試してみよう",
+            "abstract": "現在swift-evolutionでは大量のproposalと共に長年Swift上で不便だった正規表現関連の実装を刷新する流れが続いています。実際にWWDC 22でもSwift 5.7のリリースとともにRegexBuilderと正規表現リテラルが導入されることが発表されています。\r\n\r\nこのトークではNSRegularExpressionやNSStringにおける課題がどのように解決されているかをswift-evolutionの各proposalをもとに振り返り、iOSやサーバーサイドでのアプリケーションや文字列処理が生きてくる書き捨てのスクリプト（例えばログ解析など）でどれぐらい実用的に利用できるのかをベンチマーク結果を添えて検証していきます。\r\n\r\n特に普段Rubyなどで書くことが多い書き捨てスクリプトを置き換えるポテンシャルがあるのかどうかに個人的に興味があります！！いかに！？",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-11T13:00:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "ainame",
+                "kana": "アイナメ",
+                "twitter": "ainame",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/1613731a-949d-433a-a76c-3673fbfeca6c.jpg"
+            },
+            "fav_count": 12,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "466c7cea-375f-427e-9fe1-73e651693615",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/466c7cea-375f-427e-9fe1-73e651693615",
+            "title": "既存サブスクリプション商品にアップグレード・ダウングレード商品を追加しよう",
+            "abstract": "本トークでは、既存サブスクリプション商品にアップグレード・ダウングレードを追加する方法についてご説明します。\r\n\r\n具体的には、\r\n\r\nアップグレード・ダウングレード・クロスグレードについて\r\n- サブスクリプショングループとは\r\n- レベルの設定\r\n- レシートはどうなるのか\r\n\r\n上記を公式ドキュメントを織り交ぜながらご説明します\r\n\r\n運用しているサブスクリプションにアップグレード・ダウングレードを追加するには\r\n- 新規商品を申請するために注意すべき箇所は何か\r\n- SandBoxで検証する際のtips\r\n- SandBoxで確認できない範囲の検証結果\r\n\r\n導入しづらい運用ケースとは\r\n- 複数のサブスクリプショングループを運用している場合\r\n- クレジットや他プラットフォームでの決済手段がある場合\r\n\r\nを予定しております。",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-11T13:00:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "ぼぶ",
+                "kana": "ボブ",
+                "twitter": "BOBG1018Vi",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/04c31552-0292-41f9-902c-8c0fb919b38b.jpg"
+            },
+            "fav_count": 0,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "8f120179-7a65-429c-a471-ed11344f08b2",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/8f120179-7a65-429c-a471-ed11344f08b2",
+            "title": "UIKit ベースの大規模なプロジェクトへの SwiftUI 導入",
+            "abstract": "タクシー配車アプリ「GO」では、UIKit ベースで実装しており、ViewController の数は300近くあります。\r\n2019年の WWDC で発表された SwiftUI の機能を徐々に活用していき、2021年に iOS 12 のサポートを終了したタイミングでプロダクションに SwiftUI で作った画面を展開していきました。\r\n本トークでは、大規模なプロジェクトにおいて、どのように SwiftUI を導入し活用しているかをご紹介します。\r\n\r\n・SwiftUI の導入\r\n・UIKit ベースのプロジェクトでの SwiftUI 利用\r\n・Xcode Previews の活用\r\n・SwiftUI 利用したことで得られたメリット\r\n・ここが辛いよ SwiftUI\r\n・SwiftUI 利用のこれから",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T13:00:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "久利龍義",
+                "kana": "クリタツノリ",
+                "twitter": "kuritatu18",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/3eb82b7a-b242-4b77-99a3-5a555820478a.jpg"
+            },
+            "fav_count": 14,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "timeslot",
+            "uuid": "fd63511f-48e7-431a-908a-eb8d4a55b889",
+            "title": "企画",
+            "abstract": null,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-11T13:00:00+09:00",
+            "length_min": 110
+        },
+        {
+            "type": "talk",
+            "uuid": "cf0d2912-8f56-42e4-9800-b8eced98f48e",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/cf0d2912-8f56-42e4-9800-b8eced98f48e",
+            "title": "タクシーアプリ「GO」から学ぶ Google Maps SDK 活用術",
+            "abstract": "タクシーアプリ「GO」は地図をベースとしたアプリです。地図には Google Maps SDK が利用されています。\r\n\r\nGoogle Maps SDK で提供される機能を駆使して、さまざまな情報を地図上で表現しています。\r\nその実装は難しいこともあり、あらゆる工夫を凝らして実現されているものもあります。\r\n\r\n「GO」での実例を元に、実装上のハマりポイントや苦労して実現したところ、開発時に遭遇した不思議な現象などを紹介します。\r\n\r\n・地図上を走るタクシーの動態表示\r\n・近くの道路に自動的に引き込ませる機能\r\n・ルートのグラデーション表示\r\n・タクシーを配車できないエリアを明示する\r\n・地図の中心点を変えずに、複数の地点が収まる形にズームレベルを調整する\r\n・地図のパフォーマンスを下げて省電力で動作させる\r\n・カラースキームで地図の雰囲気を変える\r\n・Google Maps における緯度経度の不思議\r\n\r\netc..",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-11T13:35:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "Yosuke Imairi",
+                "kana": "イマイリヨウスケ",
+                "twitter": "kamekiti",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/9bddfdfc-5615-4c9a-9dd7-278541a06098.jpg"
+            },
+            "fav_count": 8,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "ee2ab807-9053-4779-84f9-ec9951f7cfc0",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/ee2ab807-9053-4779-84f9-ec9951f7cfc0",
+            "title": "音声配信アプリにおけるiOSを使った音声配信の全てと裏側",
+            "abstract": "Voicyでは日々パーソナリティさんという音声投稿者による音声配信がされております。\r\niOSにおいて音声配信をする上で欠かせないAVFAudioを利用しております。\r\nAVFAudioには多種多様な機能がありますが、実際サービスを扱っていく上で一体どんなことに注意し何を必要があるのか？がわからないことが多いです。\r\n本トークでは音声配信をiOSで実装する上でどのように考え実装するべきなのかを全てと裏側という形でお伝えしたいと思います\r\n- AVFAudioを利用した音声の取り扱い\r\n  - 音声収録\r\n  - 音声配信\r\n  - etc\r\n- Voicyで利用している音声配信の提供方法\r\n  - 収録配信\r\n  - リアルタイム配信\r\n- 課題や今後の展望\r\n",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-11T13:35:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "entaku",
+                "kana": "エンタク",
+                "twitter": "entaku_0818",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/a28e7a6d-6aba-497a-b4eb-a8481b3ef412.jpg"
+            },
+            "fav_count": 11,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "397d52a7-8f62-4c40-8392-2dc081227189",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/397d52a7-8f62-4c40-8392-2dc081227189",
+            "title": "Swift Concurrency時代のリアクティブプログラミングの基礎理解",
+            "abstract": "リアクティブプログラミングは非同期プログラミングの手段として使われることがありますが、本来は非同期データストリームをうまく扱うためのものです。Swift Concurrencyが導入された今こそ、Combineなどの具体的なライブラリから一歩距離を置いて、リアクティブプログラミングそのものを学習しておきましょう。\r\n\r\nこのトークでは、リアクティブプログラミングがデータフローの記述方式であるということを基本からおさらいします。リアクティブプログラミングを図的に理解でき、UIや通信のイベント配送設計も自在にできるようになります。\r\n\r\n非同期はリアクティブプログラミングの外の世界と接続するときや内部実装には必要です。両者のポジションの違いを整理し、Concurrencyの機能をそのまま使うべきところと、リアクティブプログラミングでデータフローを記述すべきところが、よく分かるように説明します。\r\n",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-11T13:35:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "ばんじゅん🍓",
+                "kana": "バンジュン",
+                "twitter": "banjun",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/2c0be09f-abdd-4b0a-bdb1-f7b48d8b6513.png"
+            },
+            "fav_count": 18,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "1730b968-d50f-40fd-b445-f44a106b6c29",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/1730b968-d50f-40fd-b445-f44a106b6c29",
+            "title": "入門 SwiftUI Alignment Guide",
+            "abstract": "SwiftUIは細かく指定しない限り簡潔にレイアウトを記述できることも多い一方で、\r\nAuto Layoutでは簡単にできていたことが意外と難しかったり、そもそも実現が困難なケースもあります。\r\n\r\nこのトークでは、VStackやHStackで単にleadingやtopなどを指定するだけでは\r\n実現が難しいレイアウトを攻略するために有効なAlignment Guideについて、次のステップで学ぶことができます。\r\n\r\n1. Alignmentの概念および挙動についての基礎\r\n2. alignmentGuide(_:computeValue:)の理解と利用方法\r\n3. Custom Alignmentの実践的な使い方と制約\r\n\r\n想定する対象者\r\n* SwiftUIをなんとなく書けるようになってきた人\r\n* alignmentGuideやCustom Alignmentを使ったことがないor使い方がよくわからない人",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T13:35:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "monoqlo",
+                "kana": "モノクロ",
+                "twitter": "monoqlo",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/3365f134-e5a1-43c7-a11c-7a0ba0594265.jpg"
+            },
+            "fav_count": 9,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "timeslot",
+            "uuid": "ebeed702-7b32-46ea-99b7-021ced1be682",
+            "title": "クローズ",
+            "abstract": null,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T14:05:00+09:00",
+            "length_min": 45
+        },
+        {
+            "type": "talk",
+            "uuid": "8b26bb21-27ec-4495-82bd-80a52f2fdee4",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/8b26bb21-27ec-4495-82bd-80a52f2fdee4",
+            "title": "SwiftUIとUIKitを仲良くさせる",
+            "abstract": "SwiftUIが発表されてからすでに3年が経ちました。\r\nしかしいまだに開発現場から採用が難しいという声が聞こえてきます。\r\nUIKitとSwiftUIの併用も可能ですが、実際に採り入れてみるとさまざまな問題が発生しました。\r\nこのセッションではそれらの問題を解決する手法を紹介します。\r\n\r\n- レイアウト・プレビュー\r\n  - UIView \/ UIViewControllerをSwiftUIの中で使うとき\r\n    - RepresentableKitの紹介\r\n  - ViewをUIKitで使うとき\r\n- Appライフサイクル\r\n  - UIApplicationDelegateとUISceneDelegateを引き続き使う\r\n  - Appでまだ取得できないイベントをSwiftUIに伝える\r\n  - iOS 13の交互性を考慮する\r\n- 状態管理\r\n  - 共通の状態をどうするか\r\n  - 依存の受け渡し",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-11T14:10:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "Apurin Mikhail",
+                "kana": "アプリン・ミハイル",
+                "twitter": "auramagi",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/6ab6ec73-e912-4780-a893-8ccd229181a2.jpg"
+            },
+            "fav_count": 21,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "40f51161-9c44-4330-ba92-e9aa407454c3",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/40f51161-9c44-4330-ba92-e9aa407454c3",
+            "title": "詳解 Core NFC - NFC を用いた iOS App 開発のてびき",
+            "abstract": "NFC とは駅・空港での自動改札機やお店での電子マネー決済、社員証や学生証をかざした入退出管理など、日常でよく見かけるアレを叶える技術です。\r\n\r\niPhone に搭載されている NFC を私たちの App で使うためには Core NFC を用います。これは iOS 11 から利用可能になり、iOS 13 のタイミングで大きくアップデートされました。昨今の情勢から非接触技術が注目されたり、eKYC に利用できたりと、現在進行形でさまざまな App で利用が広がっています。\r\n\r\n私は iOS 13 のときから3年間、この Core NFC を使った App の個人開発を続け、関連する OSS も公開してきました。それによって得た iOS 固有の NFC 利用まわりの知見や、これから Swift Concurrency + Core NFC を活用する App を開発する際の流れ・例を紹介します。",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-11T14:10:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "treastrain \/ Tanaka Ryoga",
+                "kana": "タナカリョウガ",
+                "twitter": "treastrain",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/753386c2-a1c1-41e2-815f-9e2a2dfdac96.jpg"
+            },
+            "fav_count": 14,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "e2477b5e-76ba-440c-9363-3051852caca5",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/e2477b5e-76ba-440c-9363-3051852caca5",
+            "title": "正規表現って結局何なのさ？〜エンジニアのためのコンピューターサイエンス入門〜",
+            "abstract": "皆さん多かれ少なかれ正規表現を使ったことがあると思います。\r\nコマンドラインツールで、エディタの検索で、そしてNSRegularExpressionで。\r\n単純な文字列検索に比べ、正規表現はとても表現力豊かでパワフルな検索を可能にします。\r\n\r\nSwift Evolutionにも正規表現に関する多くのproposalがあり、Regex型やRegexリテラルなどが正式に実装される日も近いでしょう。\r\nしかしこの正規表現とは一体何者なのでしょうか？\r\nどんなものが表現でき、どんなものが表現できないのでしょうか？\r\n\r\n多くのメタ文字や演算子記号があるためとても複雑なものと思われがちですが、実際にはたった3つの文字列の演算ルールだけで構成されています。\r\n本トークでは状態遷移図の一種であるオートマトンからスタートして正規表現の原理を紐解きその限界を探っていきます。",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-11T14:10:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "ta_ka_tsu",
+                "kana": "タカツ",
+                "twitter": "ta_ka_tsu",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/6abf906a-d31b-4acb-9223-dba0739142e6.png"
+            },
+            "fav_count": 11,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "timeslot",
+            "uuid": "757a9cde-9730-43a6-ad61-6b8418ed5e97",
+            "title": "LT（5本）",
+            "abstract": null,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T15:05:00+09:00",
+            "length_min": 40
+        },
+        {
+            "type": "talk",
+            "uuid": "07999276-0624-4cb1-860d-8cf845e546c2",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/07999276-0624-4cb1-860d-8cf845e546c2",
+            "title": "神速iOSDC〜6年分〜",
+            "abstract": "みなさんが初めて参加したiOSDCはいつでしょうか。\r\n私が初めて参加したiOSDCは2018年のものでした。\r\n\r\n初参加の2018年からiOS・Swift界隈のトレンドや新しい技術は目まぐるしく変化し、私が初めて参加した年からは想像もできないような進化を遂げています。\r\n\r\nところで、iOSDCにはYouTube公式チャンネルがあり、iOSDC2016からのセッション動画をなんと無料で視聴することができます。\r\n\r\nこのトークではiOSDCチャンネルにあげられている458本の動画を踏まえ、これまで6年分のiOSDCを5分に凝縮し、オフライン開催が戻ってきた今だからこそ、神速で振り返りを行っていきたいと思っています。\r\nこのトークを聞くことで、iOS・Swift界隈のトレンドを振り返るとともに、6年分のiOSDCの思い出を一気に蘇らせることを約束します。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T15:10:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "Roku",
+                "kana": "ロク",
+                "twitter": "66nylon_y",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/df3f45a0-9151-4f44-890e-f7eff2c22786.jpg"
+            },
+            "fav_count": 18,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "e383fe1f-0458-42b8-a732-81db63f4f6c9",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/e383fe1f-0458-42b8-a732-81db63f4f6c9",
+            "title": "Apple Watchを使い倒す 〜Watchから取れるデータとその活用法〜",
+            "abstract": "初代Apple Watchが発売されてから早7年。Apple Watchは進化を続け、圧倒的な世界最多シェアを誇るスマートウォッチとなりました。\r\nそんなApple Watchを自身のアプリ開発にも活用したいところですが、具体的にどう活かせば良いかは悩みどころですよね…。\r\n\r\nということで今回は、\r\n1. どんなデータをApple Watchから取得できるのか\r\n2. どんな用途に利用されている・できそうか\r\n\r\nこれらの観点から整理し、ウォッチを活用したユニークなアプリの開発につながるヒントを共有できれば幸いです。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T15:15:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "tsuboyan",
+                "kana": "ツボヤン",
+                "twitter": "tsuboyan5",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/9889a4cf-a1b7-4690-b51c-0a813f7579e3.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "c5f5db2c-b8a8-4bf4-8088-262fa38c9ce8",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/c5f5db2c-b8a8-4bf4-8088-262fa38c9ce8",
+            "title": "SF Symbolsの無限の可能性に迫る、SF Symbolsアートの世界",
+            "abstract": "SF Symbols 3.3の時点では、3,300を超えるシンボルを備えています。この多種多様なシンボルのおかげで開発者は0からアイコンを作る必要は無く、開発に専念することが出来ます。\r\n\r\nでも、どうでしょう？\r\n\r\n3,300を超えるシンボルがあるのに、何個のシンボルを使ったことがありますか？実際、日の目を見れていないシンボルたちが沢山あります。\r\n\r\n「これ一体いつ使うんだ？」「こんなシンボルまであるんだ！」「これは使えそう！」\r\n\r\n個性豊かなシンボルたちが使って欲しそうにこちらを見ています。\r\n\r\nこのLTでは、そんなシンボルたちを活用したSF Symbolsアートの数々を紹介します。少しでもSF Symbolsのことが好きになっていただければ嬉しいです。\r\n\r\n(参考: https:\/\/twitter.com\/littleossa\/status\/1516540893142347778)",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T15:20:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "リルオッサ",
+                "kana": "リルオッサ",
+                "twitter": "littleossa",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/a249a303-5425-4507-a722-e28f77b6e1f1.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "c7a0f2d7-68a7-47e4-91fc-62f68eee2c2f",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/c7a0f2d7-68a7-47e4-91fc-62f68eee2c2f",
+            "title": "レトロゲームを楽しむ環境を構築する",
+            "abstract": "ファミコン、スーファミ、ゲームボーイ、64、GC、Wii、PS1、PS2のレトロゲームをiPhone\/Macで遊ぶ話です。\r\nWindowsと比べて、Macの情報がなく、令和では手に入りにくい物だったりで、無いものは作りました。\r\n再び、昔懐かしいゲームを楽しみましょう！\r\n\r\n当日のLT内容(予定)です。\r\n・違法ダウンロードは絶対ダメ\r\n・ 無いものは作ったゲームソフトの吸い出し機\r\n・ ゲームコントローラーを認識させる\r\n・ レトロゲームをプレイ！",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T15:25:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "赤田　進（Sam Akada）",
+                "kana": "サム　アカダ",
+                "twitter": "sam_akada",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/a2877b4e-9275-4b07-976b-f05d173c0f4d.jpg"
+            },
+            "fav_count": 3,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "f554bc51-9c63-4487-a556-0085269511c4",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/f554bc51-9c63-4487-a556-0085269511c4",
+            "title": "Bluetoothでレゴをリモートプログラミングしよう",
+            "abstract": "プログラミング可能なロボットキットである「LEGO BOOST」の発売以降、Bluetoothによるリモートプログラミングに対応しているレゴのセットがたくさん発売されています。その数はなんと20以上！\r\n\r\nその中にはプログラミングできることをアピールしていないセットも多くあります。プログラミング＝マインドストームではありません。あなたがお持ちのセットも実はプログラミング対応しているかもしれませんよ？\r\n\r\n本トークでは、レゴ社が公開している「LEGO Wireless Protocol」を中心に、どんな種類のレゴブロックがどんな感じでプログラミングできるかについてお話しします。あなたのレゴ作品をiPhoneやApple Watchとつなげて、思う通りに動かしましょう！",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T15:30:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "大庭 慎一郎",
+                "kana": "オオバ シンイチロウ",
+                "twitter": "ooba",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/47a6a112-67a9-4482-940d-8f429bf7e712.png"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "timeslot",
+            "uuid": "36b6d604-b539-47d4-873e-3b8935aca2bb",
+            "title": "LT（6本）",
+            "abstract": null,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T15:55:00+09:00",
+            "length_min": 45
+        },
+        {
+            "type": "talk",
+            "uuid": "1d91ba4f-6620-415b-859c-79e4dad66f89",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/1d91ba4f-6620-415b-859c-79e4dad66f89",
+            "title": "挑戦！ISUCON de Server-side Swift 〜タイムゾーンには気をつけろ〜",
+            "abstract": "皆さんは ISUCON をご存知でしょうか？ISUCON は 課題として提供されるWebサービスを「いい感じにスピードアップ」するコンテストです。\r\n\r\nさて、ここに3人のiOSエンジニアが勝負を挑みました。この３人、持ち前の iOS 開発で培った Swift 力で、シビアな制限時間の中、課題をSwift にフルスクラッチで書き換えようとします。果たして優勝を勝ち取り、iOS開発、そしてSwift言語の威厳を他の参加者に知らしめることはできたのでしょうか。\r\n\r\nこのトークを通じて、iOS、macOS アプリケーションの開発者の皆さんがどのようにしてサーバーサイドSwiftに取り組めるか、そして本格的なアプリを実装できるかを学べるやもしれません。 iOS クライアントだけでなく、サービス全てをSwiftにしたい方、必見です!\r\n",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T16:00:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "freddi",
+                "kana": "フレディ",
+                "twitter": "___freddi___",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/b4794539-cc02-45e6-b08a-c75df3357f03.jpg"
+            },
+            "fav_count": 11,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "998f8732-5663-446a-8e91-03e7167a9c75",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/998f8732-5663-446a-8e91-03e7167a9c75",
+            "title": "独自の共通認証基盤を用いているサービスでアカウント削除機能を提供したときの道程",
+            "abstract": "Review Guideline 5.1.1(v) - Account deletion requirement がついに6月30日に施行されました。\r\nこれからアカウント作成が出来るアプリは、アカウント削除機能を提供する必要があります。\r\nアカウント削除機能はあまり優先して開発されない(しづらい)機能の一部であり、マネーフォワードクラウド確定申告でも提供出来ていなかった機能でした。\r\n\r\nこのLTでは、急遽宣言されたAccount deletion requirementに対して、共通ID基盤の提供・数多くのサービス展開による弊害、1ユーザーが複数のグループに属せるというサービスとしての難しさ、確定申告シーズンにぶち当たった必須化スケジュールを乗り越えて、マネーフォワードクラウド確定申告がアカウント削除機能を提供したときの苦悩の道程を紹介します。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T16:05:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "ShoMasegi",
+                "kana": "ショウマセギ",
+                "twitter": "boc_sho",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/02742f03-db89-4f56-b367-7019f1f7d917.jpg"
+            },
+            "fav_count": 1,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "2adc32ee-4515-42bb-a22f-ddac6d5d8aee",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/2adc32ee-4515-42bb-a22f-ddac6d5d8aee",
+            "title": "Exposure Notification Privacy-preserving Analytics Architectureの仕様について",
+            "abstract": "COVID-19のパンデミックに対する解決策としてAppleとGoogleが設計したExposure Notification Privacy-preserving Analytics (ENPA) Architectureについてトークします。\r\nENPAは、最新のプライバシー保護技術および暗号化技術を活用して、個人データを一切開示せずにデータを収集することを可能にするものです。\r\n強力なプライバシー原則を維持しながら、収集された測定基準の信頼をどのように保護したのか、どのような仕組みを利用して情報を収集したのかをExposure Notification Privacy-preserving Analytics White Paperから解説いたします。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T16:10:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "杉本 至",
+                "kana": "スギモト　イタル",
+                "twitter": "itaru_sugimoto",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/dd6e53fc-62e7-46c7-b797-e9edca46dcee.png"
+            },
+            "fav_count": 1,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "ae6ff1d3-0777-4804-9407-5a081fba313d",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/ae6ff1d3-0777-4804-9407-5a081fba313d",
+            "title": "バックポートして学ぶ新APIの仕組み",
+            "abstract": "Appleプラットフォームのアップデートは、一部を除き、最新OSのみに提供されます。\r\nせっかく待望の新機能が登場しても、サポートOSポリシーによっては、使えるのは数年後...\r\nならば、自分で作って、来たる日に備えましょう。\r\n実現する上での難易度は高いものかもしれませんが、多くは既存の仕組みを組み合わせることで、ソフトウェアとして解決できるはずです。\r\n自分でバックポート実装を作ってみれば、新API、その周辺の仕組みについて熟知することができます。\r\n\r\nこのトークでは、2021年に登場したSwiftUI.AsyncImageを、すべてのSwiftUI環境にバックポートした経験を題材に、知見を話します。\r\n\r\n* 新APIの調べ方\r\n* バックポート実装のTips\r\n* メンテナンスする上での難点",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T16:15:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "Yutaro Muta",
+                "kana": "ムタユウタロウ",
+                "twitter": "yutailang0119",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/4ee5d10c-b08a-4bcd-82fd-df4404ab923c.jpg"
+            },
+            "fav_count": 9,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "bcc2af92-4df9-4e4a-b465-0c9f93e04a60",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/bcc2af92-4df9-4e4a-b465-0c9f93e04a60",
+            "title": "UIStackView逆引きレシピ",
+            "abstract": "UIStackViewとても可愛いですよね！SwiftUI時代になれば使わなくなると思いますが、現状はまだまだUIStackViewを活用する機会は多くあると思います。\r\nこのLTでは、私が愛してやまないUIStackViewについて、こんなケースではUIStackViewでどう解決する？というのを逆引きレシピ形式で紹介できればと思います。\r\n\r\n- ある条件ではこのボタン消えてスペースを詰めいないといけない！トルツメ制御めんどうすぎ！\r\n- 画面を回転させたときにレイアウトが大きく変わっちゃう！助けて！\r\n- デザイナーさんから「ここは10、でもここは15」と細かくマージン指定されてる！どうしたらいい？",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T16:20:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "所友太",
+                "kana": "トコロユウタ",
+                "twitter": "tokorom",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/2fe1b2fc-074e-4d91-853b-0dfd3895b9e1.jpg"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "f7323f3d-bc3a-4a6c-b591-3ca0f73bad49",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/f7323f3d-bc3a-4a6c-b591-3ca0f73bad49",
+            "title": "手で触れずにアプリを動かす技術",
+            "abstract": "iPhoneがスマートフォンと称されてはや数年。\r\n巨大なタッチスクリーンを備えたiPhoneはその操作性でたくさんの人に受け入れられてきました。\r\nでも、ちょっと待ってください。タッチしないと動かないって、いまいちスマートじゃなくないですか？\r\n\r\nそんなわけで、iPhoneを触らずともアプリをなんとか動かすことができないか、様々な技術を駆使してアプリを動かせないかを検討してみます。\r\n例えバッキバキに割れたiPhoneでも、見事動かしてみせましょう。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T16:25:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "日向強",
+                "kana": "ヒュウガツヨシ",
+                "twitter": "coffeegyunyu",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/0c8845ab-4898-48ce-86c6-38b0a2129d34.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "41079124-aab4-40a9-b8ee-efdac7ca4e72",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/41079124-aab4-40a9-b8ee-efdac7ca4e72",
+            "title": "SwiftUIのハマりどころとその回避策",
+            "abstract": "AirインボイスのiOS開発チームは、AirインボイスiOSアプリをSwiftUIで開発しています。\r\n\r\nWWDC2022でiOS16が発表され、iOS14以上をサポートとすることができるアプリが増えたことで、本格的にSwiftUIの導入を検討している方も多いと思います。しかし、最新のOSのみをサポートするのではなく、iOS14系や15系もサポートするとなると、そこには数多くのハマりどころが存在します。また、要件によってはSwiftUIでの実現に工夫が必要なポイントも数多く存在します。\r\n\r\n本トークでは、iOS14以上を対象としたAirインボイスiOSアプリにおいてSwiftUIを用いてさまざまな要件を実現するにあたり、はまったポイントやそれらをどのように回避したかを共有します。",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-11T16:50:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "大塚 悠貴",
+                "kana": "オオツカ ユウキ",
+                "twitter": "moguaiyuki",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/c45de89f-3010-4944-a6ee-f0ed321b34c5.jpg"
+            },
+            "fav_count": 8,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "7b64d992-d6b2-4eda-a741-3c79aa1b3915",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/7b64d992-d6b2-4eda-a741-3c79aa1b3915",
+            "title": "実例で学ぶ GraphQL Persisted Query",
+            "abstract": "スタディサプリ中学講座のクライアント・サーバ間はGraphQLを用いた通信を行っています。\r\nこちらのセッションでは、GraphQLの機能の一つであるPersisted Queryについてお話しします。\r\nPersisted Queryの主な利点としてはQueryのリクエストサイズを減らすことが挙げられますが、その利点に加えて、GraphQLを安全に運用するための取り組みや困りごとなど、私たちのチームの実例を交えてPersisted Queryの魅力についてお話ししたいと思います。\r\n\r\nGraphQLも誕生から10年が経過し、iOSでも導入されているプロダクトも増えているのでは無いかと思います。\r\n既にGraphQLを用いたプロダクトを運用されている方はもちろん、いざGraphQLを利用することになった時にも少しでも馴染みあるものになれば幸いです。\r\n",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-11T16:50:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "motoshima1150",
+                "kana": "モトシマイチイチゴーゼロ"
+            },
+            "fav_count": 0,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "dec7a723-0bfc-402f-a28a-c60b93d514da",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/dec7a723-0bfc-402f-a28a-c60b93d514da",
+            "title": "レガシーなプロダクトからドメイン層を再設計する",
+            "abstract": "タウンワークiOSアプリは、10年以上開発が続いています。度重なる機能追加や仕様変更によって、プロダクトは徐々に複雑に、レガシーになっていきました。そのため、Clean Architectureの導入によるレガシーからの脱却を図りました。\r\n\r\nClean Architectureに則りドメイン層を分離してみましたが、いくつか不明な点があり、技術顧問の和田卓人氏に相談したところ、そもそも我々のモデリングにたくさんの改善点があることがわかりました。\r\n\r\nそこから、チームの中で既存コードからドメインモデルを発掘し、再設計する旅が始まりました。\r\n\r\nこのセッションでは、ドメイン層が何をするかよくわからない、設計に困っている人に向けて、アプリにとってのドメインとは何か、どのように見つけ出し設計すればよいか、そして評価の方法について私たちの経験を交えてお話します。",
+            "accepted": true,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-11T16:50:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "川辺 裕太、石井 潤",
+                "kana": "カワベ ユウタ、イシイ ジュン"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "timeslot",
+            "uuid": "6f2cbef6-2b50-4b76-a7f2-cc21102f9f85",
+            "title": "Today's Update",
+            "abstract": null,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-11T17:20:00+09:00",
+            "length_min": 10
+        },
+        {
+            "type": "timeslot",
+            "uuid": "b79de040-167b-47b2-b09d-81ec7a579c3d",
+            "title": "Today's Update",
+            "abstract": null,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T10:00:00+09:00",
+            "length_min": 10
+        },
+        {
+            "type": "talk",
+            "uuid": "1885cbbd-3898-40ff-a07e-e2d69b5fac6a",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/1885cbbd-3898-40ff-a07e-e2d69b5fac6a",
+            "title": "iOSにおけるWakeword検知機能の実装",
+            "abstract": "株式会社エクサウィザーズが提供する介護記録アプリ「CareWiz ハナスト」は、\r\nフォアグラウンド状態において有効な独自のWakeword検知機能と音声によるアプリ操作機能を備えています。\r\n\r\nWakeword検知を行うためには常時音声を取得する必要性があり、独特な実装を行い問題に対処する必要があります。\r\n本セッションでは、Wakeword検知機能の実装を中心に下記の内容をお伝えする予定です。\r\n\r\nWakeword検知\r\n・Wakeword検知の方法\r\n・アプリでの実装\r\n・SoundAnalysisを用いた精度向上\r\n\r\n常時録音に伴う問題と対応\r\n・イヤホンの脱着などの音声インプットの変更\r\n・電話などによる中断\r\n \r\n音声によるアプリ操作\r\n・音声とアプリの操作の連携\r\n・Wakewordから自由発話認識への連携",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-12T10:15:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "伊賀 裕展",
+                "kana": "イガ ヒロノブ",
+                "twitter": "iganin_dev",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/5d899e18-b7d9-449a-93ca-6cbf2bc692c2.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "c45d5de6-4000-48da-b8d2-b98222460ba9",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/c45d5de6-4000-48da-b8d2-b98222460ba9",
+            "title": "ホーム画面を無効化しアプリの切替えを抑止する技術",
+            "abstract": "iOS端末を業務利用する場面では、ときおり「開発するアプリ以外を使わせたくない」「ホーム画面に遷移させたくない」という要望に出くわすことがあります。例えば、キオスク端末としてiPadを使うような場合です。\r\n\r\n本トークでは、そうした要望を満たすiOSの仕組みを3つ紹介します。\r\n\r\n- Guided Access\r\n- Single App Mode\r\n- Autonomous Single App Mode (ASAM)\r\n\r\nそれぞれの前提条件やメリット・デメリット、設定方法や使いどころを比較しながら解説します。3つ目のASAMは、アプリ内から Single App Mode のON\/OFFを制御できる興味深いモードで、その実装方法についても紹介します。",
+            "accepted": true,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-12T10:15:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "oishi",
+                "kana": "オオイシ",
+                "twitter": "oishi",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/adde1651-ac8a-4575-a958-ef882658af8d.png"
+            },
+            "fav_count": 8,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "9d542893-3c30-4077-a85a-1c7ec68caa9c",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/9d542893-3c30-4077-a85a-1c7ec68caa9c",
+            "title": "Xcode が遅い! とにかく遅い!! 遅い Xcode をなんとかする方法",
+            "abstract": "Xcode が遅い。とにかく遅い!! あああ!!!\r\n\r\n皆さんはそんな経験ありませんか...?\r\n\r\niOS アプリの開発にはなくてなはならないツール、それは Xcode です。\r\nしかし、Xcode がとにかく遅いのです。\r\nアプリが成長し、ワークペースが巨大になり、多くのターゲットができるにつれてどんどん遅くなり、最後にはハングして終了すらできなくなってしまいます。\r\nこのセッションではそんな遅い Xcode を使えるように頑張った経験をもとに、Xcode のビルドの仕組み、そして Bazel などほかのビルドツールについても検証したいと思います。\r\n\r\n対象とする方:\r\n- Xcode が遅くて辛い方\r\n- 大きなアプリを作っている方\r\n- killall XCBBuildService が癖になってしまった方\r\n- Xcode のビルドの仕組みをちょっと知りたい方\r\n\r\n前提とする知識:\r\n- Xcode",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-12T10:15:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "Yoshimasa Niwa",
+                "kana": "ニワヨシマサ",
+                "twitter": "niw",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/7d3607c2-a055-4492-9a75-c7fe16dbe2e9.jpg"
+            },
+            "fav_count": 21,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "c9f82aa9-df30-43f6-907b-05b353e06cdf",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/c9f82aa9-df30-43f6-907b-05b353e06cdf",
+            "title": "大規模イベントアプリを支える技術〜長岡花火公式アプリを作った話〜",
+            "abstract": "大規模なイベントアプリを支える技術のお話です。\r\n新潟県長岡市で開催される長岡花火の公式アプリを開発して、運用しています。コロナ禍では開催出来ませんでしたが、今年は久しぶりに開催される見込みです（6月現在）\r\n毎年開催期間合計で100万程度が来場する長岡花火に対して、どのような技術でアプリを運用して、長岡花火を支えているのか、お話できればと思います。\r\n意外なあれが役に立っています。\r\n\r\n普通のアプリとは異なり、イベントアプリは固有の課題があるため、イベントアプリを運用している方、今後イベントアプリを開発する方などの参考になればと思います。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T10:15:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "Izu",
+                "kana": "イヅ"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "3714e384-a6ec-4201-a754-084a43f215d8",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/3714e384-a6ec-4201-a754-084a43f215d8",
+            "title": "備えよう。HTTP\/3",
+            "abstract": "WWDC21の発表にあったように、iOS15でURLSessionのHTTP\/3対応が実装されました。\r\nあれからもうすぐ1年経ちますが、2022年6月7日現在HTTP\/3対応はデベロッパオプションとして提供されている段階で、大半のiOSデバイスにおいて有効化されてはいません。\r\nしかし、通信のパフォーマンスとセキュリティがより重要になってきていることを考えると、全てのデバイスでHTTP\/3のサポートが有効になる日はそう遠くないかと思います。\r\n\r\nこのトークでは、「そもそもHTTP\/3って何？QUICとどう違うの？」「どういう状況でメリットがあるの？」などの疑問にお答えしつつ、運用しているサービスの大半のWebAPIを事前にHTTP\/3に対応させた事例から、HTTP\/3対応の際に考慮すべき事項や、対応リリース後のモニタリングの想定など、来るべき日に備えた準備の知見をお話しします。",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-12T10:15:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "増住 啓吾",
+                "kana": "マスズミ ケイゴ"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "d824fc5d-191a-4864-899a-339d830ed182",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/d824fc5d-191a-4864-899a-339d830ed182",
+            "title": "SwiftUI in UIKit で開発する世界",
+            "abstract": "【概要】\r\nSwiftUIが登場してから３年が経とうとしています。\r\n\r\n古いOS対応もあり、すぐに導入できなかったアプリも多かったでしょう。\r\nそんな中、新規のアプリを全てSwiftUIで構成した例も増えてきました。\r\n\r\nしかし、現実問題として既存の多くのアプリはUIKitで構成されています。\r\nこの資産を活かしつつ、どのようにSwiftUIと歩んでいくのかを考えていく必要があります。\r\n\r\n今回はそんな悩みを抱えつつ、私達のプロダクトで行なってきた共存の仕方をご紹介していきます。\r\n\r\n【目次】\r\n1.SwiftUIとUIKit\r\n-SwiftUIの強みと弱み\r\n-実装判断の基準\r\n-責務の分け方\r\n\r\n2.アーキテクチャー\r\n-既存のアーキテクチャー\r\n-SwiftUIとUIKitのアーキテクチャー共存\r\n\r\n3.課題\r\n-共存の向き・不向き\r\n-車輪の再発明\r\n-実装において注意すべき点\r\n\r\n※内容が前後する可能性があります",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-12T10:50:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "Hiromu Tsuruta",
+                "kana": "ヒロム ツルタ",
+                "twitter": "hcrane14",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/7f77375e-4ae8-44bd-aa84-e57f1d95d7b0.jpg"
+            },
+            "fav_count": 19,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "9832f98f-f144-4434-aa6e-b389e142b456",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/9832f98f-f144-4434-aa6e-b389e142b456",
+            "title": "Feature Flagを使った開発で高速でストレスフリーなデリバリーを実現する",
+            "abstract": "アプリの新機能開発では「リリースが施策開始時期と合わない」「Mainブランチと差分が広がり競合が発生する」「不具合等で元に戻すには差分を丸ごとRevertする」などの点が開発・デリバリー速度低下の要因となります。\r\nこの状況を改善するためRettyではFeature Flagを導入しました。これはコードに分岐を設け機能表出を切り替える手法で、必要差分を予め隠した状態でリリースし、フラグ反転によって瞬時に表出することができます。\r\nFeature Flagによって競合が起きにくくなる他、静的解析で分岐の特定が容易となり、さらに機能停止も手軽に行えます。\r\nこのトークでは、RettyでのFeature Flagの実装・運用方法、導入に役に立つライブラリをご紹介します。明日から高速でストレスフリーなデリバリーを実現しましょう！",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T10:50:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "今泉智博",
+                "kana": "イマイズミトモヒロ",
+                "twitter": "imaizume",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/3b347a39-29ea-47c6-b85c-91e27adf86f3.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "7646ca37-310b-42d1-8764-d80dd12714fd",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/7646ca37-310b-42d1-8764-d80dd12714fd",
+            "title": "動画だけじゃない！iOS 15のピクチャ・イン・ピクチャを使って好きなUIを表示させよう！",
+            "abstract": "iOS 14まではピクチャ・イン・ピクチャ（以下PiP）を表示させるには動画コンテンツが必要でした。\r\nしかし、新しくiOS 15でPiPのAPIが追加されたことにより動画コンテンツが無いただのUIViewもPiPとして表示させることが可能になりました！\r\n\r\nこれまでPiPを利用したアプリを3つリリースしてきた経験から、PiPを利用したアプリの開発からリリースするまでについて話したいと思います。\r\n\r\n・PiPに好きなUIを表示させる仕組みと実装\r\n・より良いPiP体験の提供\r\n・PiPでできないこと\r\n・Appleの審査を通過する\r\n\r\nPiPを使うことでユーザーにより良い体験を与えることができるアプリはたくさんあると自分は感じています。\r\nぜひこのセッションで得た情報をもとにPiPを使った良いアプリが増えれば良いと願っています！",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-12T10:50:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "續橋　涼",
+                "kana": "ツヅキハシ　リョウ",
+                "twitter": "tsuzuki817",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/26c5c624-3837-4559-94be-21a8a76e6ec4.jpg"
+            },
+            "fav_count": 18,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "6ea3cfbe-0749-4979-bd86-c896e6023c4b",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/6ea3cfbe-0749-4979-bd86-c896e6023c4b",
+            "title": "20分でわかる！速習resultBuilder",
+            "abstract": "皆さんはresultBuilderを使った事があるでしょうか。\r\nSwift5.4で導入されたこの技術はConcurrencyの発表で少し影が薄くなりましたが、実は複雑な処理をシンプルかつ宣言的なものに置き換えられるとても便利な技術です。\r\n実際、私たちのチームではこれを用いることで、メンテコストの高い実装部分を大幅に改良する事が出来ました。\r\n本トークではresultBuilderとは何なのか、またどういう効果的な利用法があるのかを実際の導入事例を交えてご紹介致します。\r\n21分後にはあなたも1人前のresultBuilder！\r\n\r\nコンテンツ\r\n・resultBuilderとは\r\n・仕組みと実装方法\r\n・プロダクション導入の実例やライブラリの紹介\r\n・高度な活用方法\r\n\r\n聞き手の想定\r\n・resultBuilderの存在を知らない方\r\n・存在は知っているけど使い方がわからない方\r\n・活用イメージが湧かない方",
+            "accepted": true,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-12T10:50:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "たまねぎ",
+                "kana": "タマネギ",
+                "twitter": "_chocoyama",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/52c5dbe1-2651-4c35-bedc-7d1b567cd11f.jpg"
+            },
+            "fav_count": 15,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "dc963bce-52bd-429c-86ed-9a7b314063ce",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/dc963bce-52bd-429c-86ed-9a7b314063ce",
+            "title": "即時通知を導入する際に考えるべきこと",
+            "abstract": "iOS 15から、即時通知と呼ばれる新しい通知が導入されました。これは、一定時間内に必ず確認してほしい情報を知らせる際に利用するもので、同じくiOS 15から導入された通知要約や集中モードを突破してユーザーの目に届く強力なものです。便利な反面、乱用するとユーザーに機能そのものをオフにされてしまう可能性があるため、使い所は精査する必要があります。\r\nまた、一度プロダクトに導入すると、その便利さ故つい使用箇所を増やしたくなってしまう可能性が高いですが、無論そういうわけにはいきません。安易に強力な通知配信を増やさないためには、開発メンバーの中で同じインプットが必要です。\r\n本セッションでは、一iOSユーザーとして即時通知を受け取ってきて再考する即時通知の使いどころ、実際にプロダクトに即時通知を導入してみて見えてきた、即時通知利用に関して開発メンバーでもつべき共通認識について導入事例と共にお話します。",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-12T10:50:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "あおい",
+                "kana": "アオイ",
+                "twitter": "aomathwift",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/bfbe98fa-cbf9-4238-abbb-af3b9552c296.jpg"
+            },
+            "fav_count": 9,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "fe1fd6be-7dbb-4521-b5b6-51a751ff0939",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/fe1fd6be-7dbb-4521-b5b6-51a751ff0939",
+            "title": "全力疾走中でも使えるストップウォッチアプリを作る",
+            "abstract": "0.01秒が結果を左右する陸上競技の世界ではタイムはとても大切なものであり、日々の練習でもストップウォッチは欠かせません。\r\niPhoneにもストップウォッチがありますが、陸上競技の現場では画面上にあるボタンを押すことの難しさが致命的な欠点となり、実用に耐えないのが現状です。\r\nそんな問題を解決するために音量ボタンで制御可能なストップウォッチアプリを作成したところ、App Store Reviewガイドライン違反で公開が停止…\r\nどうすれば物理ボタンを使わずに全力疾走中でも使えるストップウォッチが作れるのか？\r\nストップウォッチのUXを最大限に高めるために検証した様々な対策を陸上競技歴15年の私が紹介します。\r\n\r\n目次（予定）\r\n・なぜ物理ボタンを使ってはいけないのか？\r\n・実際に作ってみた\r\na.近接センサーを使う\r\nb.加速度センサーを使う\r\nc.音を使う\r\nd.etc\r\n・結果：一番良いインタラクションは？",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T11:25:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "Ogijun",
+                "kana": "オギジュン",
+                "twitter": "juginon",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/aad51926-5703-444e-88fa-78f0df6c2db4.jpg"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "cde58bcd-9d53-41ca-9bab-1d44d19f2500",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/cde58bcd-9d53-41ca-9bab-1d44d19f2500",
+            "title": "OSSのアプリケーションを開発「し続ける」ための哲学",
+            "abstract": "自分達のアイデアを形にして新しいサービスをラウンチするのは興奮するものですし、さらにそれを軌道にのせてマネタイズするまでのノウハウは開発者の成功の証として世に溢れています。一方、アプリケーションの開発を「続ける」ことは、そのような華々しさとは縁遠く、かつフリーウェアとなれば生計を立てる外でそれを実行する必要があります。\r\n発表者は2014年にOSSのmacOSアプリケーションCotEditorの開発を引き継ぎ、以来おおよそ月に1回のリリースを8年以上続けています。OSS開発を続けるということはどういうことなのか、どうモチベーション維持をするのか、このトークではそんなCotEditorプロジェクトを続けている哲学を紹介します。以下のような話を含みます：\r\n・開発の基本方針\r\n・開発を続けるモチベーション\r\n・ユーザからのフィードバックとの付き合い方",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-12T11:25:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "1024jp",
+                "kana": "せんにじゅうよんジェーピー",
+                "twitter": "1024jp",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/6c9537e1-f527-4ef4-803f-132c9ed5a34d.jpg"
+            },
+            "fav_count": 14,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "b4920d34-f0aa-4f92-9955-5009979b3419",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/b4920d34-f0aa-4f92-9955-5009979b3419",
+            "title": "サーバーと同期してリアルタイムに更新する画面を実装する",
+            "abstract": "アプリで画面を更新するためのトリガーとしてポピュラーなものは\r\n\r\n- Pull-to-refreshなどのユーザーの明示的なアクション\r\n- サーバー上などのデータが更新されたタイミング\r\n\r\nの2種類に大きく分類できます。\r\n\r\nユーザーの明示的なアクションで画面更新する場合は比較的シンプルに実装することが可能ですが、サーバー上のデータが更新されたタイミングに同期して画面更新を行う場合、更新通知を受け取る方法やUI更新方法など、考慮することが増えて実装が複雑になりがちです。\r\n\r\nそこでこのトークでは、リアルタイムでの更新が必要となる具体例を紹介した後に、サーバー上のデータをリアルタイムで同期するための設計\/実装について、Firebaseを用いる手法、Push通知を用いる手法、WebSocketを用いる手法など、複数の手法の比較を行い、いかにしてリアルタイムで更新する画面を実装するかの解説を行います。",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-12T11:25:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "izumi",
+                "kana": "イズミ",
+                "twitter": "rizumi_jp",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/1c462db4-8e12-4dff-9bb5-3cc4e3a9e6c8.jpg"
+            },
+            "fav_count": 14,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "3a466fb6-b445-4e44-8f5f-b57b7e5b44dc",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/3a466fb6-b445-4e44-8f5f-b57b7e5b44dc",
+            "title": "シーンに応じた使いやすいQRコード読み取り機能を実装しよう",
+            "abstract": "iPhoneが登場して以降、QRコードを読むという行為はありふれた行為となりました。\r\n\r\niOSにおいては\r\n- 古くからカメラからのインプットを扱えるAVFoundationを用いて\r\n- 新しくは画像解析フレームワークであるVisionを用いて\r\nQRコードを読むという機能は比較的簡単に実現できます。\r\n\r\nしかし、QRコードを読み込むシーンというのはアプリによって様々です。\r\n\r\n例えば\r\n- １つのQRコードをしっかり読み込みたい\r\n- リッチな表現でQRコードを読み込みたい\r\n- 夜や倉庫の中といった暗い場所でもQRコードを読み込みたい\r\n- 連続で複数のQRコードを読み込みたい\r\nなどなど。\r\n\r\n本セッションではシーンに応じてQRコードを気持ちよく読み取るためにした工夫をお話します。\r\n頻繁に使う機能だからこそ体験の良いQRコード読み込みを実現していきましょう！",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-12T11:25:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "jollyjoester",
+                "kana": "ジョリージョースター",
+                "twitter": "jollyjoester",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/168f75c2-f936-428d-868c-c5d05284e811.jpeg"
+            },
+            "fav_count": 8,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "6bafac07-06f1-4846-964e-78dccfb29185",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/6bafac07-06f1-4846-964e-78dccfb29185",
+            "title": "モバイルアプリのオブザーバビリティを向上させるプラクティス",
+            "abstract": "近年、SRE（Site Reliability Engineering）の手法をアプリケーションにまで拡大しようといった動きが盛んです。\r\n\r\nしかし、実際にモバイルアプリの可観測性≒オブザーバビリティを向上させるためには、ネイティブエンジニアの専門性が求められる場面が多く、あまり実際に効果のあった事例が共有されていないように感じます。\r\n\r\nこのトークでは\r\n- アプリ内で計測される指標を用いてSLI \/ SLOを構成する\r\n- アプリ内でのレスポンスのパースエラー検知\r\n- 問い合わせ調査のオブザーバビリティ向上\r\n- 外部SNSの認証サービスの障害検知\r\n- App Store Connect API 、MeticKitの活用\r\n\r\nといった実際にチームで効果のあったプラクティスを紹介したいと思います。",
+            "accepted": true,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-12T11:25:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "nade",
+                "kana": "ナデ",
+                "twitter": "kazuma_nagano",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/3f587a64-1564-4b37-8d68-f6c31767fbb3.jpg"
+            },
+            "fav_count": 3,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "b225087a-6dac-4d81-9f3f-e09c431e5157",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/b225087a-6dac-4d81-9f3f-e09c431e5157",
+            "title": "デザインシステム",
+            "abstract": "Wantedly では、「デザインの生産性を向上させ、デザイナ - エンジニア 間コミュニケーションを改善することで、ユーザに価値を届ける速度を向上させる」ことを目的として UI デザインシステムを作っています。\r\n\r\n今回は現場で運用されているデザインシステムと iOS 実装の成功と失敗について以下の内容を話します。\r\n\r\n- Wantedly の UI デザインシステムとはなにか\r\n- コンポーネントリストではなく「共通の考え方とツール&アセット」\r\n- Figma 実装から考える iOS 実装のインターフェース設計\r\n- チームへの普及の成功と失敗",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-12T12:00:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "かしはら",
+                "kana": "カシハラ",
+                "twitter": "kashihararara",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/f4bfa6a1-ec6f-4ae6-a2e4-97f919289f76.jpg"
+            },
+            "fav_count": 3,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "56a5bec9-6dcd-4a8e-9e33-312078af3acd",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/56a5bec9-6dcd-4a8e-9e33-312078af3acd",
+            "title": "「家族アルバム みてね」を支えるiOSビルド環境の改善",
+            "abstract": "iOSのビルド環境はXcodeやSwift Package Managerのアップデート、新しいMacの登場などによって毎年変化を遂げています。\r\nサービス提供を開始した2015年から現在に至るまで、これらの変化に合わせて継続的にビルド環境の改善が行われてきました。\r\n本セッションでは2021年以降に実施したビルド環境の改善についてご紹介し、今後の目指す姿についてお話いたします。\r\n\r\n* Swift Package Managerの活用とライブラリ整理\r\n* Apple Silicon対応\r\n* マルチモジュール化\r\n* ビルド時間改善",
+            "accepted": true,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-12T12:00:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "佐藤 光",
+                "kana": "サトウ ヒカル",
+                "twitter": "hicka04",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/be443e32-b048-4736-8fb8-d4c3a829ab10.jpg"
+            },
+            "fav_count": 5,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "ac7d5226-f64b-42ff-8d08-b8960d4021ca",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/ac7d5226-f64b-42ff-8d08-b8960d4021ca",
+            "title": "LINE iOSのビルド環境の変遷",
+            "abstract": "LINE iOSは、200万行を超えるソースコードと200以上のモジュールで構成されている大規模なプロジェクトであるため、そのビルド時間も長くなりがちです。\r\n\r\n私達はビルド時間の改善の一環として、Bazelを取り入れました。その結果、ビルド速度が2倍になるというメリットを享受しましたが、メンテナンスコストが増大するというデメリットにも直面しました。\r\n\r\nこのセッションでは2年間Bazelを使い続けて分かったBazelの長所やリスク、運用時の注意点、そしてLINE iOSのビルド環境の現状と今後についてご紹介します。",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-12T12:00:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "Giuk Jung",
+                "kana": "ギウク ジョン "
+            },
+            "fav_count": 8,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "10bacfe4-4e2b-400f-8acf-b547223b01cd",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/10bacfe4-4e2b-400f-8acf-b547223b01cd",
+            "title": "react-reconcilerでオレオレReact Nativeを作ろう！",
+            "abstract": "Reactの思想であるLearn Once, Write Anywhereを推し進めるため、React内部にはReactをどこでも動かせるようにするreact-reconcilerというパッケージが存在します。\r\n\r\nreact-reconcilerはReact DOMやReact Nativeで利用されているUIの差分検出処理のパッケージで、JSXで書かれたコンポーネントのマウントや更新通知を受け取れます。これを使って独自のレンダラーを作ってみましょう。\r\n\r\nこのトークでは、react-reconcilerのレンダラーをSwift(UIKit)で実装して自分だけのReact Nativeを作る方法について話します。",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-12T13:00:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "ああうえ",
+                "kana": "アアウエ",
+                "twitter": "_kwzr_",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/6830315e-e375-4146-a5f2-5b2c82957643.jpg"
+            },
+            "fav_count": 2,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "b50a5503-00e3-4dd3-ba1a-b28cd59c6a33",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/b50a5503-00e3-4dd3-ba1a-b28cd59c6a33",
+            "title": "Swift Concurrency時代のiOSアプリの作り方",
+            "abstract": "昨年、Swift Concurrencyが導入されました。当初はiOS 15のみでサポートされていましたが、Concurrencyのback deploymentが実現されたため、iOS 13以降であれば今すぐにでもConcurrencyを取り入れることができます。\r\n\r\nしかし、実際にConcurencyを取り入れようとすると、参考となる情報はまだまだ少ないのではないでしょうか。Conccurency自体の情報は豊富でも、iOSアプリ開発での活用、特にactorや単体テストなどについてはほとんど語られていないように思います。\r\n\r\n本トークでは、iOSアプリ開発におけるConcurrency活用の一つのベースラインとなることを目指して、async\/awaitやTask、actor、MainActorなどを、アプリやテストのコードにどのように取り入れるか、具体例を用いて紹介します。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T13:00:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "Yuta Koshizawa",
+                "kana": "コシザワ ユウタ",
+                "twitter": "koher",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/7737e5c5-b322-4809-a107-0b2dcc0494ba.gif"
+            },
+            "fav_count": 26,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "fa87f700-1483-456b-9b28-ba7c119cfa69",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/fa87f700-1483-456b-9b28-ba7c119cfa69",
+            "title": "The state of Swift for WebAssembly in 2022",
+            "abstract": "SwiftのWebAssembly対応を進めている、SwiftWasmというプロジェクトがあります。\r\n\r\n現在、WebAssemblyはWebブラウザ上の用途だけでなく、「複数言語からコンパイルできて様々な環境で動く高速なプログラム」として、エッジコンピューティングやIoT、ブロックチェインにおけるスマートコントラクトなど、様々な分野で用途が模索されています。\r\n\r\nもし将来的にWebAssemblyが覇権を取った場合、そこでSwiftが活躍できるポジションはあるのでしょうか？\r\n\r\nこのトークでは、Wasm対応によって達成できる未来、プロジェクトの最新状況と課題、実際の活用事例を紹介したいと思います。\r\nAppleプラットフォーム以外でのSwiftの活用に興味のある方には、特に楽しんで頂ける内容になる予定です。",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-12T13:00:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "kateinoigakukun",
+                "kana": "カテイノイガククン",
+                "twitter": "kateinoigakukun",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/782580bb-7ce7-4a8a-a039-a3676c774778.jpg"
+            },
+            "fav_count": 15,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "3ad0d3fc-84a6-4fa2-8dd1-c4e2284aff4f",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/3ad0d3fc-84a6-4fa2-8dd1-c4e2284aff4f",
+            "title": "Effective PencilKit \/ 新聞スクラップ体験の実現",
+            "abstract": "WWDC 2019 で発表された PencilKit を利用することで、数行のコードで 標準メモアプリと同様の手描き体験をアプリに導入できます。\r\n\r\n発表に先立ち、日本経済新聞社の紙面ビューアーアプリでは、Apple Pencil を用いた紙面画像にメモやハイライトを書き込める機能をリリースしました。\r\n\r\nアプリの機能要件を満たすための独自拡張の実現には、様々な制約が立ちはだかりました。\r\nたとえば、キャンバスに画像を載せる、ズームやスクロールなどビューアーとしての操作は残しつつ書き込みを一時的に無効にするなど、一見すると単純そうですが一筋縄ではいきません。\r\n\r\n本セッションでは PencilKit の開発ノウハウを、ドキュメントと内部の動きから洞察した知見の両面から解説します。開発経験を踏まえ、紙の新聞に書き込みを行うユーザー体験をどのようにアプリへ落とし込んでいったか説明できればと思います。",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-12T13:00:00+09:00",
+            "length_min": 40,
+            "tags": [],
+            "speaker": {
+                "name": "shimastripe",
+                "kana": "シマストライプ",
+                "twitter": "shimastriper",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/317a9359-3457-45f3-9fa4-452e1a7f7feb.jpg"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "timeslot",
+            "uuid": "bf071145-4adc-4284-89ac-8a152ba99a04",
+            "title": "企画",
+            "abstract": null,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-12T13:00:00+09:00",
+            "length_min": 110
+        },
+        {
+            "type": "timeslot",
+            "uuid": "257526a7-6f55-4e35-ab79-c6c2c438ef6c",
+            "title": "クローズ",
+            "abstract": null,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T13:50:00+09:00",
+            "length_min": 60
+        },
+        {
+            "type": "talk",
+            "uuid": "ad544d2d-0e37-48f7-836a-3d46abe4ad2f",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/ad544d2d-0e37-48f7-836a-3d46abe4ad2f",
+            "title": "モバイルアプリの行動ログの「仕込み」を快適にする",
+            "abstract": "ここでの「行動ログ」とは、特定の画面の表示、ボタンのタップなど、ユーザー操作を起点に送信するものを指します。集めた行動ログは、サービス開発上の分析や実態把握に役立ちます。\r\n\r\nアプリ開発者は、そのログを仕込む役割を担いますが、しばしば課題にぶつかります。\r\n\r\n - いざ分析するとき「ログが足りない！」\r\n   - 「QA時にログ送信、網羅した？」\r\n   - そもそもログ要件が十分に練られていない……\r\n - ……\r\n\r\n本セッションでは、行動ログにまつわる悩みの種のうち、ログ実装の「仕込み」にフォーカスして、ミスを防ぐ仕組みや工夫の事例をご紹介します。\r\n\r\nトピック\r\n- ドキュメントをベースにした型安全なログ実装コード自動生成\r\n- iOS 14以降で使いやすくなった Logger APIの活用\r\n- QA作業を踏まえたログ実装網羅チェッカー\r\n\r\nなど",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-12T13:55:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "Yuji Fujisaka",
+                "kana": "ユウジ　フジサカ",
+                "twitter": "yujif_",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/f939bcf9-0b20-44d6-8e02-c0cc18df1d8b.jpeg"
+            },
+            "fav_count": 9,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "a4625d8c-c0c8-464e-ad79-eab52a6490f2",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/a4625d8c-c0c8-464e-ad79-eab52a6490f2",
+            "title": "目からビームでヴィランをやっつける 〜ARKitの知られざる並走機能〜",
+            "abstract": "ARKitが持つ多くの機能の中でも、みなさんはフロントカメラとバックカメラを同時に使用することによるフェイストラッキングとワールドトラッキングの並走機能をご存知でしょうか？実はこの機能、Human Computer Interaction（HCI）の研究者たちの注目を集めたアツい機能なんです。この機能により、視線を向けるだけで目の前のコーヒーメーカーがコーヒーを淹れてくれるような、これまでにスマートフォン1台ではできなかった体験を実現することが可能となりました。\r\n本トークでは、この並走機能に新たな可能性を感じた私が実際に作ったいくつかのサンプルアプリの紹介やそこで得られた知見の共有をします。\r\n\r\n・視線を向けるだけで電気を点けたり、コーヒーを淹れられるアプリ\r\n・目からビームを発してヴィランをやっつけるアプリ\r\n・ユーザが暗い表情をしていると、辺りに花が咲きほこるアプリ",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-12T13:55:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "nagain",
+                "kana": "ナガイン",
+                "twitter": "na9ain",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/ddd6cca2-e3b1-493a-a22f-9c33e9bd2e27.jpg"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "149abcfe-2fa4-43cf-acec-f38393ca4a4b",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/149abcfe-2fa4-43cf-acec-f38393ca4a4b",
+            "title": "iOS15からのCommunication NotificationとSiri",
+            "abstract": "iOS15からユーザー間でのやりとりのための新しい通知、Communication Notificationが導入されました。\r\nそうです、通知にユーザーのアイコンが出るあの通知です。 \r\n\r\nUIが変わったり、通知の要約を突破できたりと普通の通知よりも便利なこともある一方、Siriに関する知識が必要になってきます。\r\nしかしSiriに関してはドキュメントも知見も少なく、その割に設定する項目も多く、敷居が高いイメージもあるのではないでしょうか？\r\nそもそもなぜ通知の実装にSiriが出てくるのでしょうか？\r\n\r\nこのトークではCommunication Notificationの実装方法、Communication Notificationを実装する上でのSiriの知識、及びよくやってしまいがちなCommunication Notificationのアンチパターンなどを紹介していきます。",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-12T13:55:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "まつじ",
+                "kana": "マツジ",
+                "twitter": "mtj_j",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/2187a640-4b47-46f7-ab23-9595251beece.jpg"
+            },
+            "fav_count": 9,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "a9d5b12e-6170-4f1c-be93-9412898523a0",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/a9d5b12e-6170-4f1c-be93-9412898523a0",
+            "title": "キャッシュによる状態管理のアーキテクチャ",
+            "abstract": "例えばTwitterアプリでは、ツイートに押したいいねは他のどの画面に表示される同一のツイートにも反映されています。\r\nこのような体験を実現する上で、グローバルステートとして状態を管理する手法がしばしば用いられ、iOSアプリ開発でもReduxから派生するTCAが例として挙げられます。\r\n\r\nしかし、そもそもこのグローバルステートで管理する大抵の状態はサーバーからのレスポンスであることから、WebフロントエンドではReact QueryやSWRを筆頭にサーバーデータのキャッシュによる状態管理が流行しつつあります。\r\n\r\nそこで本トークでは、SwiftUIを用いたiOSアプリ開発におけるサーバーデータのキャッシュによる状態管理のアーキテクチャについてお話しします。\r\n",
+            "accepted": true,
+            "track": {
+                "name": "Track B",
+                "sort": 2
+            },
+            "starts_at": "2022-09-12T14:30:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "岩名 勇輝",
+                "kana": "イワナ ユウキ",
+                "twitter": "_rockname",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/bac50e47-837f-4990-ac92-da0b5a3f3c20.jpg"
+            },
+            "fav_count": 12,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "0970265f-664c-4626-848e-4c86f1efa94f",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/0970265f-664c-4626-848e-4c86f1efa94f",
+            "title": "watchOSにおけるバックグラウンドタスクの限界",
+            "abstract": "Appleが提供している中で最もバックグラウンドタスクが重要なプラットフォーム、それがwatchOSです。\r\n操作は両腕を上げる必要があるので短時間で済ませたいですし、ワークアウトのような長時間のタスクはそもそも待っていられません。\r\n\r\nそんなwatchOSのバックグラウンドタスクは2016年に開発者へ解禁されて早6年、日々進歩してきました。\r\nwatchOS 9でも新しい機能が追加されるようで、更なる進化が期待できます。\r\n\r\n本セッションでは以下のテーマについてお話しすることで、今のwatchOSアプリでどこまで出来るのかを理解する手助けになればと思います。\r\n\r\n- バックグラウンドでできること、できないこと\r\n- 端末の世代やバッテリー残量などの環境によって受ける影響\r\n- どのようにバックグラウンドタスクを設計すべきか\r\n- watchOS 9から追加される新機能",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-12T14:30:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "yamannnu",
+                "kana": "ヤマンヌ",
+                "twitter": "_yamannnu",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/e5513d7c-80a0-40c9-b2ae-3380e9a15e81.jpg"
+            },
+            "fav_count": 8,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "c922031a-84b2-45de-9cac-3a05998978a9",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/c922031a-84b2-45de-9cac-3a05998978a9",
+            "title": "AirPlayの裏舞台",
+            "abstract": "みなさん、AirPlay使いこなしていますか？\r\nAirPlayはAppleのデバイスから映像や音楽をApple TVや対応スマートテレビ・スピーカーで再生できる機能です。発表当初から複雑な設定なしで直感的に使えるようにAppleらしい設計が行われ、ユーザーにその裏側で何が起きているのかを意識させることがほとんどないようにデザインされています。2018年にAirPlay 2が発表されて以降は対応デバイスも増え、またSiri連携や接続先デバイスの学習によりますます使いやすくなって来ました。\r\n本トークではAirPlayで可能になる体験やアプリへの組み込み方法、他のキャスト技術との比較といった内容の他、その仕組みの裏でどんな通信が行われているのか？まで踏み込んでお話しできればと思います。",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-12T14:30:00+09:00",
+            "length_min": 20,
+            "tags": [],
+            "speaker": {
+                "name": "なめき　ちはる",
+                "kana": "ナメキ　チハル",
+                "twitter": "Ridwy",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/10226ee1-43d3-4af4-89d2-b99ffc61ff32.jpg"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "49b9d957-559f-4a0e-87d1-97433f1b3ca2",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/49b9d957-559f-4a0e-87d1-97433f1b3ca2",
+            "title": "PHPでも作れる「ファミコンエミュレータ」づくりの魅力",
+            "abstract": "「ファミコンエミュレータを作る」と聞いて何を思い浮かべますか？\r\n多くの方は何をどうしたら良いのか全く想像が付かないと思いますし、私もそうでした。\r\n\r\n2016年2月にPHPで書かれたゲームボーイエミュレータ php-terminal-gameboy-emulator が話題になりました。このとき、PHPならばということでコードを読んでみました。エミュレータのコードを読んだのは初めての経験だったのですが、大きな衝撃を受けました。私は以前からこの頃のゲーム機に共通する仕様や、CPUやメモリについての知識は持っていたのですが、php-terminal-gameboy-emulator のコードにはそんな仕様がそのままPHPのコードとして表現されていたのです！\r\n\r\nそしてその2年後、あるカンファレンスでファミコンエミュレータに関するトークを聞いた時に、2度目の衝撃が私を襲いました。そこで紹介されたコードは初めて見るにもかかわらず、断片を見るだけで内容が理解できたのです。\r\n\r\nこのトークでは2度目の衝撃を受けて私がPHPで書いたファミコンエミュレータ php-terminal-nes-emulator を題材に、エミュレータのコードの特長や設計、そしてその魅力をお伝えします。\r\n\r\nCPUの動作（メモリアクセス, I\/O, …）\r\nエミュレータでの実装\r\nハードウェア仕様のソフトウェアとしての表現\r\nエミュレータは決して難しいものではなく新しい言語の学習や設計の練習にちょうどよいテーマでもあります。このトークを聞けばきっと一度エミュレータを書いてみたくなるでしょう。",
+            "accepted": true,
+            "tags": [],
+            "speaker": {
+                "name": "長谷川智希",
+                "kana": "ハセガワトモキ",
+                "twitter": "tomzoh",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/1cc0bf4f-296b-46cc-8f31-f0a8bd1d28cf.jpg"
+            },
+            "fav_count": 0,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "timeslot",
+            "uuid": "2e890122-87e7-44ca-a8b1-0f8361a4290f",
+            "title": "LT（6本）",
+            "abstract": null,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T15:05:00+09:00",
+            "length_min": 40
+        },
+        {
+            "type": "talk",
+            "uuid": "8d472291-939a-4d15-90cf-925cea69c2a7",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/8d472291-939a-4d15-90cf-925cea69c2a7",
+            "title": "JailBreakと向き合おう",
+            "abstract": "昔はiOSのJailBreakはよく行われていましたが、最近はiOSのアップデートによりJailBreakは少なくなったような印象です。\r\nとはいえ何もしないのではなく、やれることはやっておいたほうがいいと思います。\r\n\r\n本LTでは、JailBreakはどのような手段があるのか、アプリはどのような対策ができるのか、自分なりに調べた結果を共有したいと思います。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T15:10:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "darquro",
+                "kana": "ダークロ",
+                "twitter": "darquro",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/7da0037c-ffc9-445b-b62d-1572f6e475db.jpg"
+            },
+            "fav_count": 13,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "a2164d63-1a7f-4fa3-9d06-613474e7d984",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/a2164d63-1a7f-4fa3-9d06-613474e7d984",
+            "title": "CarPlay向けのアプリって開発できるの？",
+            "abstract": "CarPlayを利用したことはありますでしょうか。\r\n\r\nCarPlayはiPhoneがあるだけで登録した地点までのナビをする、好きな音楽を再生するなど、車をすぐに自分の空間にすることができます。\r\n\r\n便利なCarPlayですが、ハードルが高く実際に触ってみたりアプリを作る機会は少ないのではないでしょうか。\r\nですが最近はiPhoneを繋いで動作するシミュレータや、安価なカーオーディオがあったりします。\r\nまたUIもTemplatesが用意されていたり試すのは意外と簡単だったりします。\r\n\r\n本LTでは、CarPlayの開発に必要な知識を振り返りつつ、簡単なアプリを動かせたらと思います。\r\n\r\n[ゴール]\r\n・CarPlayに興味が湧いて触ってみようかな、という気になる\r\n\r\n[アジェンダ]（検討中）\r\n・CarPlayとは\r\n・開発するために・・\r\n・シミュレータを触ってみよう\r\n・簡単なアプリを作ってみよう",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T15:15:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "haseken",
+                "kana": "ハセケン",
+                "twitter": "haseken_dev",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/642977f2-9cbe-4dcf-a481-94d7923eb297.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "922ece05-9a10-4e88-9c7f-f87312f9b550",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/922ece05-9a10-4e88-9c7f-f87312f9b550",
+            "title": "鉄道アプリを支えるテクノロジー",
+            "abstract": "東急株式会社・東急電鉄株式会社では東急東横線や田園都市線などの鉄道をより便利にお使いいただくために「東急線アプリ」を提供しています。\r\n\r\nこのLTでは\r\n\r\n- アプリと連携する駅、線路、車両などのハードウェアについて\r\n- アプリと連携する線路信号システム、運行情報システムの技術\r\n- アプリ上でリアルタイムデータ更新するためのアーキテクチャ\r\n\r\nなど\r\n普段知る機会の少ない鉄道のテクノロジーとiOSアプリでの活用についてご紹介します。\r\n",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T15:20:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "Hiroshi Shikata",
+                "kana": "シカタ　ヒロシ",
+                "twitter": "dotrikun",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/89edc662-6e38-425d-8cc0-a9271df9dc01.png"
+            },
+            "fav_count": 10,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "277ed19f-848b-4d39-8b53-5eb29765d099",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/277ed19f-848b-4d39-8b53-5eb29765d099",
+            "title": "Flutterアプリ開発にネイティブコードはどこまで求められるのか",
+            "abstract": "2018年に登場したFlutter。きっと当時は「またクロスプラットフォームフレームワークが出てきて、廃れていくのか？」と思った方もいると思いますが、今では様々なアプリで使われるようになりました。弊社の新規アプリ「Famm プリント」もFlutter製アプリの一つです。\r\n\r\n「Flutter流行ってるし、そろそろ手を付けてみようかな」\r\n「でも結局各プラットフォームのネイティブコード呼ばなきゃいけない場面出てきたりしない…？」\r\nそんなことを思っている人もいるのではないでしょうか？\r\n\r\nこのトークでは、実際にFlutter製アプリを作ってみてネイティブコードを書いた場面はあったのか、ネイティブコードを書くことを求められるのはどんな場面かを話したいと思います。このトークによって、Flutter開発を躊躇していた方の背中をポンと押せたら幸いです。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T15:25:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "akatsuki174",
+                "kana": "アカツキ",
+                "twitter": "akatsuki174",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/afcf48ef-3bb6-4965-8f78-7906b26f097f.png"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "02608800-42a8-4de5-b123-5fccb3174ab4",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/02608800-42a8-4de5-b123-5fccb3174ab4",
+            "title": "VisionKitを使ってクレジットカードスキャナーを作る話",
+            "abstract": "iOS13から追加されたVisionKitフレームワークの物体認識、OCR(Optical character recognition)など一部機能を使うとこで簡単にクレジットカードの番号を読み込む機能をゼロから作ることができます。\r\n\r\n・VNDetectRectanglesRequest -> カードの形を認識\r\n・VNRecognizeTextRequest -> カード番号、有効期限、名前の読み込み(ocr)\r\n・パーシングして使えるかを判定\r\n\r\nその他、認識制度を上げるためのアイディアについて話します！",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T15:30:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "Park Byungjun",
+                "kana": "パクビョンジュン",
+                "twitter": "hexarf",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/275102e9-a075-4402-8508-a7305443a7b3.jpg"
+            },
+            "fav_count": 5,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "371e874b-c24a-4388-897a-444721a05b4b",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/371e874b-c24a-4388-897a-444721a05b4b",
+            "title": "iPhoneでサッカースタジアムをスキャンしVPSを動作させるには",
+            "abstract": "Visual Positioning Systemは周りの風景の情報を元に現実空間の中で自身の位置を特定する技術です。\r\n\r\n私はサッカーJ2リーグの町田ゼルビアのホームスタジアム「町田GIONスタジアム」にて\r\niPhoneで数百枚画像撮影して点群作成し、VPS機能を用いてAR表現を実現しました。\r\n\r\n- Immersal での点群作成\r\n- 実際のスキャンの様子\r\n- 数回の実作業を経て得た生成物\r\n- VPSを用いて実現したAR表現\r\n\r\nそもそもiPhoneでスタジアムに立ち向かえるのか！\r\n\r\nスタジアムでの現地作業という貴重な経験から得た知見を共有し、そこでどんな表現が実現できたのか画像と映像と共に熱く解説します。\r\n",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T15:35:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "服部 智",
+                "kana": "ハットリ サトシ",
+                "twitter": "shmdevelop",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/cb749312-75d9-4dbe-8fe9-01f297722d67.jpg"
+            },
+            "fav_count": 4,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "timeslot",
+            "uuid": "4348d6d1-e8d3-449a-89c7-c122a74bec53",
+            "title": "LT（6本）",
+            "abstract": null,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T15:55:00+09:00",
+            "length_min": 45
+        },
+        {
+            "type": "talk",
+            "uuid": "38dd500c-5e65-494c-bb35-16a72eaf33ea",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/38dd500c-5e65-494c-bb35-16a72eaf33ea",
+            "title": "サポートiOSバージョンを定期的にあげる仕組みづくり",
+            "abstract": "サポートOSバージョン、どんどんあげていきたいですよね？\r\nしかし、サポートバージョンを減らすとユーザーも減るため、プロダクトオーナーに渋られることもよくあります。\r\n\r\n加えて、開発の現場では「サポートOSバージョンあげたいけど、結構気合で解決できるし……」というエンジニアと、\r\n「エンジニアから要望も来ないから、あげなくてもいいか」というプロダクトオーナーという、お見合い状態になることもあります。\r\n実はサポートOSバージョンをあげてもよさそうなのに、キッカケがない……そんなことはありませんか？\r\n\r\nこのトークではこういった課題を解決するため、\r\n・アクティブユーザーのOSバージョン割合で判断するのは悪手！？本当に見るべき指標\r\n・定期的にサポートOSバージョンアップを検討できるキッカケの仕組み\r\nについて話します。\r\n\r\nこのトークが皆さんのアプリのサポートOSバージョンアップにつながると嬉しいです。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T16:00:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "FromAtom",
+                "kana": "フロムアトム",
+                "twitter": "FromAtom",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/9ad70c3d-3047-4ee0-addf-fd6a7cef90f3.jpg"
+            },
+            "fav_count": 10,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "f4ca136c-710e-4373-8b4c-1a4265ff5ed7",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/f4ca136c-710e-4373-8b4c-1a4265ff5ed7",
+            "title": "大学で出席管理アプリ・掲示板閲覧アプリを開発・運用している学生の話",
+            "abstract": "現在、愛知県の大学で大学側と協力し、出席管理アプリ・掲示板閲覧アプリを開発・運用している学生です！\r\n出席管理アプリは教室内に設置されたBLEビーコンを用いて位置推定を行い、授業に出席登録できるアプリであり、\r\n掲示板閲覧アプリは学生掲示板をスマートフォンから閲覧できるアプリです。\r\nどちらもAppStoreにて公開・運用しております。\r\n\r\nこのLTではこれらのアプリで用いている技術や運用を紹介しますので\r\n「エンターテイメントとほんの少しの知見共有」として聞いていただければ幸いです。\r\n\r\nまた、大学に出席管理アプリ・掲示板閲覧アプリがない学生の皆さんへ\r\n「皆さんも大学のアプリを開発し、学生生活をよくしよう！！！！」というメッセージとなればいいなと思っています。\r\n\r\n対象とする人:\r\n- ***学生でiOS開発をしている人***\r\n- 学生のアプリ開発の話を温かい目で見てくださる方",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T16:05:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "kntkymt",
+                "kana": "ケー エヌ ティー ケー ワイ エム ティー",
+                "twitter": "kntk47502405",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/875511e2-306f-4017-b408-1e351fde3f3d.jpg"
+            },
+            "fav_count": 5,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "9c6e1923-0976-48ee-b813-1771a2210af1",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/9c6e1923-0976-48ee-b813-1771a2210af1",
+            "title": "GDPR or \"similar\" statute",
+            "abstract": "皆さんはGDPRという単語を聞いたことがありますか？はい、ヨーロッパの個人情報に関する法律ですね。ここで審査ガイドラインを見てみましょう。\r\n\r\n> the European Union's General Data Protection Regulation (\"GDPR\") or similar statute\r\n\r\nそう、GDPRのような法律はGDPRだけではないのです。GDPRさえ、ヨーロッパさえチェックしておけばいいなんてことはありません。個人情報保護規定はどの国にもあるのです。\r\n本LTでは、保護規程といえばまずはGDPR！な皆様と一緒に他国における類似の規定について学びます。\r\n\r\n話すこと\r\n- アプリ審査ガイドラインの振り返り\r\n- GDPRの振り返り\r\n- 2022年6月1日🇹🇭\r\n- JETROが注意喚起してるって知ってた？\r\n\r\n話さないこと\r\n- 法律への対処手段（専門家に聞いてください！）",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T16:10:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "しもとり",
+                "kana": "シモトリ",
+                "twitter": "S_Shimotori_pub",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/e8aa4d46-a84b-4a50-88cd-663dbad7355e.jpg"
+            },
+            "fav_count": 10,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "935af101-7655-4d6e-a708-e5dcba976aa8",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/935af101-7655-4d6e-a708-e5dcba976aa8",
+            "title": "今更だけどUIKitで型パラメータのインジェクトを利用してViewのレイアウトをしてみよう",
+            "abstract": "似たようなレイアウトのViewがいくつかあった場合に、どのように実装しますか？\r\nenumでtypeを定義してtypeごとにレイアウトを分岐したり、ベースクラスを作ってサブクラス側でレイアウトに必要な処理を行なったりなど、様々な実装方法があるかと思います。\r\n\r\n本トークでは、実際にサービスで運用されているデザインを題材に、型パラメータのインジェクトを利用したViewのレイアウト方法についてお話します。\r\n他のレイアウト方法とは、どういった違いがあるかなどもお話できればと思います。",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T16:15:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "marty-suzuki",
+                "kana": "マーティスズキ",
+                "twitter": "marty_suzuki",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/2e83ba6e-5bde-4c77-ac01-2e41381009c6.jpg"
+            },
+            "fav_count": 7,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "a8f8be31-d5d2-413b-b86a-1b2e195f63aa",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/a8f8be31-d5d2-413b-b86a-1b2e195f63aa",
+            "title": "SceneKit AND SwiftUI",
+            "abstract": "SceneKit は３次元空間で物理シミュレーションなどの複雑なアニメーションを可能とする Framework です。ですから ARKit を利用したアプリやゲームアプリなどの開発を行わない開発者にとっては遠い存在にも感じるかもしれません。\r\nしかし、紙吹雪アニメーションなど、一定のランダム性を必要とする場面では Core Animation にも限界が来てしまいます。そんなときに便利なのが SceneKit です！\r\n\r\n・寄付アプリ「dim.」での実例紹介\r\n・SwiftUI で SceneKit を利用\r\n・SceneKit で iOSDC を表現（リアルタイム実装）\r\n\r\nこのトークでは、SceneKit の活用事例をご紹介するとともに、5分という制限時間内で SceneKit を用いた機能をリアルタイムで構築します。トーク終了後には SceneKit の虜になっていること間違いなしです！",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T16:20:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "AkkeyLab",
+                "kana": "アッキーラボ",
+                "twitter": "AkkeyLab",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/34c44ff4-7d0f-4e23-b783-13538313cf72.jpg"
+            },
+            "fav_count": 6,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "cc685572-46e9-483a-83b2-a1c839662dec",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/cc685572-46e9-483a-83b2-a1c839662dec",
+            "title": "iPadOSDC Japan 2022",
+            "abstract": "「お前も Swift Playgrounds を使った開発者にならないか？」\r\n「見れば解るお前の強さ。Xcode だな？」\r\n「その闘気。練り上げられている。熟練の開発者に近い」\r\n「やはり Swift Playgrounds を使った開発者になれ！俺と iPad で開発を続けよう」\r\n\r\n\r\nSwift Playgrounds では、昨年末から iPad 上でアプリを開発してリリースできるようになりました。\r\n本セッションではそんな「ならない」と感じている人たちのために、Swift Playgrounds を使った iPad での開発を紹介します。\r\n\r\n\r\n「死ぬ…！！死んでしまうぞ　Swift Playgrounds を使った開発者になれ！！なると言え！！」",
+            "accepted": true,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T16:25:00+09:00",
+            "length_min": 5,
+            "tags": [],
+            "speaker": {
+                "name": "Hiromu Tsuruta",
+                "kana": "ヒロム ツルタ",
+                "twitter": "hcrane14",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/7f77375e-4ae8-44bd-aa84-e57f1d95d7b0.jpg"
+            },
+            "fav_count": 18,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "89a78415-92b6-47b6-9482-5b2d1eebcc95",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/89a78415-92b6-47b6-9482-5b2d1eebcc95",
+            "title": "新卒は見た！ゆめみの実態！",
+            "abstract": "他社だと「マジかよ！？」と驚くような制度や仕組みがゆめみにはたくさん存在します。有給取り放題や給与自己決定なども、ゆめみを代表する制度の一部です。\r\n「その制度って対外的なパフォーマンスでは？」と思う方もいるでしょう。私もゆめみに入社する前はそう思っていました。\r\n入社してわかった「ゆめみ事情」について、新卒の観点からお話しします！\r\n聞いてくださる方には、ゆめみについてもっと知っていただければ幸いです。",
+            "accepted": true,
+            "track": {
+                "name": "Track C",
+                "sort": 3
+            },
+            "starts_at": "2022-09-12T16:50:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "くどかい",
+                "kana": "クドカイ",
+                "twitter": "kudokai00",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/ec789251-b6ed-41be-a873-4ebe253af130.jpg"
+            },
+            "fav_count": 4,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "36ab570c-830c-4745-8eb6-bfb7fb9a50d1",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/36ab570c-830c-4745-8eb6-bfb7fb9a50d1",
+            "title": "音声プラットフォーム「Voicy」のiOS開発について",
+            "abstract": "日本最大級の音声プラットフォームを運営するVoicyでは、リスナー向けアプリの「Voicy」とパーソナリティ向けアプリの「VoicyStudio」の2種類のアプリがあり、日々開発を進めています。\r\nさまざまな改善を重ねつつ、生放送、アプリ内課金などの新規機能をリリースしてきました。\r\n本セッションでは、改善を重ねつつ新規機能をリリースしている2つのアプリを開発しているVoicyの開発体制、プロセスについてご紹介します。",
+            "accepted": true,
+            "track": {
+                "name": "Track D",
+                "sort": 4
+            },
+            "starts_at": "2022-09-12T16:50:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "立花和也",
+                "kana": "タチバナカズヤ",
+                "twitter": "kzytcbn315",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/cd8d6aad-9aa5-4694-b38f-f9f693f5ae7b.jpg"
+            },
+            "fav_count": 1,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "talk",
+            "uuid": "a78695d1-0d41-405e-bab9-62ed7299df8d",
+            "url": "https:\/\/fortee.jp\/iosdc-japan-2022\/proposal\/a78695d1-0d41-405e-bab9-62ed7299df8d",
+            "title": "Parallel testing of iOS UI on a large scale",
+            "abstract": "BitriseでAppleシリコンベースの仮想化CI\/CD環境とビルドパイプラインの提供が開始され、より高速なiOSビルド及び並列UIテストが可能になりました。\r\nそれに加え、ビルドとテストパフォーマンス\/安定性のデータを可視化するInsights\r\nPROを利用すれば、よりエラーの少ない、安全なiOSアプリ開発ワークフローが実現できます。\r\n\r\n本トークでは、Bitriseの機能を活用して大規模なiOS UI 並列テストの実現方法などCI\/CDプロセスの高速化する方法を紹介します。\r\n- Appleシリコンベースの仮想化CI\/CD環境 (M1 stack)によるビルド高速化\r\n- ビルドパイプラインの概要、及び導入によるiOS UI並列テストの実現方法\r\n- Insights PROによるアプリ開発ワークフローの改善方法\r\n\r\n* 本トークは英語で行う予定です。",
+            "accepted": true,
+            "track": {
+                "name": "Track E",
+                "sort": 5
+            },
+            "starts_at": "2022-09-12T16:50:00+09:00",
+            "length_min": 20,
+            "tags": [
+                {
+                    "name": "スポンサーセッション",
+                    "color_text": "#ffffff",
+                    "color_background": "#28a745"
+                }
+            ],
+            "speaker": {
+                "name": "Tzuhan Hsu",
+                "kana": "ツーハン シュウ",
+                "twitter": "BitriseJ",
+                "avatar_url": "https:\/\/fortee.jp\/files\/iosdc-japan-2022\/speaker\/70548941-ad4c-4c4e-b351-59ba95403bc7.jpg"
+            },
+            "fav_count": 0,
+            "feedback": {
+                "open": false
+            }
+        },
+        {
+            "type": "timeslot",
+            "uuid": "aebc9a8e-63c5-47f0-8be3-2c38790e9e4f",
+            "title": "クロージング",
+            "abstract": null,
+            "track": {
+                "name": "Track A",
+                "sort": 1
+            },
+            "starts_at": "2022-09-12T17:20:00+09:00",
+            "length_min": 40
+        }
+    ]
+}

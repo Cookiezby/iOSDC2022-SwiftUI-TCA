@@ -1,6 +1,19 @@
 import SwiftUI
 import ComposableArchitecture
 
+struct ProposalStoreHashable: Identifiable, Hashable {
+    static func == (lhs: ProposalStoreHashable, rhs: ProposalStoreHashable) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    var id: UUID = UUID()
+    var store: Store<ProposalState, ProposalAction>
+}
+
 enum AppSideMenu {
     case timetable
     case myTimetable
@@ -8,23 +21,28 @@ enum AppSideMenu {
 }
 
 struct AppState: Equatable {
-    var sideMenu: AppSideMenu = .timetable
-    var myTimetable: MyTimetable
     var navigationPath = NavigationPath()
+    var sideMenu: AppSideMenu = .timetable
+    var myTimetable: MyTimetable = MyTimetable()
     var daySelect = DaySelectState()
     var dayTimetable = DayTimetableState()
     var selectedDate: Date?
     var dayTimetables: [DayTimetable] = []
-    
-    init() {
-        self.myTimetable = LocalData.shared.myTimetable
+    var proposalDetail: ProposalState {
+        get {
+            ProposalState(myTimetable: self.myTimetable)
+        }
+        
+        set {
+            self.myTimetable = newValue.myTimetable
+        }
     }
 }
 
 enum AppAction {
     case daySelect(DaySelectAction)
     case dayTimetable(DayTimetableAction)
-    case proposalAction(ProposalAction)
+    case proposal(ProposalAction)
     case loadTimetable
     case timetableResponse(Timetable)
     case sendNavigationPathChanged(NavigationPath)
@@ -50,6 +68,12 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             DayTimetableEnvironment()
         }
     ),
+    proposalReducer.pullback(
+        state: \AppState.proposalDetail,
+        action: /AppAction.proposal,
+        environment: { _ in
+        ProposalEnvironment()
+    }),
     .init { state, action, environment in
         switch action {
         case .daySelect(.selectDate(let date)):
@@ -80,17 +104,22 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             state.selectedDate = dates.first
             state.daySelect = DaySelectState(selectedDate: dates.first, days: dates)
             state.dayTimetable = DayTimetableState(dayTimetable: dayTimetables[0])
-            state.myTimetable.dayTimetables = state.dayTimetables.map {
-                MyDayTimetable(date: $0.date, proposals: [])
-            }
+//            state.myTimetable.dayTimetables = state.dayTimetables.map {
+//                MyDayTimetable(date: $0.date, proposals: [])
+//            }
             return .none
         case .sendNavigationPathChanged(let path):
+            
             state.navigationPath = path
             return .none
         case .selectSideMenu(let menu):
             state.sideMenu = menu
             return .none
-        case .proposalAction(.saveToMyTimetable(proposal: let proposal)):
+        case .proposal(.saveToMyTimetable(proposal: let proposal)):
+            state.myTimetable.add(proposal: proposal)
+            return .none
+        case .proposal(.removeFromMyTimetable(proposal: let proposal)):
+            state.myTimetable.remove(proposal: proposal)
             return .none
         }
     }
@@ -144,7 +173,7 @@ struct AppView: View {
                                 viewStore.send(.loadTimetable)
                             })
                             .navigationDestination(for: Proposal.self) { value in
-                                //ProposalView(store: proposalStore(selected: value))
+                                ProposalView(proposal: value, store: proposalStore)
                             }
                     }
                 case .myTimetable:
@@ -167,7 +196,7 @@ struct AppView: View {
                     } icon: {
                         Image(systemName: "rectangle.split.3x3")
                     }
-
+                    
                     Label {
                         Text("Help")
                     } icon: {
@@ -202,13 +231,9 @@ extension AppView {
         store.scope(state: \.dayTimetable, action: AppAction.dayTimetable)
     }
     
-//    private func proposalStore(selected: Proposal) -> Store<ProposalState, ProposalAction> {
-//        return store.scope(state: { _ in
-//            return ProposalState(proposal: selected)
-//        }, action: {
-//            return $0
-//        })
-//    }
+    private var proposalStore: Store<ProposalState, ProposalAction> {
+        store.scope(state: \.proposalDetail, action: AppAction.proposal)
+    }
 }
 
 
