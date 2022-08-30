@@ -29,10 +29,7 @@ struct AppState: Equatable {
     var selectedDate: Date?
     var dayTimetables: [DayTimetable] = []
     var proposalDetail: ProposalState {
-        get {
-            ProposalState(myTimetable: self.myTimetable)
-        }
-        
+        get { ProposalState(myTimetable: self.myTimetable) }
         set {
             self.myTimetable = newValue.myTimetable
         }
@@ -72,8 +69,8 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         state: \AppState.proposalDetail,
         action: /AppAction.proposal,
         environment: { _ in
-        ProposalEnvironment()
-    }),
+            ProposalEnvironment()
+        }),
     .init { state, action, environment in
         switch action {
         case .daySelect(.selectDate(let date)):
@@ -110,6 +107,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             state.navigationPath = path
             return .none
         case .selectSideMenu(let menu):
+            state.navigationPath.removeLast(state.navigationPath.count)
             state.sideMenu = menu
             return .none
         case .proposal(.saveToMyTimetable):
@@ -160,21 +158,21 @@ struct AppView: View {
                     }.buttonStyle(PlainButtonStyle())
                 }.background(Color.white)
             } detail: {
-                switch viewStore.sideMenu {
-                case .timetable:
-                    NavigationStack(path: viewStore.binding(get: \.navigationPath, send: AppAction.sendNavigationPathChanged)) {
+                NavigationStack(path: viewStore.binding(get: \.navigationPath, send: AppAction.sendNavigationPathChanged)) {
+                    switch viewStore.sideMenu {
+                    case .timetable:
                         DayTimetableView(store: dayTimetableStore)
                             .onAppear(perform: {
                                 viewStore.send(.loadTimetable)
-                            })
-                            .navigationDestination(for: Proposal.self) { value in
+                            }).navigationDestination(for: Proposal.self) { value in
                                 ProposalView(proposal: value, store: proposalStore)
                             }
+                        
+                    case .myTimetable:
+                        MyTimetableView(myTimetable: viewStore.myTimetable)
+                    case .about:
+                        Text("About")
                     }
-                case .myTimetable:
-                    MyTimetableView(myTimetable: viewStore.myTimetable)
-                case .about:
-                    Text("About")
                 }
                 
             }.toolbar {
