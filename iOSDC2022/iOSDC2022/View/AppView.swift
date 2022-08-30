@@ -141,7 +141,7 @@ struct AppView: View {
                         viewStore.send(.selectSideMenu(.myTimetable))
                     } label: {
                         Label {
-                            Text("MyTimetable")
+                            Text("Schedule")
                         } icon: {
                             Image(systemName: "rectangle.grid.3x2")
                         }
@@ -167,6 +167,9 @@ struct AppView: View {
                             }).navigationDestination(for: Proposal.self) { value in
                                 ProposalView(proposal: value, store: proposalStore)
                             }
+                            .toolbar {
+                                DaySelectionView(store: daySelectStore)
+                            }
                         
                     case .myTimetable:
                         MyTimetableView(myTimetable: viewStore.myTimetable)
@@ -175,8 +178,6 @@ struct AppView: View {
                     }
                 }
                 
-            }.toolbar {
-                DaySelectionView(store: daySelectStore)
             }
         }
 #else
