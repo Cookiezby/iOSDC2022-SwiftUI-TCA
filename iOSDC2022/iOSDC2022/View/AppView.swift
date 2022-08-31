@@ -108,9 +108,9 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .sidebar(.selectSideMenu(let menu)):
             state.navigationPath.removeLast(state.navigationPath.count)
             return .none
-        case .proposal(.saveToMyTimetable):
+        case .proposal(.addToSchedule):
             return .none
-        case .proposal(.removeFromMyTimetable):
+        case .proposal(.removeFromSchedule):
             return .none
         }
     }

@@ -6,19 +6,18 @@ struct ProposalState: Equatable {
 }
 
 enum ProposalAction {
-    case saveToMyTimetable(proposal: Proposal)
-    case removeFromMyTimetable(proposal: Proposal)
+    case addToSchedule(proposal: Proposal)
+    case removeFromSchedule(proposal: Proposal)
 }
 
 struct ProposalEnvironment {}
 
-
 let proposalReducer: Reducer<ProposalState, ProposalAction, ProposalEnvironment> = .init{ state, action, environment in
     switch action {
-    case .saveToMyTimetable(let proposal):
+    case .addToSchedule(let proposal):
         state.schedule.add(proposal: proposal)
         return .none
-    case .removeFromMyTimetable(let proposal):
+    case .removeFromSchedule(let proposal):
         state.schedule.remove(proposal: proposal)
         return .none
     }
@@ -66,13 +65,13 @@ struct ProposalView: View {
                     Spacer()
                     if viewStore.schedule.contains(proposal: proposal) {
                         Button {
-                            viewStore.send(.removeFromMyTimetable(proposal: proposal))
+                            viewStore.send(.removeFromSchedule(proposal: proposal))
                         } label: {
                             Text("リストから削除")
                         }
                     } else {
                         Button {
-                            viewStore.send(.saveToMyTimetable(proposal: proposal))
+                            viewStore.send(.addToSchedule(proposal: proposal))
                         } label: {
                             Text("リストに追加")
                         }
