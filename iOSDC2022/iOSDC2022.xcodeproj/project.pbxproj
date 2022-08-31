@@ -23,6 +23,7 @@
 		FA8D772228B65B8E000F2627 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D772128B65B8E000F2627 /* Date+Extension.swift */; };
 		FAA59B9628B999B3002F1D86 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA59B9528B999B3002F1D86 /* ScheduleView.swift */; };
 		FAA59B9A28BB84EB002F1D86 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA59B9928BB84EB002F1D86 /* Schedule.swift */; };
+		FAA59B9C28BF9349002F1D86 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA59B9B28BF9349002F1D86 /* Sidebar.swift */; };
 		FAB8FBBD28B8922D0043D8B9 /* DaySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8FBBC28B8922D0043D8B9 /* DaySelectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		FA8D772128B65B8E000F2627 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		FAA59B9528B999B3002F1D86 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		FAA59B9928BB84EB002F1D86 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		FAA59B9B28BF9349002F1D86 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		FAB8FBBC28B8922D0043D8B9 /* DaySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 		FA8D76F428ABE296000F2627 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAA59B9B28BF9349002F1D86 /* Sidebar.swift */,
 				FA6362A028A7F182003C56F8 /* AppView.swift */,
 				FA8D76F528ABE2B0000F2627 /* DayTimetableView.swift */,
 				FA8D771728B51E3E000F2627 /* ProposalView.swift */,
@@ -229,6 +232,7 @@
 				FA63629F28A7F182003C56F8 /* iOSDC2022App.swift in Sources */,
 				FA8D771828B51E3E000F2627 /* ProposalView.swift in Sources */,
 				FA242BA128B8990C00ECBC93 /* ProposalCell.swift in Sources */,
+				FAA59B9C28BF9349002F1D86 /* Sidebar.swift in Sources */,
 				FA8D772228B65B8E000F2627 /* Date+Extension.swift in Sources */,
 				FA6362B128A7F202003C56F8 /* Timetable.swift in Sources */,
 				FA242BA328B8A2CC00ECBC93 /* Color+Extension.swift in Sources */,

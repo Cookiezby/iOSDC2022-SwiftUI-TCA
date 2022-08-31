@@ -75,13 +75,6 @@ struct DayTimetableView: View {
                 } else {
                     EmptyView()
                 }
-//                if let proposal =
-//                    viewStore.selectedProposal {
-//                    GeometryReader { geo in
-//                        ProposalView(proposal: proposal).frame(width: max(geo.size.width * 0.5, 300))
-//                    }
-//                    
-//                }
             }
             .background(Color.white)
         }

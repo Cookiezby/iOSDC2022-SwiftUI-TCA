@@ -1,33 +1,23 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct ProposalStoreHashable: Identifiable, Hashable {
-    static func == (lhs: ProposalStoreHashable, rhs: ProposalStoreHashable) -> Bool {
-        lhs.id == rhs.id
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    
-    var id: UUID = UUID()
-    var store: Store<ProposalState, ProposalAction>
-}
-
 enum AppSideMenu {
     case timetable
-    case myTimetable
+    case schedule
     case about
 }
 
 struct AppState: Equatable {
     var navigationPath = NavigationPath()
-    var sideMenu: AppSideMenu = .timetable
+    var sidebar = SidebarState(menu: .timetable)
     var schedule = Schedule()
     var daySelect = DaySelectState()
     var dayTimetable = DayTimetableState()
     var selectedDate: Date?
     var dayTimetables: [DayTimetable] = []
+}
+
+extension AppState {
     var proposalDetail: ProposalState {
         get { ProposalState(schedule: schedule) }
         set { self.schedule = newValue.schedule }
@@ -37,11 +27,11 @@ struct AppState: Equatable {
 enum AppAction {
     case daySelect(DaySelectAction)
     case dayTimetable(DayTimetableAction)
+    case sidebar(SidebarAction)
     case proposal(ProposalAction)
     case loadTimetable
     case timetableResponse(Timetable)
     case sendNavigationPathChanged(NavigationPath)
-    case selectSideMenu(AppSideMenu)
 }
 
 struct AppEnvironment {
@@ -68,6 +58,12 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         action: /AppAction.proposal,
         environment: { _ in
             ProposalEnvironment()
+        }),
+    sidebarReducer.pullback(
+        state: \AppState.sidebar,
+        action: /AppAction.sidebar,
+        environment: { _ in
+            SidebarEnvironment()
         }),
     .init { state, action, environment in
         switch action {
@@ -107,12 +103,10 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             
             return .none
         case .sendNavigationPathChanged(let path):
-            
             state.navigationPath = path
             return .none
-        case .selectSideMenu(let menu):
+        case .sidebar(.selectSideMenu(let menu)):
             state.navigationPath.removeLast(state.navigationPath.count)
-            state.sideMenu = menu
             return .none
         case .proposal(.saveToMyTimetable):
             return .none
@@ -130,124 +124,75 @@ struct AppView: View {
 #if os(macOS)
         WithViewStore(self.store) { viewStore in
             NavigationSplitView(columnVisibility: $columnVisibility){
-                List {
-                    Button {
-                        viewStore.send(.selectSideMenu(.timetable))
-                    } label: {
-                        Label {
-                            Text("Timetable")
-                        } icon: {
-                            Image(systemName: "rectangle.grid.3x2")
-                        }
-                    }.buttonStyle(PlainButtonStyle())
-                    
-                    Button {
-                        viewStore.send(.selectSideMenu(.myTimetable))
-                    } label: {
-                        Label {
-                            Text("Schedule")
-                        } icon: {
-                            Image(systemName: "rectangle.grid.3x2")
-                        }
-                    }.buttonStyle(PlainButtonStyle())
-                    
-                    Button {
-                        viewStore.send(.selectSideMenu(.about))
-                    } label: {
-                        Label {
-                            Text("About")
-                        } icon: {
-                            Image(systemName: "questionmark.circle")
-                        }
-                    }.buttonStyle(PlainButtonStyle())
-                }.background(Color.white)
+                Sidebar(store: siderbarStore)
             } detail: {
-                NavigationStack(path: viewStore.binding(get: \.navigationPath, send: AppAction.sendNavigationPathChanged)) {
-                    switch viewStore.sideMenu {
+                NavigationStack(
+                    path: viewStore.binding(
+                        get: \.navigationPath,
+                        send: AppAction.sendNavigationPathChanged
+                    )
+                ) {
+                    switch viewStore.sidebar.menu {
                     case .timetable:
                         DayTimetableView(store: dayTimetableStore)
-                            .onAppear(perform: {
-                                viewStore.send(.loadTimetable)
-                            }).navigationDestination(for: Proposal.self) { value in
+                            .navigationDestination(for: Proposal.self) { value in
                                 ProposalView(proposal: value, store: proposalStore)
                             }
                             .toolbar {
                                 DaySelectionView(store: daySelectStore)
                             }
                         
-                    case .myTimetable:
+                    case .schedule:
                         ScheduleView(schedule: viewStore.schedule)
                     case .about:
                         Text("About")
                     }
                 }
-                
+                .onAppear(perform: {
+                    viewStore.send(.loadTimetable)
+                })
             }
         }
 #else
-        
         WithViewStore(self.store) { viewStore in
             NavigationSplitView(columnVisibility: $columnVisibility){
-                List {
-                    Button {
-                        viewStore.send(.selectSideMenu(.timetable))
-                    } label: {
-                        Label {
-                            Text("Timetable")
-                        } icon: {
-                            Image(systemName: "rectangle.grid.3x2")
-                        }
-                    }.buttonStyle(PlainButtonStyle())
-                    
-                    Button {
-                        viewStore.send(.selectSideMenu(.myTimetable))
-                    } label: {
-                        Label {
-                            Text("Schedule")
-                        } icon: {
-                            Image(systemName: "rectangle.grid.3x2")
-                        }
-                    }.buttonStyle(PlainButtonStyle())
-                    
-                    Button {
-                        viewStore.send(.selectSideMenu(.about))
-                    } label: {
-                        Label {
-                            Text("About")
-                        } icon: {
-                            Image(systemName: "questionmark.circle")
-                        }
-                    }.buttonStyle(PlainButtonStyle())
-                }.background(Color.white)
+                Sidebar(store: siderbarStore)
             } detail: {
-                NavigationStack(path: viewStore.binding(get: \.navigationPath, send: AppAction.sendNavigationPathChanged)) {
-                    switch viewStore.sideMenu {
+                NavigationStack(
+                    path: viewStore.binding(
+                        get: \.navigationPath,
+                        send: AppAction.sendNavigationPathChanged
+                    )
+                ) {
+                    switch viewStore.sidebar.menu {
                     case .timetable:
                         DayTimetableView(store: dayTimetableStore)
-                            .onAppear(perform: {
-                                viewStore.send(.loadTimetable)
-                            }).navigationDestination(for: Proposal.self) { value in
+                            .navigationDestination(for: Proposal.self) { value in
                                 ProposalView(proposal: value, store: proposalStore)
                             }
                             .toolbar {
                                 DaySelectionView(store: daySelectStore)
                             }
                         
-                    case .myTimetable:
-                        MyTimetableView(myTimetable: viewStore.myTimetable)
+                    case .schedule:
+                        ScheduleView(schedule: viewStore.schedule)
                     case .about:
                         Text("About")
                     }
                 }
-                
+                .onAppear(perform: {
+                    viewStore.send(.loadTimetable)
+                })
             }
         }
-        
 #endif
     }
 }
 
 extension AppView {
+    private var siderbarStore: Store<SidebarState, SidebarAction> {
+        store.scope(state: \.sidebar, action: AppAction.sidebar)
+    }
     private var daySelectStore: Store<DaySelectState, DaySelectAction> {
         store.scope(state: \.daySelect, action: AppAction.daySelect)
     }
@@ -260,8 +205,6 @@ extension AppView {
         store.scope(state: \.proposalDetail, action: AppAction.proposal)
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
