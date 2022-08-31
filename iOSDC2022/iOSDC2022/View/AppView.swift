@@ -23,16 +23,14 @@ enum AppSideMenu {
 struct AppState: Equatable {
     var navigationPath = NavigationPath()
     var sideMenu: AppSideMenu = .timetable
-    var myTimetable: MyTimetable = MyTimetable()
+    var schedule = Schedule()
     var daySelect = DaySelectState()
     var dayTimetable = DayTimetableState()
     var selectedDate: Date?
     var dayTimetables: [DayTimetable] = []
     var proposalDetail: ProposalState {
-        get { ProposalState(myTimetable: self.myTimetable) }
-        set {
-            self.myTimetable = newValue.myTimetable
-        }
+        get { ProposalState(schedule: schedule) }
+        set { self.schedule = newValue.schedule }
     }
 }
 
@@ -101,6 +99,12 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             state.selectedDate = dates.first
             state.daySelect = DaySelectState(selectedDate: dates.first, days: dates)
             state.dayTimetable = DayTimetableState(dayTimetable: dayTimetables[0])
+            for dayTimetable in dayTimetables {
+                if !state.schedule.daySchedules.contains(where: {$0.date == dayTimetable.date}) {
+                    state.schedule.add(day: dayTimetable.date)
+                }
+            }
+            
             return .none
         case .sendNavigationPathChanged(let path):
             
@@ -172,7 +176,7 @@ struct AppView: View {
                             }
                         
                     case .myTimetable:
-                        MyTimetableView(myTimetable: viewStore.myTimetable)
+                        ScheduleView(schedule: viewStore.schedule)
                     case .about:
                         Text("About")
                     }
@@ -185,28 +189,55 @@ struct AppView: View {
         WithViewStore(self.store) { viewStore in
             NavigationSplitView(columnVisibility: $columnVisibility){
                 List {
-                    Label {
-                        Text("Timetable")
-                    } icon: {
-                        Image(systemName: "rectangle.split.3x3")
-                    }
+                    Button {
+                        viewStore.send(.selectSideMenu(.timetable))
+                    } label: {
+                        Label {
+                            Text("Timetable")
+                        } icon: {
+                            Image(systemName: "rectangle.grid.3x2")
+                        }
+                    }.buttonStyle(PlainButtonStyle())
                     
-                    Label {
-                        Text("Help")
-                    } icon: {
-                        Image(systemName: "questionmark.circle")
-                    }
+                    Button {
+                        viewStore.send(.selectSideMenu(.myTimetable))
+                    } label: {
+                        Label {
+                            Text("Schedule")
+                        } icon: {
+                            Image(systemName: "rectangle.grid.3x2")
+                        }
+                    }.buttonStyle(PlainButtonStyle())
+                    
+                    Button {
+                        viewStore.send(.selectSideMenu(.about))
+                    } label: {
+                        Label {
+                            Text("About")
+                        } icon: {
+                            Image(systemName: "questionmark.circle")
+                        }
+                    }.buttonStyle(PlainButtonStyle())
                 }.background(Color.white)
             } detail: {
                 NavigationStack(path: viewStore.binding(get: \.navigationPath, send: AppAction.sendNavigationPathChanged)) {
-                    DayTimetableView(store: dayTimetableStore)
-                        .onAppear(perform: {
-                            viewStore.send(.loadTimetable)
-                        })
-                        .navigationDestination(for: Proposal.self) { value in
-                            ProposalView(proposal: value)
-                        }
-                        .navigationBarTitleDisplayMode(.inline)
+                    switch viewStore.sideMenu {
+                    case .timetable:
+                        DayTimetableView(store: dayTimetableStore)
+                            .onAppear(perform: {
+                                viewStore.send(.loadTimetable)
+                            }).navigationDestination(for: Proposal.self) { value in
+                                ProposalView(proposal: value, store: proposalStore)
+                            }
+                            .toolbar {
+                                DaySelectionView(store: daySelectStore)
+                            }
+                        
+                    case .myTimetable:
+                        MyTimetableView(myTimetable: viewStore.myTimetable)
+                    case .about:
+                        Text("About")
+                    }
                 }
                 
             }

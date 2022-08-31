@@ -14,16 +14,16 @@ struct MyTimatableEnvironment {
 }
 
 
-struct MyTimetableView: View {
-    var myTimetable: MyTimetable
+struct ScheduleView: View {
+    var schedule: Schedule
     var body: some View {
         HStack {
-            ForEach(myTimetable.dayTimetables) { dayTimetable in
+            ForEach(schedule.daySchedules) { daySchedule in
                
                 ScrollView {
                     VStack {
-                        Text(dayTimetable.date.dayString)
-                        ForEach(Array(dayTimetable.proposals.enumerated()), id: \.offset) { index, proposal in
+                        Text(daySchedule.date.dayString)
+                        ForEach(Array(daySchedule.proposals.enumerated()), id: \.offset) { index, proposal in
                             ProposalCell(proposal: proposal)
                                 .frame(height: 80)
                         }
@@ -38,6 +38,6 @@ struct MyTimetableView: View {
 
 struct MyListView_Previews: PreviewProvider {
     static var previews: some View {
-        MyTimetableView(myTimetable: MyTimetable())
+        ScheduleView(schedule: Schedule())
     }
 }

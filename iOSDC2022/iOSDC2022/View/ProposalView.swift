@@ -2,7 +2,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct ProposalState: Equatable {
-    var myTimetable: MyTimetable
+    var schedule: Schedule
 }
 
 enum ProposalAction {
@@ -16,10 +16,10 @@ struct ProposalEnvironment {}
 let proposalReducer: Reducer<ProposalState, ProposalAction, ProposalEnvironment> = .init{ state, action, environment in
     switch action {
     case .saveToMyTimetable(let proposal):
-        state.myTimetable.add(proposal: proposal)
+        state.schedule.add(proposal: proposal)
         return .none
     case .removeFromMyTimetable(let proposal):
-        state.myTimetable.remove(proposal: proposal)
+        state.schedule.remove(proposal: proposal)
         return .none
     }
 }
@@ -64,7 +64,7 @@ struct ProposalView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    if viewStore.myTimetable.contains(proposal: proposal) {
+                    if viewStore.schedule.contains(proposal: proposal) {
                         Button {
                             viewStore.send(.removeFromMyTimetable(proposal: proposal))
                         } label: {
@@ -91,6 +91,6 @@ struct ProposalView: View {
 
 struct ProposalView_Previews: PreviewProvider {
     static var previews: some View {
-        ProposalView(proposal: MockData.shared.proposal, store: Store(initialState: ProposalState(myTimetable: MyTimetable()), reducer: proposalReducer, environment: ProposalEnvironment()))
+        ProposalView(proposal: MockData.shared.proposal, store: Store(initialState: ProposalState(schedule: Schedule()), reducer: proposalReducer, environment: ProposalEnvironment()))
     }
 }

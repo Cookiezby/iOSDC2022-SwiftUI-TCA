@@ -21,8 +21,8 @@
 		FA8D771A28B521C3000F2627 /* timetable.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8D771928B521C3000F2627 /* timetable.json */; };
 		FA8D771C28B521D4000F2627 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D771B28B521D4000F2627 /* MockData.swift */; };
 		FA8D772228B65B8E000F2627 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D772128B65B8E000F2627 /* Date+Extension.swift */; };
-		FAA59B9628B999B3002F1D86 /* MyTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA59B9528B999B3002F1D86 /* MyTimetableView.swift */; };
-		FAA59B9A28BB84EB002F1D86 /* MyTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA59B9928BB84EB002F1D86 /* MyTimetable.swift */; };
+		FAA59B9628B999B3002F1D86 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA59B9528B999B3002F1D86 /* ScheduleView.swift */; };
+		FAA59B9A28BB84EB002F1D86 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA59B9928BB84EB002F1D86 /* Schedule.swift */; };
 		FAB8FBBD28B8922D0043D8B9 /* DaySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8FBBC28B8922D0043D8B9 /* DaySelectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,8 +42,8 @@
 		FA8D771928B521C3000F2627 /* timetable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = timetable.json; sourceTree = "<group>"; };
 		FA8D771B28B521D4000F2627 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		FA8D772128B65B8E000F2627 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		FAA59B9528B999B3002F1D86 /* MyTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimetableView.swift; sourceTree = "<group>"; };
-		FAA59B9928BB84EB002F1D86 /* MyTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimetable.swift; sourceTree = "<group>"; };
+		FAA59B9528B999B3002F1D86 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		FAA59B9928BB84EB002F1D86 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		FAB8FBBC28B8922D0043D8B9 /* DaySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +115,7 @@
 				FA8D771728B51E3E000F2627 /* ProposalView.swift */,
 				FAB8FBBC28B8922D0043D8B9 /* DaySelectionView.swift */,
 				FA242BA028B8990C00ECBC93 /* ProposalCell.swift */,
-				FAA59B9528B999B3002F1D86 /* MyTimetableView.swift */,
+				FAA59B9528B999B3002F1D86 /* ScheduleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6362B028A7F202003C56F8 /* Timetable.swift */,
-				FAA59B9928BB84EB002F1D86 /* MyTimetable.swift */,
+				FAA59B9928BB84EB002F1D86 /* Schedule.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAA59B9A28BB84EB002F1D86 /* MyTimetable.swift in Sources */,
+				FAA59B9A28BB84EB002F1D86 /* Schedule.swift in Sources */,
 				FA6362A128A7F182003C56F8 /* AppView.swift in Sources */,
 				FA63629F28A7F182003C56F8 /* iOSDC2022App.swift in Sources */,
 				FA8D771828B51E3E000F2627 /* ProposalView.swift in Sources */,
@@ -236,7 +236,7 @@
 				FA6362B628AA8CBE003C56F8 /* APIClient.swift in Sources */,
 				FAB8FBBD28B8922D0043D8B9 /* DaySelectionView.swift in Sources */,
 				FA8D76F628ABE2B1000F2627 /* DayTimetableView.swift in Sources */,
-				FAA59B9628B999B3002F1D86 /* MyTimetableView.swift in Sources */,
+				FAA59B9628B999B3002F1D86 /* ScheduleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
