@@ -80,6 +80,10 @@ struct Proposal: Equatable, Identifiable, Codable {
     var lengthMin: Int
     var tags: [Tag]?
     var speaker: Speaker
+    
+    var timeRangeText: String {
+        return ""
+    }
 }
 
 extension Proposal: Hashable {

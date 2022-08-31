@@ -2,6 +2,8 @@ import Foundation
 
 struct Schedule {
     var daySchedules: [DaySchedule] = []
+    var proposalIds = Set<String>()
+    
     init() {
         load()
     }
@@ -9,6 +11,7 @@ struct Schedule {
 
 extension Schedule {
     mutating func add(proposal: Proposal) {
+        proposalIds.insert(proposal.uuid)
         let startDate = Calendar.current.startOfDay(for: proposal.startsDate)
         if let index = daySchedules.firstIndex(where: {$0.date == startDate }) {
             daySchedules[index].proposals.insert(proposal)
@@ -19,6 +22,7 @@ extension Schedule {
     }
     
     mutating func remove(proposal: Proposal) {
+        proposalIds.remove(proposal.id)
         let startDate = Calendar.current.startOfDay(for: proposal.startsDate)
         if let index = daySchedules.firstIndex(where: {$0.date == startDate }) {
             daySchedules[index].proposals.remove(proposal)
@@ -44,6 +48,11 @@ extension Schedule {
         if FileManager.default.fileExists(atPath: path) {
             let data = try! Data(contentsOf: URL(fileURLWithPath: path))
             self.daySchedules = try! JSONDecoder().decode([DaySchedule].self, from: data)
+            for day in daySchedules {
+                for proposal in day.proposals {
+                    self.proposalIds.insert(proposal.uuid)
+                }
+            }
         }
     }
     
@@ -56,12 +65,7 @@ extension Schedule {
 
 extension Schedule {
     func contains(proposal: Proposal) -> Bool {
-        for dayTimetable in daySchedules {
-            if dayTimetable.proposals.first(where: { $0.id == proposal.id }) != nil {
-                return true
-            }
-        }
-        return false
+        proposalIds.contains(proposal.uuid)
     }
 }
 

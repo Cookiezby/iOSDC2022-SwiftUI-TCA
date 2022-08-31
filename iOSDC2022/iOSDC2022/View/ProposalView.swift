@@ -45,6 +45,7 @@ struct ProposalView: View {
                     }
                     Text(proposal.speaker.name)
                     Spacer()
+
                     Link(destination: URL(string: "https://www.apple.com")!) {
                         Image("TwitterIcon")
                             .resizable()
