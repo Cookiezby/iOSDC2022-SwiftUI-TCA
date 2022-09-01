@@ -30,7 +30,7 @@ struct Sidebar: View {
                     Label {
                         Text("Timetable")
                     } icon: {
-                        Image(systemName: "rectangle.grid.3x2")
+                        Image(systemName: "calendar.circle")
                     }
                 }
                 Button {
@@ -39,7 +39,7 @@ struct Sidebar: View {
                     Label {
                         Text("Schedule")
                     } icon: {
-                        Image(systemName: "rectangle.grid.3x2")
+                        Image(systemName: "timer")
                     }
                 }
                 
@@ -54,7 +54,6 @@ struct Sidebar: View {
                 }
             }
             .buttonStyle(PlainButtonStyle())
-            .background(Color.white)
         }
     }
 }

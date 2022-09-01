@@ -46,7 +46,7 @@ struct DayTimetableView: View {
                         VStack(spacing: 0){
                             HStack {
                                 Text(timetable.track.name.displayName)
-                                    .font(Font.system(size: 14, weight: .semibold))
+                                    .font(Font.system(size: 15, weight: .semibold))
                                     .foregroundColor(Color.gray)
                                 Spacer()
                             }
@@ -76,7 +76,7 @@ struct DayTimetableView: View {
 #elseif os(iOS)
             if let timetables = viewStore.dayTimetable?.trackTimetables {
                 iOSDayTimetableView(
-                    usePageTab: UIDevice.current.userInterfaceIdiom == .pad,
+                    usePageTab: UIDevice.current.userInterfaceIdiom == .phone,
                     content: {
                     ForEach(timetables) { timetable in
                         VStack(spacing: 0){
