@@ -5,7 +5,7 @@ struct Schedule {
     var proposalIds = Set<String>()
     
     init() {
-        load()
+        //load()
     }
 }
 

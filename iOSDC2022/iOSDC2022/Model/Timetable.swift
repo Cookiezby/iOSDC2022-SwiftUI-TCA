@@ -37,7 +37,11 @@ extension Timetable {
                     track: track,
                     startsDate: startsDate,
                     lengthMin: lengthMin,
-                    speaker: speaker
+                    speaker: speaker,
+                    timeRangeText: Proposal.genTimeRangeText(
+                        startsDate: startsDate,
+                        lengthMin: lengthMin
+                    )
                 )
                 proposals.append(proposal)
             }
@@ -80,9 +84,17 @@ struct Proposal: Equatable, Identifiable, Codable {
     var lengthMin: Int
     var tags: [Tag]?
     var speaker: Speaker
+    var timeRangeText: String
     
-    var timeRangeText: String {
-        return ""
+    static func genTimeRangeText(startsDate: Date, lengthMin: Int) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.timeZone = .current
+        formatter.dateFormat = "a HH:mm"
+        let start = formatter.string(from: startsDate)
+        let endDate = Calendar.current.date(byAdding: .minute, value: lengthMin, to: startsDate)!
+        let end = formatter.string(from: endDate)
+        return "\(start) ~ \(end)"
     }
 }
 

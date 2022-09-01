@@ -5,9 +5,9 @@ struct ProposalCell: View {
     var body: some View {
         VStack(alignment: .leading){
             HStack {
-                Text("午前10:50 ~ 午前11:50")
+                Text(proposal.timeRangeText)
                     .foregroundColor(Color.white)
-                    .font(Font.system(size: 11))
+                    .font(Font.system(size: 12, weight: .semibold))
                 Spacer()
             }
             .frame(height: 15)
