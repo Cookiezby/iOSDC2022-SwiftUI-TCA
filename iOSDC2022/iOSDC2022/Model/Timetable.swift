@@ -86,14 +86,18 @@ struct Proposal: Equatable, Identifiable, Codable {
     var speaker: Speaker
     var timeRangeText: String
     
-    static func genTimeRangeText(startsDate: Date, lengthMin: Int) -> String {
+    static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ja_JP")
         formatter.timeZone = .current
         formatter.dateFormat = "a HH:mm"
-        let start = formatter.string(from: startsDate)
+        return formatter
+    }()
+    
+    static func genTimeRangeText(startsDate: Date, lengthMin: Int) -> String {
+        let start = dateFormatter.string(from: startsDate)
         let endDate = Calendar.current.date(byAdding: .minute, value: lengthMin, to: startsDate)!
-        let end = formatter.string(from: endDate)
+        let end = dateFormatter.string(from: endDate)
         return "\(start) ~ \(end)"
     }
 }
