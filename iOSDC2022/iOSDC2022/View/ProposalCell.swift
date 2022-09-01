@@ -1,10 +1,3 @@
-//
-//  ProposalCell.swift
-//  iOSDC2022
-//
-//  Created by 朱冰一 on 2022/08/26.
-//
-
 import SwiftUI
 
 struct ProposalCell: View {
@@ -13,31 +6,36 @@ struct ProposalCell: View {
         VStack(alignment: .leading){
             HStack {
                 Text("午前10:50 ~ 午前11:50")
+                    .foregroundColor(Color.white)
+                    .font(Font.system(size: 11))
                 Spacer()
             }
             .frame(height: 15)
-            .font(Font.system(size: 11))
-            .foregroundColor(Color.white)
-            .padding(.leading, 5)
-            .padding(.top, 5)
+            .padding(.leading, 12)
+            .padding(.top, 8)
             VStack(spacing: 0){
                 HStack(alignment: .top){
-                    if let avatarURL = proposal.speaker.avatarURL, let url = URL(string: avatarURL){
+                    if let avatarURL = proposal.speaker.avatarURL,
+                        let url = URL(string: avatarURL){
                         AsyncImage(url: url, content: { image in
-                                image
+                            image
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                
-                                .frame(width: 20, height: 20)
                                 .clipShape(Circle())
-                                
                         },
-                        placeholder: {
-                            Circle().background(Color.clear)
+                                   placeholder: {
+                            EmptyView()
                         })
-                        .frame(width: 20, height: 20)
-                        .padding(.leading, 5)
-                       
+                        .frame(width: 30, height: 30)
+                        .padding(.leading, 10)
+                        .padding(.top, 5)
+                    } else {
+                        Image(systemName: "person.crop.circle.fill")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 30, height: 30)
+                            .padding(.leading, 10)
+                            .padding(.top, 5)
                     }
                     Text(proposal.title)
                         .lineLimit(2)

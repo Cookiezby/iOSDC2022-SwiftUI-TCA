@@ -155,35 +155,39 @@ struct AppView: View {
         }
 #else
         WithViewStore(self.store) { viewStore in
-            NavigationSplitView(columnVisibility: $columnVisibility){
-                Sidebar(store: siderbarStore)
-            } detail: {
+            TabView {
                 NavigationStack(
                     path: viewStore.binding(
                         get: \.navigationPath,
                         send: AppAction.sendNavigationPathChanged
                     )
                 ) {
-                    switch viewStore.sidebar.menu {
-                    case .timetable:
-                        DayTimetableView(store: dayTimetableStore)
-                            .navigationDestination(for: Proposal.self) { value in
-                                ProposalView(proposal: value, store: proposalStore)
-                            }
-                            .toolbar {
-                                DaySelectionView(store: daySelectStore)
-                            }
-                        
-                    case .schedule:
-                        ScheduleView(schedule: viewStore.schedule)
-                    case .about:
-                        Text("About")
-                    }
+                    DayTimetableView(store: dayTimetableStore)
+                        .toolbar {
+                            DaySelectionView(store: daySelectStore)
+                        }
+                        .navigationDestination(for: Proposal.self) { value in
+                            ProposalView(proposal: value, store: proposalStore)
+                        }
+                }.tabItem {
+                    Label("Timetable", systemImage: "applelogo")
                 }
-                .onAppear(perform: {
-                    viewStore.send(.loadTimetable)
-                })
+                NavigationStack {
+                    ScheduleView(schedule: viewStore.schedule)
+                }
+                .tabItem {
+                    Label("Schedule", systemImage: "applelogo")
+                }
+                NavigationStack {
+                    Text("Other")
+                }
+                .tabItem {
+                    Label("Other", systemImage: "applelogo")
+                }
             }
+            .onAppear(perform: {
+                viewStore.send(.loadTimetable)
+            })
         }
 #endif
     }

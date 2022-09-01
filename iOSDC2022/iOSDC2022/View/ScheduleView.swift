@@ -19,20 +19,25 @@ struct ScheduleView: View {
     var body: some View {
         HStack {
             ForEach(schedule.daySchedules) { daySchedule in
-               
-                ScrollView {
-                    VStack {
+                VStack {
+                    HStack {
                         Text(daySchedule.date.dayString)
+                            .font(Font.system(size: 14, weight: .semibold))
+                            .foregroundColor(Color.gray)
+                        Spacer()
+                    }
+                    ScrollView {
                         ForEach(Array(daySchedule.proposals.enumerated()), id: \.offset) { index, proposal in
                             ProposalCell(proposal: proposal)
                                 .frame(height: 80)
                         }
-                    }.frame(width: 200)
-                }
-                
+                    }
+                }.frame(width: 250)
             }
+            .padding(.leading, 5)
             Spacer()
         }
+        .background(Color.white)
     }
 }
 

@@ -39,7 +39,7 @@ extension Schedule {
 extension Schedule {
     private func getLocalDataPath() -> String {
         let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let pathComponent = fileURL.appendingPathComponent("myTimetable")
+        let pathComponent = fileURL.appendingPathComponent("schedule")
         return pathComponent.path(percentEncoded: true)
     }
     

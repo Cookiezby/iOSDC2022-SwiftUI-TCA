@@ -1,7 +1,9 @@
 import SwiftUI
 import ComposableArchitecture
 import Foundation
-
+#if canImport(UIKit)
+import UIKit
+#endif
 
 struct DayTimetableState: Equatable, Identifiable {
     var id = UUID()
@@ -33,58 +35,109 @@ let dayTimetableReducer = Reducer<DayTimetableState, DayTimetableAction, DayTime
     }
 }
 
-
 struct DayTimetableView: View {
     let store:Store<DayTimetableState, DayTimetableAction>
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            ZStack {
-                if let timetables = viewStore.dayTimetable?.trackTimetables {
-                    HStack(spacing: 0) {
-                        
-                        ForEach(timetables) { timetable in
-                            VStack(spacing: 0){
-                                HStack {
-                                    Text(timetable.track.name.displayName)
-                                        .font(Font.system(size: 14, weight: .semibold))
-                                        .foregroundColor(Color.gray)
-                                    Spacer()
-                                }
-                                .padding(.bottom, 8)
-                        
-                                ScrollView(showsIndicators: false){
-                                    VStack(spacing: 10){
-                                        ForEach(Array(timetable.proposals.enumerated()), id: \.offset) { index, proposal in
-                                            Button(action: {
-                                                viewStore.send(.clickProposal(proposal))
-                                            }, label: {
-                                                ProposalCell(proposal: proposal)
-                                                    .frame(height: 80)
-                                            })
-                                            .buttonStyle(PlainButtonStyle())
-                                        }
+#if os(macOS)
+            if let timetables = viewStore.dayTimetable?.trackTimetables {
+                HStack(spacing: 0) {
+                    ForEach(timetables) { timetable in
+                        VStack(spacing: 0){
+                            HStack {
+                                Text(timetable.track.name.displayName)
+                                    .font(Font.system(size: 14, weight: .semibold))
+                                    .foregroundColor(Color.gray)
+                                Spacer()
+                            }
+                            .padding(.bottom, 8)
+                            ScrollView(showsIndicators: false){
+                                VStack(spacing: 10){
+                                    ForEach(Array(timetable.proposals.enumerated()), id: \.offset) { index, proposal in
+                                        Button(action: {
+                                            viewStore.send(.clickProposal(proposal))
+                                        }, label: {
+                                            ProposalCell(proposal: proposal)
+                                                .frame(height: 80)
+                                        })
+                                        .buttonStyle(PlainButtonStyle())
                                     }
                                 }
                             }
                         }
-                        .padding(.leading, 5)
-                        .padding(.trailing, 5)
                     }
-                    .padding(.leading, 5)
-                    .padding(.trailing, 5)
-                } else {
-                    EmptyView()
+                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
                 }
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+                .background(Color.white)
+            } else {
+                Color.white
             }
-            .background(Color.white)
+#elseif os(iOS)
+            if let timetables = viewStore.dayTimetable?.trackTimetables {
+                iOSDayTimetableView(
+                    usePageTab: UIDevice.current.userInterfaceIdiom == .pad,
+                    content: {
+                    ForEach(timetables) { timetable in
+                        VStack(spacing: 0){
+                            HStack {
+                                Text(timetable.track.name.displayName)
+                                    .font(Font.system(size: 20, weight: .semibold))
+                                    .foregroundColor(Color.gray)
+                                Spacer()
+                            }
+                            .padding(.bottom, 8)
+                            ScrollView(showsIndicators: false){
+                                VStack(spacing: 10){
+                                    ForEach(Array(timetable.proposals.enumerated()), id: \.offset) { index, proposal in
+                                        Button(action: {
+                                            viewStore.send(.clickProposal(proposal))
+                                        }, label: {
+                                            ProposalCell(proposal: proposal)
+                                                .frame(height: 80)
+                                        })
+                                        .buttonStyle(PlainButtonStyle())
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                })
+            } else {
+                Color.white
+            }
+#endif
+        }
+    }
+    
+    @ViewBuilder
+    func iOSDayTimetableView<Content>(
+        usePageTab: Bool,
+        content: @escaping () -> Content
+    ) -> some View where Content: View {
+        if usePageTab {
+            TabView {
+                content()
+                    .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+            }
+            #if os(iOS)
+            .tabViewStyle(PageTabViewStyle())
+            #endif
+        } else {
+            HStack {
+                content()
+                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+            }
+            .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
         }
     }
     
     func select(proposals: [Proposal], index: Int) {
-        print(index)
         ViewStore(self.store).send(.clickProposal(proposals[index]))
     }
 }
+
 
 
 struct DayTimetableView_Previews: PreviewProvider {

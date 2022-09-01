@@ -4,6 +4,14 @@ import ComposableArchitecture
 @main
 struct iOSDC2022App: App {
     @State var store = Store<AppState, AppAction>(initialState: AppState(), reducer: appReducer, environment: AppEnvironment(fetchTimetable: APIClient().getTimetable))
+    
+    init() {
+        #if os(iOS)
+        UIPageControl.appearance().currentPageIndicatorTintColor = .black
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
+        #endif
+    }
+    
     var body: some Scene {
         #if os(macOS)
         WindowGroup {
