@@ -40,8 +40,7 @@ struct DaySelectionView: View {
     }
     
     func isSelected(date: Date) -> Bool {
-        if let selected = ViewStore(self.store).selectedDate,
-            date == selected {
+        if let selected = ViewStore(self.store).selectedDate, date == selected {
             return true
         } else {
             return false
