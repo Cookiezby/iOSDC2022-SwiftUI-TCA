@@ -24,6 +24,7 @@
 		FAA59B9628B999B3002F1D86 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA59B9528B999B3002F1D86 /* ScheduleView.swift */; };
 		FAA59B9A28BB84EB002F1D86 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA59B9928BB84EB002F1D86 /* Schedule.swift */; };
 		FAA59B9C28BF9349002F1D86 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA59B9B28BF9349002F1D86 /* Sidebar.swift */; };
+		FAA59BA028C24606002F1D86 /* ProposalScheduleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA59B9F28C24606002F1D86 /* ProposalScheduleButton.swift */; };
 		FAB8FBBD28B8922D0043D8B9 /* DaySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8FBBC28B8922D0043D8B9 /* DaySelectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		FAA59B9528B999B3002F1D86 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		FAA59B9928BB84EB002F1D86 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		FAA59B9B28BF9349002F1D86 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		FAA59B9F28C24606002F1D86 /* ProposalScheduleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalScheduleButton.swift; sourceTree = "<group>"; };
 		FAB8FBBC28B8922D0043D8B9 /* DaySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 				FA6362A028A7F182003C56F8 /* AppView.swift */,
 				FA8D76F528ABE2B0000F2627 /* DayTimetableView.swift */,
 				FA8D771728B51E3E000F2627 /* ProposalView.swift */,
+				FAA59B9F28C24606002F1D86 /* ProposalScheduleButton.swift */,
 				FAB8FBBC28B8922D0043D8B9 /* DaySelectionView.swift */,
 				FA242BA028B8990C00ECBC93 /* ProposalCell.swift */,
 				FAA59B9528B999B3002F1D86 /* ScheduleView.swift */,
@@ -241,6 +244,7 @@
 				FAB8FBBD28B8922D0043D8B9 /* DaySelectionView.swift in Sources */,
 				FA8D76F628ABE2B1000F2627 /* DayTimetableView.swift in Sources */,
 				FAA59B9628B999B3002F1D86 /* ScheduleView.swift in Sources */,
+				FAA59BA028C24606002F1D86 /* ProposalScheduleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@ final class MockData {
     var days: [Date]
     var trackTimetable: TrackTimetable
     var proposal: Proposal {
-        trackTimetable.proposals.randomElement()!
+        trackTimetable.proposals.first!
     }
     
     

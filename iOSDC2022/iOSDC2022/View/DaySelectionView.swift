@@ -23,26 +23,28 @@ let daySelectReducer = Reducer<DaySelectState, DaySelectAction, DaySelectEnviron
 struct DaySelectionView: View {
     let store: Store<DaySelectState, DaySelectAction>
     var body: some View {
-        WithViewStore(self.store) { viewStore in
-            HStack(alignment: .center){
-                ForEach(Array(viewStore.days.enumerated()), id: \.offset) { index, element in
-                    Button {
-                        viewStore.send(.selectDate(element))
-                    } label: {
-                        Text(element.dayString)
-                    }
+        WithViewStore(store) { viewStore in
+            ForEach(Array(viewStore.days.enumerated()), id: \.offset) { index, element in
+                Button {
+                    viewStore.send(.selectDate(element))
+                } label: {
+                    Text(element.dayString)
+                        .foregroundColor(Color(hex: 0x4A4A4A))
+                        .frame(width: 50)
                 }
+                .background(isSelected(date: element) ? Color(hex: 0xEDEDED) : Color.white)
+                .cornerRadius(3)
+                
             }
-            .padding()
-            .clipped()
-            .frame(height: 40)
-            .cornerRadius(10)
+        }
+    }
+    
+    func isSelected(date: Date) -> Bool {
+        if let selected = ViewStore(self.store).selectedDate,
+            date == selected {
+            return true
+        } else {
+            return false
         }
     }
 }
-
-//struct DaySelectionView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DaySelectionView(store: )
-//    }
-//}
