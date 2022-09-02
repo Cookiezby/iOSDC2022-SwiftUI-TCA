@@ -6,6 +6,7 @@ struct ProposalState: Equatable {
 }
 
 enum ProposalAction {
+    case clickProposal(proposal: Proposal)
     case addToSchedule(proposal: Proposal)
     case removeFromSchedule(proposal: Proposal)
 }
@@ -14,6 +15,8 @@ struct ProposalEnvironment {}
 
 let proposalReducer: Reducer<ProposalState, ProposalAction, ProposalEnvironment> = .init{ state, action, environment in
     switch action {
+    case .clickProposal(let proposal):
+        return .none
     case .addToSchedule(let proposal):
         state.schedule.add(proposal: proposal)
         return .none
@@ -62,6 +65,22 @@ struct ProposalView: View {
                         .lineSpacing(2)
                 }
                 Spacer()
+                #if os(macOS)
+                HStack {
+                    ForEach(viewStore.schedule.overlapped(proposal: proposal)) { overlapped in
+                        Button(action: {
+                            viewStore.send(.clickProposal(proposal: overlapped))
+                        }, label: {
+                            ProposalCell(proposal: overlapped)
+                                .frame(width: 200, height: 80)
+                        })
+                        .buttonStyle(PlainButtonStyle())
+                    }
+                }
+                .frame(height: 100)
+                #elseif os(iOS)
+                
+                #endif
                 HStack {
                     Spacer()
                     if viewStore.schedule.contains(proposal: proposal) {
@@ -74,7 +93,11 @@ struct ProposalView: View {
                         Button {
                             viewStore.send(.addToSchedule(proposal: proposal))
                         } label: {
-                            Text("リストに追加")
+                            if viewStore.schedule.overlapped(proposal: proposal).isEmpty {
+                                Text("リストに追加")
+                            } else {
+                                Text("それでも追加")
+                            }
                         }
                     }
                 }

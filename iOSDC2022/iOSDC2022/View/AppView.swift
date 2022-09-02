@@ -112,6 +112,9 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             return .none
         case .proposal(.removeFromSchedule):
             return .none
+        case .proposal(.clickProposal(let proposal)):
+            state.navigationPath.append(proposal)
+            return .none
         }
     }
 )
@@ -144,6 +147,9 @@ struct AppView: View {
                         
                     case .schedule:
                         ScheduleView(schedule: viewStore.schedule)
+                            .navigationDestination(for: Proposal.self) { value in
+                                ProposalView(proposal: value, store: proposalStore)
+                            }
                     case .about:
                         Text("About")
                     }

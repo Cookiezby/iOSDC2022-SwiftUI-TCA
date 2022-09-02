@@ -1,19 +1,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct MyTimetableState: Equatable {
-    
-}
-
-enum MyTimetableAction {
-    
-}
-
-struct MyTimatableEnvironment {
-    
-}
-
-
 struct ScheduleView: View {
     var schedule: Schedule
     var body: some View {

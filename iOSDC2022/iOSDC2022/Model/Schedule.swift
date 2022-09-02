@@ -5,16 +5,30 @@ struct Schedule {
     var proposalIds = Set<String>()
     
     init() {
-        //load()
+        load()
     }
 }
 
 extension Schedule {
+    func overlapped(proposal: Proposal) -> [Proposal] {
+        let startDate = Calendar.current.startOfDay(for: proposal.startsDate)
+        if let daySchedule = daySchedules.first(where: {$0.date == startDate}) {
+            return daySchedule.proposals.filter({$0.overlay(proposal: proposal)})
+        } else {
+            return []
+        }
+    }
+    
     mutating func add(proposal: Proposal) {
+        overlapped(proposal: proposal).forEach {
+            self.remove(proposal: $0)
+        }
+        
         proposalIds.insert(proposal.uuid)
         let startDate = Calendar.current.startOfDay(for: proposal.startsDate)
         if let index = daySchedules.firstIndex(where: {$0.date == startDate }) {
-            daySchedules[index].proposals.insert(proposal)
+            daySchedules[index].proposals.append(proposal)
+            daySchedules[index].proposals = daySchedules[index].proposals.sorted()
         } else {
             daySchedules.append(DaySchedule(date: startDate, proposals: [proposal]))
         }
@@ -22,10 +36,12 @@ extension Schedule {
     }
     
     mutating func remove(proposal: Proposal) {
-        proposalIds.remove(proposal.id)
+        proposalIds.remove(proposal.uuid)
         let startDate = Calendar.current.startOfDay(for: proposal.startsDate)
         if let index = daySchedules.firstIndex(where: {$0.date == startDate }) {
-            daySchedules[index].proposals.remove(proposal)
+            daySchedules[index].proposals = daySchedules[index].proposals.filter {
+                $0.uuid != proposal.uuid
+            }
         }
         save()
     }
@@ -78,15 +94,16 @@ extension Schedule: Equatable {
 struct DaySchedule: Codable, Equatable, Identifiable {
     let id: UUID
     var date: Date
-    var proposals: Set<Proposal>
+    var proposals: [Proposal]
     
     init(date: Date, proposals: [Proposal]) {
         self.date = date
         self.id = UUID()
-        self.proposals = Set(proposals)
+        self.proposals = proposals
     }
     
     static func == (lhs: DaySchedule, rhs: DaySchedule) -> Bool {
         lhs.proposals == rhs.proposals
     }
 }
+

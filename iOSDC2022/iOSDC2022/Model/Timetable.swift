@@ -85,7 +85,6 @@ struct Proposal: Equatable, Identifiable, Codable {
     var tags: [Tag]?
     var speaker: Speaker
     var timeRangeText: String
-    
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ja_JP")
@@ -102,6 +101,12 @@ struct Proposal: Equatable, Identifiable, Codable {
     }
 }
 
+extension Proposal: Comparable {
+    static func < (lhs: Proposal, rhs: Proposal) -> Bool {
+        lhs.startsDate < rhs.startsDate
+    }
+}
+
 extension Proposal: Hashable {
     static func == (lhs: Proposal, rhs: Proposal) -> Bool {
         return lhs.uuid == rhs.uuid
@@ -109,6 +114,17 @@ extension Proposal: Hashable {
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(uuid)
+    }
+}
+
+extension Proposal {
+    func overlay(proposal: Proposal) -> Bool {
+        guard proposal.id != id else { return false }
+        let start = startsDate.timeIntervalSince1970
+        let end = start + Double(lengthMin * 60)
+        let proposalStart = proposal.startsDate.timeIntervalSince1970
+        let proposalEnd = proposalStart + Double(proposal.lengthMin * 60)
+        return !(proposalEnd <= start || proposalStart >= end)
     }
 }
 
