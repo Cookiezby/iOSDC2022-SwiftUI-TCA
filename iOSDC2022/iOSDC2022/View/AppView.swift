@@ -22,6 +22,11 @@ extension AppState {
         get { ProposalState(schedule: schedule) }
         set { self.schedule = newValue.schedule }
     }
+    
+    var scheduleState: ScheduleState {
+        get { ScheduleState(schedule: schedule) }
+        set { self.schedule = newValue.schedule}
+    }
 }
 
 enum AppAction {
@@ -29,6 +34,7 @@ enum AppAction {
     case dayTimetable(DayTimetableAction)
     case sidebar(SidebarAction)
     case proposal(ProposalAction)
+    case schedule(ScheduleAction)
     case loadTimetable
     case timetableResponse(Timetable)
     case sendNavigationPathChanged(NavigationPath)
@@ -65,6 +71,9 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         environment: { _ in
             SidebarEnvironment()
         }),
+    scheduleReducer.pullback(state: \AppState.scheduleState, action: /AppAction.schedule, environment: { _ in
+        ScheduleEnvironment()
+    }),
     .init { state, action, environment in
         switch action {
         case .daySelect(.selectDate(let date)):
@@ -115,6 +124,9 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .proposal(.clickProposal(let proposal)):
             state.navigationPath.append(proposal)
             return .none
+        case .schedule(.selectProposal(let proposal)):
+            state.navigationPath.append(proposal)
+            return .none
         }
     }
 )
@@ -146,7 +158,7 @@ struct AppView: View {
                             }
                         
                     case .schedule:
-                        ScheduleView(schedule: viewStore.schedule)
+                        ScheduleView(store: scheduleStore)
                             .navigationDestination(for: Proposal.self) { value in
                                 ProposalView(proposal: value, store: proposalStore)
                             }
@@ -213,6 +225,10 @@ extension AppView {
     
     private var proposalStore: Store<ProposalState, ProposalAction> {
         store.scope(state: \.proposalDetail, action: AppAction.proposal)
+    }
+    
+    private var scheduleStore: Store<ScheduleState, ScheduleAction> {
+        store.scope(state: \.scheduleState, action: AppAction.schedule)
     }
 }
 

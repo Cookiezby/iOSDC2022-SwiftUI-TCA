@@ -1,54 +1,84 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct ScheduleView: View {
+struct ScheduleState: Equatable {
     var schedule: Schedule
+}
+
+enum ScheduleAction {
+    case selectProposal(proposal: Proposal)
+}
+
+struct ScheduleEnvironment {}
+
+let scheduleReducer: Reducer<ScheduleState, ScheduleAction, ScheduleEnvironment> = .init({ state, action, environment in
+    switch action {
+    case .selectProposal(let proposal):
+        return .none
+    }
+})
+
+struct ScheduleView: View {
+    var store: Store<ScheduleState, ScheduleAction>
     var body: some View {
-        #if os(macOS)
-        HStack(spacing: 5){
-            ForEach(schedule.daySchedules) { daySchedule in
-                VStack {
-                    HStack {
-                        Text(daySchedule.date.dayString)
-                            .font(Font.system(size: 15, weight: .semibold))
-                            .foregroundColor(Color.gray)
-                        Spacer()
-                    }
-                    ScrollView {
-                        ForEach(Array(daySchedule.proposals.enumerated()), id: \.offset) { index, proposal in
-                            ProposalCell(proposal: proposal)
-                                .frame(height: 80)
+        WithViewStore(store){ viewStore in
+#if os(macOS)
+            HStack(spacing: 5){
+                ForEach(viewStore.schedule.daySchedules) { daySchedule in
+                    VStack {
+                        HStack {
+                            Text(daySchedule.date.dayString)
+                                .font(Font.system(size: 15, weight: .semibold))
+                                .foregroundColor(Color.gray)
+                            Spacer()
+                        }
+                        ScrollView {
+                            ForEach(Array(daySchedule.proposals.enumerated()), id: \.offset) { index, proposal in
+                                Button(action: {
+                                    viewStore.send(.selectProposal(proposal: proposal))
+                                }, label: {
+                                    ProposalCell(proposal: proposal)
+                                        .frame(height: 80)
+                                })
+                                .buttonStyle(PlainButtonStyle())
+                            }
                         }
                     }
                 }
+                Spacer()
             }
-            Spacer()
-        }
-        .padding(.leading, 10)
-        .background(Color.white)
-        #elseif os(iOS)
-        iOSScheduleView(usePageTab: UIDevice.current.userInterfaceIdiom == .phone) {
-            ForEach(schedule.daySchedules) { daySchedule in
-                VStack(spacing: 5){
-                    HStack {
-                        Text(daySchedule.date.dayString)
-                            .font(Font.system(size: 20, weight: .semibold))
-                            .foregroundColor(Color.gray)
-                        Spacer()
-                    }
-                    ScrollView {
-                        ForEach(Array(daySchedule.proposals.enumerated()), id: \.offset) { index, proposal in
-                            ProposalCell(proposal: proposal)
-                                .frame(height: 80)
-                        }
-                    }
-                }
-            }
-            .padding(.leading, 5)
-            .padding(.trailing, 5)
+            .padding(.leading, 10)
             .background(Color.white)
+#elseif os(iOS)
+            iOSScheduleView(usePageTab: UIDevice.current.userInterfaceIdiom == .phone) {
+                ForEach(viewStore.schedule.daySchedules) { daySchedule in
+                    VStack(spacing: 5){
+                        HStack {
+                            Text(daySchedule.date.dayString)
+                                .font(Font.system(size: 20, weight: .semibold))
+                                .foregroundColor(Color.gray)
+                            Spacer()
+                        }
+                        ScrollView {
+                            ForEach(Array(daySchedule.proposals.enumerated()), id: \.offset) { index, proposal in
+                                Button(action: {
+                                    viewStore.send(.selectProposal(proposal: proposal))
+                                }, label: {
+                                    ProposalCell(proposal: proposal)
+                                        .frame(height: 80)
+                                })
+                                .buttonStyle(PlainButtonStyle())
+                            }
+                        }
+                    }
+                }
+                .padding(.leading, 5)
+                .padding(.trailing, 5)
+                .background(Color.white)
+            }
+#endif
         }
-        #endif
+        
     }
     
     @ViewBuilder
@@ -61,9 +91,9 @@ struct ScheduleView: View {
                 content()
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
             }
-            #if os(iOS)
+#if os(iOS)
             .tabViewStyle(PageTabViewStyle())
-            #endif
+#endif
         } else {
             HStack(spacing: 5){
                 content()
@@ -75,6 +105,6 @@ struct ScheduleView: View {
 
 struct MyListView_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleView(schedule: Schedule())
+        ScheduleView(store: Store<ScheduleState, ScheduleAction>.init(initialState: ScheduleState(schedule: Schedule()), reducer: scheduleReducer, environment: ScheduleEnvironment()))
     }
 }
