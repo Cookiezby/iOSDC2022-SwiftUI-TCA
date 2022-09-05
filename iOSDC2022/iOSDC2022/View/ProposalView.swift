@@ -58,7 +58,7 @@ struct ProposalView: View {
                     } else {
                         Image(systemName: "person.crop.circle.fill")
                             .resizable()
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color.gray)
                             .frame(width: 40, height: 40)
                     }
                     Text(proposal.speaker.name)

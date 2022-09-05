@@ -29,12 +29,12 @@ struct DaySelectionView: View {
                     viewStore.send(.selectDate(element))
                 } label: {
                     Text(element.dayString)
+                        .font(Font.system(size: 14, weight: .bold))
                         .foregroundColor(Color(hex: 0x4A4A4A))
-                        .frame(width: 50)
+                        .padding(3)
                 }
                 .background(isSelected(date: element) ? Color(hex: 0xEDEDED) : Color.white)
                 .cornerRadius(3)
-                
             }
         }
     }

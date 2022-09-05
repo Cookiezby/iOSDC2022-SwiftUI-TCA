@@ -84,9 +84,11 @@ struct DayTimetableView: View {
                                 Text(timetable.track.name.displayName)
                                     .font(Font.system(size: 20, weight: .semibold))
                                     .foregroundColor(Color.gray)
+                                    .padding(.leading, 3)
                                 Spacer()
                             }
                             .padding(.bottom, 8)
+                            
                             ScrollView(showsIndicators: false){
                                 VStack(spacing: 10){
                                     ForEach(Array(timetable.proposals.enumerated()), id: \.offset) { index, proposal in
@@ -119,6 +121,7 @@ struct DayTimetableView: View {
         if usePageTab {
             TabView {
                 content()
+                    .navigationBarTitleDisplayMode(.inline)
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
             }
             #if os(iOS)

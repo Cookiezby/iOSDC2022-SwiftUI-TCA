@@ -28,6 +28,7 @@ struct ScheduleView: View {
                     VStack {
                         HStack {
                             Text(daySchedule.date.dayString)
+                                .padding(.leading, 3)
                                 .font(Font.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.gray)
                             Spacer()
@@ -55,6 +56,7 @@ struct ScheduleView: View {
                     VStack(spacing: 5){
                         HStack {
                             Text(daySchedule.date.dayString)
+                                .padding(.leading, 3)
                                 .font(Font.system(size: 20, weight: .semibold))
                                 .foregroundColor(Color.gray)
                             Spacer()

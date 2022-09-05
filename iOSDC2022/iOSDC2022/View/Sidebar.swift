@@ -1,6 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
+#if os(macOS)
 struct SidebarState: Equatable {
     var menu: AppSideMenu
 }
@@ -63,3 +64,5 @@ struct Sidebar: View {
 //        Siderbar(store: Store(initialState: <#T##State#>, reducer: <#T##Reducer<State, Action, Environment>#>, environment: <#T##Environment#>))
 //    }
 //}
+
+#endif
