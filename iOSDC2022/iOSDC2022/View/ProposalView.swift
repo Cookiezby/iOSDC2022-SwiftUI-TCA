@@ -84,10 +84,18 @@ struct ProposalView: View {
             .toolbar {
                 #if os(macOS)
                 Spacer(minLength: 0)
-                ProposalToolbar(proposal: proposal, store: store, fontSize: 14)
+                ProposalToolbar(
+                    proposal: proposal,
+                    store: store,
+                    fontSize: 14
+                )
                 #elseif os(iOS)
-                ToolbarItem(.navigationBarTrailing) {
-                    ProposalToolbar(store: store, proposal: proposal, fontSize: 12)
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    ProposalToolbar(
+                        proposal: proposal,
+                        store: store,
+                        fontSize: 12
+                    )
                 }
                 #endif
             }
