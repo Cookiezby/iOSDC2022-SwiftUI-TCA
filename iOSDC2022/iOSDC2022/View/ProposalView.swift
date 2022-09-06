@@ -45,7 +45,7 @@ struct ProposalView: View {
                 Divider()
                 HStack {
                     Group {
-                        if let avatarUrl = proposal.speaker.avatarURL, let url = URL(string: avatarUrl) {
+                        if let url = URL(string: proposal.speaker.avatarURL ?? "") {
                             AsyncImage(url: url, content: { image in
                                     image
                                     .resizable()
@@ -75,34 +75,8 @@ struct ProposalView: View {
                 }
                 .padding(.bottom, 10)
                 Spacer(minLength: 0)
-                
                 if !viewStore.schedule.overlapped(proposal: proposal).isEmpty {
-                    ZStack {
-                        Color(hex: 0xF2F2F2)
-                            .cornerRadius(5)
-                        VStack(alignment: .leading, spacing: 0){
-                            Text("スケジュールと被ったトーク")
-                                .foregroundColor(Color(hex: 0xA5A3A3))
-                                .font(Font.system(size: 12, weight: .bold))
-                                .padding(.bottom, 5)
-                            HStack {
-                                ScrollView(.horizontal) {
-                                    ForEach(viewStore.schedule.overlapped(proposal: proposal)) { overlapped in
-                                        Button(action: {
-                                            viewStore.send(.clickProposal(proposal: overlapped))
-                                        }, label: {
-                                            ProposalCell(proposal: overlapped)
-                                                .frame(width: 250, height: 80)
-                                        })
-                                        .buttonStyle(PlainButtonStyle())
-                                    }
-                                }
-                            }
-                        }
-                        .padding(8)
-                    }
-                    .frame(height: 100)
-                    .padding(.bottom, 20)
+                    ProposalScheduleOverlapView(proposal: proposal, store: store)
                 }
             }
             .padding(EdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20))
@@ -110,7 +84,7 @@ struct ProposalView: View {
             .toolbar {
                 #if os(macOS)
                 Spacer(minLength: 0)
-                ProposalToolbar(store: store, proposal: proposal, fontSize: 14)
+                ProposalToolbar(proposal: proposal, store: store, fontSize: 14)
                 #elseif os(iOS)
                 ToolbarItem(.navigationBarTrailing) {
                     ProposalToolbar(store: store, proposal: proposal, fontSize: 12)
@@ -121,9 +95,44 @@ struct ProposalView: View {
     }
 }
 
-struct ProposalToolbar: View {
-    var store: Store<ProposalState, ProposalAction>
+struct ProposalScheduleOverlapView: View {
     var proposal: Proposal
+    var store: Store<ProposalState, ProposalAction>
+    var body: some View {
+        WithViewStore(self.store) { viewStore in
+            ZStack {
+                Color(hex: 0xF2F2F2)
+                    .cornerRadius(5)
+                VStack(alignment: .leading, spacing: 0){
+                    Text("スケジュールと被ったトーク")
+                        .foregroundColor(Color(hex: 0xA5A3A3))
+                        .font(Font.system(size: 12, weight: .bold))
+                        .padding(.bottom, 5)
+                    HStack {
+                        ScrollView(.horizontal) {
+                            ForEach(viewStore.schedule.overlapped(proposal: proposal)) { overlapped in
+                                Button(action: {
+                                    viewStore.send(.clickProposal(proposal: overlapped))
+                                }, label: {
+                                    ProposalCell(proposal: overlapped)
+                                        .frame(width: 250, height: 80)
+                                })
+                                .buttonStyle(PlainButtonStyle())
+                            }
+                        }
+                    }
+                }
+                .padding(8)
+            }
+            .frame(height: 100)
+            .padding(.bottom, 20)
+        }
+    }
+}
+
+struct ProposalToolbar: View {
+    var proposal: Proposal
+    var store: Store<ProposalState, ProposalAction>
     var fontSize: CGFloat
     var body: some View {
         WithViewStore(self.store) { viewStore in
