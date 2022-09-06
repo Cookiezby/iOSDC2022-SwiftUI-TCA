@@ -14,7 +14,7 @@ struct AppState: Equatable {
     var sidebar = SidebarState(menu: .timetable)
     var schedule = Schedule()
     var daySelect = DaySelectState()
-    var dayTimetable = DayTimetableState()
+    var dayTimetable: DayTimetableState?
     var selectedDate: Date?
     var dayTimetables: [DayTimetable] = []
 }
@@ -50,7 +50,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             DaySelectEnvironment()
         }
     ),
-    dayTimetableReducer.pullback(
+    dayTimetableReducer.optional().pullback(
         state: \AppState.dayTimetable,
         action: /AppAction.dayTimetable,
         environment: { _ in
@@ -76,15 +76,12 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         switch action {
         case .daySelect(.selectDate(let date)):
             state.selectedDate = date
-            let dayTimetable = state.dayTimetables.first(where: {$0.date == date})
-            state.dayTimetable = DayTimetableState(dayTimetable: dayTimetable)
-            return .none
-        case .daySelect:
+            if let dayTimetable = state.dayTimetables.first(where: {$0.date == date}) {
+                state.dayTimetable = DayTimetableState(dayTimetable: dayTimetable)
+            }
             return .none
         case .dayTimetable(.clickProposal(let proposal)):
             state.navigationPath.append(proposal)
-            return .none
-        case .dayTimetable:
             return .none
         case .loadTimetable:
             guard state.dayTimetables.isEmpty else {
@@ -148,7 +145,7 @@ struct AppState: Equatable {
     var selectedTab: AppTab = .timetable
     var schedule = Schedule()
     var daySelect = DaySelectState()
-    var dayTimetable = DayTimetableState()
+    var dayTimetable: DayTimetableState?
     var selectedDate: Date?
     var dayTimetables: [DayTimetable] = []
 }
@@ -186,7 +183,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             DaySelectEnvironment()
         }
     ),
-    dayTimetableReducer.pullback(
+    dayTimetableReducer.optional().pullback(
         state: \AppState.dayTimetable,
         action: /AppAction.dayTimetable,
         environment: { _ in
@@ -206,10 +203,9 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         switch action {
         case .daySelect(.selectDate(let date)):
             state.selectedDate = date
-            let dayTimetable = state.dayTimetables.first(where: {$0.date == date})
-            state.dayTimetable = DayTimetableState(dayTimetable: dayTimetable)
-            return .none
-        case .daySelect:
+            if let dayTimetable = state.dayTimetables.first(where: {$0.date == date}) {
+                state.dayTimetable = DayTimetableState(dayTimetable: dayTimetable)
+            }
             return .none
         case .dayTimetable(.clickProposal(let proposal)):
             switch state.selectedTab {
@@ -220,8 +216,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             default:
                 break
             }
-            return .none
-        case .dayTimetable:
             return .none
         case .loadTimetable:
             guard state.dayTimetables.isEmpty else {
@@ -307,14 +301,15 @@ struct AppView: View {
                 ) {
                     switch viewStore.sidebar.menu {
                     case .timetable:
-                        DayTimetableView(store: dayTimetableStore)
-                            .navigationDestination(for: Proposal.self) { value in
-                                ProposalView(proposal: value, store: proposalStore)
-                            }
-                            .toolbar {
-                                DaySelectionView(store: daySelectStore)
-                            }
-                        
+                        IfLetStore(dayTimetableStore) { dayTimetableStore in
+                            DayTimetableView(store: dayTimetableStore)
+                                .navigationDestination(for: Proposal.self) { value in
+                                    ProposalView(proposal: value, store: proposalStore)
+                                }
+                                .toolbar {
+                                    DaySelectionView(store: daySelectStore)
+                                }
+                        }
                     case .schedule:
                         ScheduleView(store: scheduleStore)
                             .navigationDestination(for: Proposal.self) { value in
@@ -333,13 +328,15 @@ struct AppView: View {
         WithViewStore(self.store) { viewStore in
             TabView(selection: viewStore.binding(get: \.selectedTab, send: AppAction.selectTab)){
                 NavigationStack(path: viewStore.binding(get: \.tabNavigationPath.timetable, send: AppAction.updateTimetableNavigationPath)){
-                    DayTimetableView(store: dayTimetableStore)
-                        .toolbar {
-                            DaySelectionView(store: daySelectStore)
-                        }
-                        .navigationDestination(for: Proposal.self) { value in
-                            ProposalView(proposal: value, store: proposalStore)
-                        }
+                    IfLetStore(dayTimetableStore) { dayTimetableStore in
+                        DayTimetableView(store: dayTimetableStore)
+                            .toolbar {
+                                DaySelectionView(store: daySelectStore)
+                            }
+                            .navigationDestination(for: Proposal.self) { value in
+                                ProposalView(proposal: value, store: proposalStore)
+                            }
+                    }
                 }.tabItem {
                     Label("Timetable", systemImage: "calendar.circle")
                 }.tag(AppTab.timetable)
@@ -378,7 +375,7 @@ extension AppView {
         store.scope(state: \.daySelect, action: AppAction.daySelect)
     }
     
-    private var dayTimetableStore: Store<DayTimetableState, DayTimetableAction> {
+    private var dayTimetableStore: Store<DayTimetableState?, DayTimetableAction> {
         store.scope(state: \.dayTimetable, action: AppAction.dayTimetable)
     }
     

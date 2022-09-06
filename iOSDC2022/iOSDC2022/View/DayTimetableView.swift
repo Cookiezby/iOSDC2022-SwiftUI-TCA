@@ -6,21 +6,13 @@ import UIKit
 #endif
 
 struct DayTimetableState: Equatable, Identifiable {
-    var id = UUID()
-    var selectedProposal: Proposal?
-    var dayTimetable: DayTimetable?
-    
-    init(
-        selectedProposal: Proposal? = nil,
-        dayTimetable: DayTimetable? = nil
-    ) {
-        self.selectedProposal = selectedProposal
-        self.dayTimetable = dayTimetable
+    var id: Double {
+        dayTimetable.id
     }
+    var dayTimetable: DayTimetable
 }
 
 enum DayTimetableAction: Equatable {
-    case selectElement(TimetableElement)
     case clickProposal(Proposal)
 }
 
@@ -28,8 +20,6 @@ struct DayTimetableEnvironment: Equatable {}
 
 let dayTimetableReducer = Reducer<DayTimetableState, DayTimetableAction, DayTimetableEnvironment>.init { state, action, environement in
     switch action {
-    case .selectElement(let element):
-        return .none
     case .clickProposal:
         return .none
     }
@@ -38,119 +28,101 @@ let dayTimetableReducer = Reducer<DayTimetableState, DayTimetableAction, DayTime
 struct DayTimetableView: View {
     let store:Store<DayTimetableState, DayTimetableAction>
     var body: some View {
-        WithViewStore(self.store) { viewStore in
 #if os(macOS)
-            if let timetables = viewStore.dayTimetable?.trackTimetables {
-                HStack(spacing: 0) {
-                    ForEach(timetables) { timetable in
-                        VStack(spacing: 0){
-                            HStack {
-                                Text(timetable.track.name.displayName)
-                                    .font(Font.system(size: 15, weight: .semibold))
-                                    .foregroundColor(Color.gray)
-                                Spacer()
-                            }
-                            .padding(.bottom, 8)
-                            ScrollView(showsIndicators: false){
-                                VStack(spacing: 10){
-                                    ForEach(Array(timetable.proposals.enumerated()), id: \.offset) { index, proposal in
-                                        Button(action: {
-                                            viewStore.send(.clickProposal(proposal))
-                                        }, label: {
-                                            ProposalCell(proposal: proposal)
-                                                .frame(height: 80)
-                                        })
-                                        .buttonStyle(PlainButtonStyle())
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
-                }
-                .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
-                .background(Color.white)
-            } else {
-                Color.white
-            }
-#elseif os(iOS)
-            if let timetables = viewStore.dayTimetable?.trackTimetables {
-                iOSDayTimetableView(
-                    usePageTab: UIDevice.current.userInterfaceIdiom == .phone,
-                    content: {
-                    ForEach(timetables) { timetable in
-                        VStack(spacing: 0){
-                            HStack {
-                                Text(timetable.track.name.displayName)
-                                    .font(Font.system(size: 20, weight: .semibold))
-                                    .foregroundColor(Color.gray)
-                                    .padding(.leading, 3)
-                                Spacer()
-                            }
-                            .padding(.bottom, 8)
-                            
-                            ScrollView(showsIndicators: false){
-                                VStack(spacing: 10){
-                                    ForEach(Array(timetable.proposals.enumerated()), id: \.offset) { index, proposal in
-                                        Button(action: {
-                                            viewStore.send(.clickProposal(proposal))
-                                        }, label: {
-                                            ProposalCell(proposal: proposal)
-                                                .frame(height: 80)
-                                        })
-                                        .buttonStyle(PlainButtonStyle())
-                                    }
-                                }
-                            }
-                        }
-                        
-                    }
-                })
-            } else {
-                Color.white
-            }
-#endif
+        HStack(spacing: 0) {
+            TrackView(store: store)
         }
+        .padding(.leading, 5)
+        .padding(.trailing, 5)
+        .background(Color.white)
+#elseif os(iOS)
+        MobileDayTimetableView(content: { TrackView(store: store)})
+#endif
     }
-    
+
+#if os(iOS)
     @ViewBuilder
-    func iOSDayTimetableView<Content>(
-        usePageTab: Bool,
-        content: @escaping () -> Content
-    ) -> some View where Content: View {
-        if usePageTab {
+    func MobileDayTimetableView<Content>(content: @escaping () -> Content) -> some View where Content: View {
+        if UIDevice.current.userInterfaceIdiom == .phone {
             TabView {
                 content()
                     .navigationBarTitleDisplayMode(.inline)
-                    .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                    .padding(.leading, 10)
+                    .padding(.trailing, 10)
             }
-            #if os(iOS)
             .tabViewStyle(PageTabViewStyle())
-            #endif
         } else {
             HStack {
                 content()
-                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+                    .padding(.leading, 5)
+                    .padding(.trailing, 5)
             }
-            .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+            .padding(.leading, 5)
+            .padding(.trailing, 5)
         }
     }
-    
-    func select(proposals: [Proposal], index: Int) {
-        ViewStore(self.store).send(.clickProposal(proposals[index]))
+#endif
+}
+
+struct TrackView: View {
+    var store: Store<DayTimetableState, DayTimetableAction>
+    var body: some View {
+        WithViewStore(self.store) { viewStore in
+            ForEach(viewStore.dayTimetable.trackTimetables) { timetable in
+                VStack(spacing: 0){
+                    HStack {
+                        Text(timetable.track.name.displayName)
+                            .font(Font.system(size: 15, weight: .semibold))
+                            .foregroundColor(Color.gray)
+                        Spacer(minLength: 0)
+                    }
+                    .padding(.bottom, 8)
+                    ScrollView(showsIndicators: false){
+                        VStack(spacing: 10) {
+                            ForEach(Array(timetable.proposals.enumerated()), id: \.offset) { index, proposal in
+                                Button(action: {
+                                    viewStore.send(.clickProposal(proposal))
+                                }, label: {
+                                    ProposalCell(proposal: proposal)
+                                        .frame(height: 80)
+                                })
+                                .buttonStyle(PlainButtonStyle())
+                            }
+                            FinishedProposalView(store: store, proposals: timetable.finished)
+                        }
+                    }
+                }
+            }
+            .padding(.leading, 5)
+            .padding(.trailing, 5)
+        }
     }
 }
 
-
-
-struct DayTimetableView_Previews: PreviewProvider {
-    static var previews: some View {
-        DayTimetableView(
-            store: Store(
-                initialState: DayTimetableState(selectedProposal: nil, dayTimetable: MockData.shared.dayTimetable),
-                reducer: dayTimetableReducer,
-                environment: DayTimetableEnvironment()
-            )
-        )
+struct FinishedProposalView: View {
+    var store: Store<DayTimetableState, DayTimetableAction>
+    var proposals: [Proposal]
+    var body: some View {
+        WithViewStore(store) { viewStore in
+            Group {
+                HStack {
+                    Text("終了したトーク")
+                        .font(Font.system(size: 12, weight: .bold))
+                        .foregroundColor(Color.gray)
+                        .padding(.leading, 3)
+                    Spacer()
+                }
+                Divider()
+            }.opacity(proposals.count > 0 ? 1:0)
+            ForEach(Array(proposals.enumerated()), id: \.offset) { index, proposal in
+                Button(action: {
+                    viewStore.send(.clickProposal(proposal))
+                }, label: {
+                    ProposalCell(proposal: proposal)
+                        .frame(height: 80)
+                })
+                .buttonStyle(PlainButtonStyle())
+            }
+        }
     }
 }

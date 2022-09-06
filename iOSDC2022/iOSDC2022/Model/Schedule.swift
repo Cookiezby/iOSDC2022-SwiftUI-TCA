@@ -95,11 +95,13 @@ struct DaySchedule: Codable, Equatable, Identifiable {
     let id: UUID
     var date: Date
     var proposals: [Proposal]
+    var finished: [Proposal]
     
     init(date: Date, proposals: [Proposal]) {
         self.date = date
         self.id = UUID()
         self.proposals = proposals
+        self.finished = []
     }
     
     static func == (lhs: DaySchedule, rhs: DaySchedule) -> Bool {

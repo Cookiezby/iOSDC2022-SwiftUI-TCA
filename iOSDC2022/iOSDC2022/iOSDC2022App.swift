@@ -3,7 +3,11 @@ import ComposableArchitecture
 
 @main
 struct iOSDC2022App: App {
-    @State var store = Store<AppState, AppAction>(initialState: AppState(), reducer: appReducer, environment: AppEnvironment(fetchTimetable: APIClient().getTimetable))
+    @State var store = Store<AppState, AppAction>(
+        initialState: AppState(),
+        reducer: appReducer,
+        environment: AppEnvironment(fetchTimetable: APIClient().getTimetable)
+    )
     
     init() {
         #if os(iOS)

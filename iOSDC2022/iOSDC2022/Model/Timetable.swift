@@ -3,13 +3,18 @@
 import Foundation
 
 struct TrackTimetable: Equatable, Identifiable {
-    var id: UUID = UUID()
+    var id: String {
+        track.name.rawValue
+    }
     var track: Track
     var proposals: [Proposal]
+    var finished: [Proposal]
 }
 
 struct DayTimetable: Identifiable, Equatable {
-    var id: UUID = UUID()
+    var id: Double {
+        date.timeIntervalSince1970
+    }
     var date: Date
     var trackTimetables: [TrackTimetable]
 }
@@ -63,7 +68,16 @@ extension Timetable {
             let tracks = value.keys.sorted()
             var trackTimetables: [TrackTimetable] = []
             for track in tracks {
-                trackTimetables.append(TrackTimetable(track: track, proposals: value[track]!))
+                var activeProposal: [Proposal] = []
+                var finshedProposal: [Proposal] = []
+                for proposal in value[track] ?? [] {
+                    if proposal.isFinished {
+                        finshedProposal.append(proposal)
+                    } else {
+                        activeProposal.append(proposal)
+                    }
+                }
+                trackTimetables.append(TrackTimetable(track: track, proposals: activeProposal, finished: finshedProposal))
             }
             result.append(DayTimetable(date: key, trackTimetables: trackTimetables))
         }
@@ -85,6 +99,11 @@ struct Proposal: Equatable, Identifiable, Codable {
     var tags: [Tag]?
     var speaker: Speaker
     var timeRangeText: String
+    
+    var isFinished: Bool {
+        startsDate.timeIntervalSince1970 + Double(lengthMin) * 60 < Date().timeIntervalSince1970
+    }
+    
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ja_JP")
