@@ -71,7 +71,7 @@ struct ScheduleTrackView: View {
                             .padding(.leading, 3)
                             .font(Font.system(size: 20, weight: .semibold))
                             .foregroundColor(Color.gray)
-                        Spacer()
+                        Spacer(minLength: 0)
                     }
                     ScrollView {
                         ForEach(Array(daySchedule.proposals.enumerated()), id: \.offset) { index, proposal in

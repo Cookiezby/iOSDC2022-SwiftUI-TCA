@@ -8,35 +8,35 @@ struct ProposalCell: View {
                 Text(proposal.timeRangeText)
                     .foregroundColor(Color.white)
                     .font(Font.system(size: 12, weight: .semibold))
-                Spacer()
+                Spacer(minLength: 0)
             }
             .frame(height: 15)
             .padding(.leading, 12)
             .padding(.top, 8)
             VStack(spacing: 0){
                 HStack(alignment: .top){
-                    if let avatarURL = proposal.speaker.avatarURL,
-                        let url = URL(string: avatarURL){
-                        AsyncImage(url: url, content: { image in
-                            image
+                    Group {
+                        if let avatarURL = proposal.speaker.avatarURL,
+                            let url = URL(string: avatarURL){
+                            AsyncImage(url: url, content: { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                                },
+                            placeholder: {
+                                EmptyView()
+                            })
+                        } else {
+                            Image(systemName: "person.crop.circle.fill")
                                 .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .clipShape(Circle())
-                        },
-                                   placeholder: {
-                            EmptyView()
-                        })
-                        .frame(width: 30, height: 30)
-                        .padding(.leading, 10)
-                        .padding(.top, 5)
-                    } else {
-                        Image(systemName: "person.crop.circle.fill")
-                            .resizable()
-                            .foregroundColor(.white)
-                            .frame(width: 30, height: 30)
-                            .padding(.leading, 10)
-                            .padding(.top, 5)
+                                .foregroundColor(.white)
+                        }
                     }
+                    .frame(width: 30, height: 30)
+                    .padding(.leading, 10)
+                    .padding(.top, 5)
+                    
                     Text(proposal.title)
                         .lineLimit(2)
                         .lineSpacing(2)

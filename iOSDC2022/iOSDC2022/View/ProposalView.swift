@@ -44,37 +44,38 @@ struct ProposalView: View {
                     .padding(.bottom, 5)
                 Divider()
                 HStack {
-                    if let avatarUrl = proposal.speaker.avatarURL, let url = URL(string: avatarUrl) {
-                        AsyncImage(url: url, content: { image in
-                                image
+                    Group {
+                        if let avatarUrl = proposal.speaker.avatarURL, let url = URL(string: avatarUrl) {
+                            AsyncImage(url: url, content: { image in
+                                    image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                            },
+                            placeholder: {
+                                EmptyView()
+                            })
+                        } else {
+                            Image(systemName: "person.crop.circle.fill")
                                 .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 30, height: 30)
-                                .clipShape(Circle())
-                        },
-                        placeholder: {
-                            Circle()
-                        }).frame(width: 30, height: 30)
-                    } else {
-                        Image(systemName: "person.crop.circle.fill")
-                            .resizable()
-                            .foregroundColor(Color.gray)
-                            .frame(width: 40, height: 40)
+                                .foregroundColor(Color.gray)
+                        }
                     }
+                    .frame(width: 40, height: 40)
+                    
                     Text(proposal.speaker.name)
                         .font(Font.system(size: 15))
-                    Spacer()
+                    Spacer(minLength: 0)
                 }
                 .padding(.bottom, 10)
-                
-                
                 ScrollView(showsIndicators: true) {
                     Text(proposal.abstract)
                         .font(Font.system(size: 16))
-                        .lineSpacing(3)
+                        .lineSpacing(4)
                 }
                 .padding(.bottom, 10)
-                Spacer()
+                Spacer(minLength: 0)
+                
                 if !viewStore.schedule.overlapped(proposal: proposal).isEmpty {
                     ZStack {
                         Color(hex: 0xF2F2F2)
@@ -96,7 +97,6 @@ struct ProposalView: View {
                                         .buttonStyle(PlainButtonStyle())
                                     }
                                 }
-                               
                             }
                         }
                         .padding(8)
@@ -109,59 +109,44 @@ struct ProposalView: View {
             .background(Color.white)
             .toolbar {
                 #if os(macOS)
-                Spacer()
-                if viewStore.schedule.contains(proposal: proposal) {
-                    Button {
-                        viewStore.send(.removeFromSchedule(proposal: proposal))
-                    } label: {
-                        Text("スケジュールから削除")
-                            .foregroundColor(Color.white)
-                            .font(Font.system(size: 12, weight: .bold))
-                    }
-                    .background(Color(hex:0xF96464))
-                    .cornerRadius(3)
-                } else {
-                    Button {
-                        viewStore.send(.addToSchedule(proposal: proposal))
-                    } label: {
-                        Text("スケジュールに追加")
-                            .foregroundColor(Color(hex: 0x4A4A4A))
-                            .font(Font.system(size: 12, weight: .bold))
-    
-                    }
-                    .background(Color(hex:0xD9D9D9))
-                    .cornerRadius(3)
-                }
+                Spacer(minLength: 0)
+                ProposalToolbar(store: store, proposal: proposal, fontSize: 14)
                 #elseif os(iOS)
-                if viewStore.schedule.contains(proposal: proposal) {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            viewStore.send(.removeFromSchedule(proposal: proposal))
-                        } label: {
-                            Text("スケジュールから削除")
-                                .foregroundColor(Color.white)
-                                .font(Font.system(size: 14, weight: .bold))
-                                .padding(.trailing, 5)
-                        }
-                        .background(Color(hex:0xF96464))
-                        .cornerRadius(3)
-                    }
-                    
-                } else {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            viewStore.send(.addToSchedule(proposal: proposal))
-                        } label: {
-                            Text("スケジュールに追加")
-                                .foregroundColor(Color(hex: 0x4A4A4A))
-                                .font(Font.system(size: 14, weight: .bold))
-                                .padding(.trailing, 5)
-                        }
-                        .background(Color(hex:0xD9D9D9))
-                        .cornerRadius(3)
-                    }
+                ToolbarItem(.navigationBarTrailing) {
+                    ProposalToolbar(store: store, proposal: proposal, fontSize: 12)
                 }
                 #endif
+            }
+        }
+    }
+}
+
+struct ProposalToolbar: View {
+    var store: Store<ProposalState, ProposalAction>
+    var proposal: Proposal
+    var fontSize: CGFloat
+    var body: some View {
+        WithViewStore(self.store) { viewStore in
+            if viewStore.schedule.contains(proposal: proposal) {
+                Button {
+                    viewStore.send(.removeFromSchedule(proposal: proposal))
+                } label: {
+                    Text("スケジュールから削除")
+                        .foregroundColor(Color.white)
+                        .font(Font.system(size: fontSize, weight: .bold))
+                }
+                .background(Color(hex:0xF96464))
+                .cornerRadius(3)
+            } else {
+                Button {
+                    viewStore.send(.addToSchedule(proposal: proposal))
+                } label: {
+                    Text("スケジュールに追加")
+                        .foregroundColor(Color(hex: 0x4A4A4A))
+                        .font(Font.system(size: fontSize, weight: .bold))
+                }
+                .background(Color(hex:0xD9D9D9))
+                .cornerRadius(3)
             }
         }
     }
