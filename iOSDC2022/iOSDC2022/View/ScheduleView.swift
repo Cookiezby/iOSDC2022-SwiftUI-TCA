@@ -6,14 +6,14 @@ struct ScheduleState: Equatable {
 }
 
 enum ScheduleAction {
-    case selectProposal(proposal: Proposal)
+    case clickProposal(Proposal)
 }
 
 struct ScheduleEnvironment {}
 
 let scheduleReducer: Reducer<ScheduleState, ScheduleAction, ScheduleEnvironment> = .init({ state, action, environment in
     switch action {
-    case .selectProposal(let proposal):
+    case .clickProposal:
         return .none
     }
 })
@@ -21,92 +21,84 @@ let scheduleReducer: Reducer<ScheduleState, ScheduleAction, ScheduleEnvironment>
 struct ScheduleView: View {
     var store: Store<ScheduleState, ScheduleAction>
     var body: some View {
-        WithViewStore(store){ viewStore in
 #if os(macOS)
             HStack(spacing: 5){
-                ForEach(viewStore.schedule.daySchedules) { daySchedule in
-                    VStack {
-                        HStack {
-                            Text(daySchedule.date.dayString)
-                                .padding(.leading, 3)
-                                .font(Font.system(size: 15, weight: .semibold))
-                                .foregroundColor(Color.gray)
-                            Spacer()
-                        }
-                        ScrollView {
-                            ForEach(Array(daySchedule.proposals.enumerated()), id: \.offset) { index, proposal in
-                                Button(action: {
-                                    viewStore.send(.selectProposal(proposal: proposal))
-                                }, label: {
-                                    ProposalCell(proposal: proposal)
-                                        .frame(height: 80)
-                                })
-                                .buttonStyle(PlainButtonStyle())
-                            }
-                        }
-                    }
-                }
-                Spacer()
+                ScheduleTrackView(store: store)
+                Spacer(minLength: 0)
             }
             .padding(.leading, 10)
+            .padding(.trailing, 10)
             .background(Color.white)
 #elseif os(iOS)
-            iOSScheduleView(usePageTab: UIDevice.current.userInterfaceIdiom == .phone) {
-                ForEach(viewStore.schedule.daySchedules) { daySchedule in
-                    VStack(spacing: 5){
-                        HStack {
-                            Text(daySchedule.date.dayString)
-                                .padding(.leading, 3)
-                                .font(Font.system(size: 20, weight: .semibold))
-                                .foregroundColor(Color.gray)
-                            Spacer()
-                        }
-                        ScrollView {
-                            ForEach(Array(daySchedule.proposals.enumerated()), id: \.offset) { index, proposal in
-                                Button(action: {
-                                    viewStore.send(.selectProposal(proposal: proposal))
-                                }, label: {
-                                    ProposalCell(proposal: proposal)
-                                        .frame(height: 80)
-                                })
-                                .buttonStyle(PlainButtonStyle())
-                            }
-                        }
-                    }
-                }
-                .padding(.leading, 5)
-                .padding(.trailing, 5)
-                .background(Color.white)
+            MobileScheduleView {
+                ScheduleTrackView(store: store)
             }
 #endif
         }
-        
-    }
-    
+
+#if os(iOS)
     @ViewBuilder
-    func iOSScheduleView<Content>(
-        usePageTab: Bool,
+    func MobileScheduleView<Content>(
         content: @escaping () -> Content
     ) -> some View where Content: View {
-        if usePageTab {
+        if UIDevice.current.userInterfaceIdiom == .phone {
             TabView {
                 content()
-                    .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                    .padding(.leading, 10)
+                    .padding(.trailing, 10)
             }
-#if os(iOS)
             .tabViewStyle(PageTabViewStyle())
-#endif
+
         } else {
             HStack(spacing: 5){
                 content()
             }
-            .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+            .padding(.leading, 5)
+            .padding(.trailing, 5)
+        }
+    }
+#endif
+}
+
+struct ScheduleTrackView: View {
+    var store: Store<ScheduleState, ScheduleAction>
+    var body: some View {
+        WithViewStore(store){ viewStore in
+            ForEach(viewStore.schedule.daySchedules) { daySchedule in
+                VStack(spacing: 5){
+                    HStack {
+                        Text(daySchedule.date.dayString)
+                            .padding(.leading, 3)
+                            .font(Font.system(size: 20, weight: .semibold))
+                            .foregroundColor(Color.gray)
+                        Spacer()
+                    }
+                    ScrollView {
+                        ForEach(Array(daySchedule.proposals.enumerated()), id: \.offset) { index, proposal in
+                            Button(action: {
+                                viewStore.send(.clickProposal(proposal))
+                            }, label: {
+                                ProposalCell(proposal: proposal)
+                                    .frame(height: 80)
+                            })
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                    }
+                }
+            }
+            .padding(.leading, 5)
+            .padding(.trailing, 5)
+            .background(Color.white)
         }
     }
 }
 
-struct MyListView_Previews: PreviewProvider {
+struct Schedule_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleView(store: Store<ScheduleState, ScheduleAction>.init(initialState: ScheduleState(schedule: Schedule()), reducer: scheduleReducer, environment: ScheduleEnvironment()))
+        ScheduleView(store: Store<ScheduleState, ScheduleAction>.init(
+            initialState: ScheduleState(schedule: Schedule()),
+            reducer: scheduleReducer,
+            environment: ScheduleEnvironment())
+        )
     }
 }

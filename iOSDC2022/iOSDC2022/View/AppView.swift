@@ -120,7 +120,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             state.navigationPath.append(proposal)
 
             return .none
-        case .schedule(.selectProposal(let proposal)):
+        case .schedule(.clickProposal(let proposal)):
             state.navigationPath.append(proposal)
             return .none
         }
@@ -253,7 +253,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
                 break
             }
             return .none
-        case .schedule(.selectProposal(let proposal)):
+        case .schedule(.clickProposal(let proposal)):
             switch state.selectedTab {
             case .schedule:
                 state.tabNavigationPath.schedule.append(proposal)

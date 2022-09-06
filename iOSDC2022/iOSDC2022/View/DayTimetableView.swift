@@ -5,11 +5,14 @@ import Foundation
 import UIKit
 #endif
 
-struct DayTimetableState: Equatable, Identifiable {
+struct DayTimetableState: Equatable {
+    var dayTimetable: DayTimetable
+}
+ 
+extension DayTimetableState: Identifiable {
     var id: Double {
         dayTimetable.id
     }
-    var dayTimetable: DayTimetable
 }
 
 enum DayTimetableAction: Equatable {
