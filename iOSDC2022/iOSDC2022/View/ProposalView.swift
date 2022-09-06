@@ -151,6 +151,7 @@ struct ProposalToolbar: View {
                     Text("スケジュールから削除")
                         .foregroundColor(Color.white)
                         .font(Font.system(size: fontSize, weight: .bold))
+                        .padding(2)
                 }
                 .background(Color(hex:0xF96464))
                 .cornerRadius(3)
@@ -161,6 +162,7 @@ struct ProposalToolbar: View {
                     Text("スケジュールに追加")
                         .foregroundColor(Color(hex: 0x4A4A4A))
                         .font(Font.system(size: fontSize, weight: .bold))
+                        .padding(2)
                 }
                 .background(Color(hex:0xD9D9D9))
                 .cornerRadius(3)

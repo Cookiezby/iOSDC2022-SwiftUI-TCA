@@ -55,10 +55,8 @@ struct DayTimetableView: View {
             }
             .tabViewStyle(PageTabViewStyle())
         } else {
-            HStack {
+            HStack(spacing: 0){
                 content()
-                    .padding(.leading, 5)
-                    .padding(.trailing, 5)
             }
             .padding(.leading, 5)
             .padding(.trailing, 5)
