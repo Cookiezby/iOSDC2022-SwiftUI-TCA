@@ -132,7 +132,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
 
 struct AppView: View {
     let store: Store<AppState, AppAction>
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     var body: some View {
         WithViewStore(self.store) { viewStore in
             NavigationSplitView {
@@ -162,7 +162,7 @@ struct AppView: View {
                                 ProposalView(proposal: value, store: proposalStore)
                             }
                     case .about:
-                        Text("About")
+                        AboutView()
                     }
                 }
             }
