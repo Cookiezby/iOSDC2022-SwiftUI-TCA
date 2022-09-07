@@ -15,27 +15,10 @@ struct ProposalCell: View {
             .padding(.top, 8)
             VStack(spacing: 0){
                 HStack(alignment: .top){
-                    Group {
-                        if let avatarURL = proposal.speaker.avatarURL,
-                            let url = URL(string: avatarURL){
-                            AsyncImage(url: url, content: { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(Circle())
-                                },
-                            placeholder: {
-                                EmptyView()
-                            })
-                        } else {
-                            Image(systemName: "person.crop.circle.fill")
-                                .resizable()
-                                .foregroundColor(.white)
-                        }
-                    }
-                    .frame(width: 30, height: 30)
-                    .padding(.leading, 10)
-                    .padding(.top, 5)
+                    AvatarView(urlString: proposal.speaker.avatarURL, tintColor: Color.white)
+                        .frame(width: 30, height: 30)
+                        .padding(.leading, 10)
+                        .padding(.top, 5)
                     
                     Text(proposal.title)
                         .lineLimit(2)

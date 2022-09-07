@@ -6,9 +6,9 @@ struct ProposalState: Equatable {
 }
 
 enum ProposalAction {
-    case clickProposal(proposal: Proposal)
-    case addToSchedule(proposal: Proposal)
-    case removeFromSchedule(proposal: Proposal)
+    case clickProposal(Proposal)
+    case addToSchedule(Proposal)
+    case removeFromSchedule(Proposal)
 }
 
 struct ProposalEnvironment {}
@@ -44,25 +44,8 @@ struct ProposalView: View {
                     .padding(.bottom, 5)
                 Divider()
                 HStack {
-                    Group {
-                        if let url = URL(string: proposal.speaker.avatarURL ?? "") {
-                            AsyncImage(url: url, content: { image in
-                                    image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(Circle())
-                            },
-                            placeholder: {
-                                EmptyView()
-                            })
-                        } else {
-                            Image(systemName: "person.crop.circle.fill")
-                                .resizable()
-                                .foregroundColor(Color.gray)
-                        }
-                    }
-                    .frame(width: 40, height: 40)
-                    
+                    AvatarView(urlString: proposal.speaker.avatarURL, tintColor: Color.gray)
+                        .frame(width: 40, height: 40)
                     Text(proposal.speaker.name)
                         .font(Font.system(size: 15))
                     Spacer(minLength: 0)
@@ -87,14 +70,16 @@ struct ProposalView: View {
                 ProposalToolbar(
                     proposal: proposal,
                     store: store,
-                    fontSize: 14
+                    fontSize: 14,
+                    buttonType: viewStore.schedule.proposalIds.contains(proposal.id) ? .remove : .add
                 )
                 #elseif os(iOS)
                 ToolbarItem(placement: .navigationBarTrailing) {
                     ProposalToolbar(
                         proposal: proposal,
                         store: store,
-                        fontSize: 12
+                        fontSize: 12,
+                        buttonType: viewStore.schedule.proposalIds.contains(proposal.id) ? .remove : .add
                     )
                 }
                 #endif
@@ -120,7 +105,7 @@ struct ProposalScheduleOverlapView: View {
                         ScrollView(.horizontal) {
                             ForEach(viewStore.schedule.overlapped(proposal: proposal)) { overlapped in
                                 Button(action: {
-                                    viewStore.send(.clickProposal(proposal: overlapped))
+                                    viewStore.send(.clickProposal(overlapped))
                                 }, label: {
                                     ProposalCell(proposal: overlapped)
                                         .frame(width: 250, height: 80)
@@ -138,35 +123,58 @@ struct ProposalScheduleOverlapView: View {
     }
 }
 
+enum ProposalScheduleButtonType {
+    case add
+    case remove
+    
+    var buttonTitle: String {
+        switch self {
+        case .add:
+            return "スケジュールに追加"
+        case .remove:
+            return "スケジュールから削除"
+        }
+    }
+    
+    var buttonBackgroundColor: Color {
+        switch self {
+        case .add:
+            return Color(hex:0xD9D9D9)
+        case .remove:
+            return Color(hex:0xF96464)
+        }
+    }
+    
+    var buttonTitleColor: Color {
+        switch self {
+        case .add:
+            return Color(hex: 0x4A4A4A)
+        case .remove:
+            return Color.white
+        }
+    }
+}
+
 struct ProposalToolbar: View {
     var proposal: Proposal
     var store: Store<ProposalState, ProposalAction>
     var fontSize: CGFloat
+    var buttonType: ProposalScheduleButtonType
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            if viewStore.schedule.contains(proposal: proposal) {
-                Button {
-                    viewStore.send(.removeFromSchedule(proposal: proposal))
-                } label: {
-                    Text("スケジュールから削除")
-                        .foregroundColor(Color.white)
-                        .font(Font.system(size: fontSize, weight: .bold))
-                        .padding(2)
+            Button {
+                switch buttonType {
+                case .add:    viewStore.send(.addToSchedule(proposal))
+                case .remove: viewStore.send(.removeFromSchedule(proposal))
                 }
-                .background(Color(hex:0xF96464))
-                .cornerRadius(3)
-            } else {
-                Button {
-                    viewStore.send(.addToSchedule(proposal: proposal))
-                } label: {
-                    Text("スケジュールに追加")
-                        .foregroundColor(Color(hex: 0x4A4A4A))
-                        .font(Font.system(size: fontSize, weight: .bold))
-                        .padding(2)
-                }
-                .background(Color(hex:0xD9D9D9))
-                .cornerRadius(3)
+            } label: {
+                Text(buttonType.buttonTitle)
+                    .foregroundColor(buttonType.buttonTitleColor)
+                    .font(Font.system(size: fontSize, weight: .bold))
+                    .padding(2)
             }
+            .background(buttonType.buttonBackgroundColor)
+            .cornerRadius(3)
         }
     }
 }
