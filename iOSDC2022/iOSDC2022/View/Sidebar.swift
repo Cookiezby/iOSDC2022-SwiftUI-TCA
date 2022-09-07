@@ -58,11 +58,4 @@ struct Sidebar: View {
         }
     }
 }
-
-//struct Siderbar_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Siderbar(store: Store(initialState: <#T##State#>, reducer: <#T##Reducer<State, Action, Environment>#>, environment: <#T##Environment#>))
-//    }
-//}
-
 #endif

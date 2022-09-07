@@ -19,7 +19,9 @@ struct AvatarView: View {
                     .clipShape(Circle())
                 },
             placeholder: {
-                EmptyView()
+                Image(systemName: "person.crop.circle.fill")
+                    .resizable()
+                    .foregroundColor(tintColor)
             })
         } else {
             Image(systemName: "person.crop.circle.fill")

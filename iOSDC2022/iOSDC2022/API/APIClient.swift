@@ -2,13 +2,7 @@ import Foundation
 import ComposableArchitecture
 import Combine
 
-enum APIClientError: Error {
-    case invalidURL
-    case invalieResponse(String)
-    case unknow
-}
-
-final class APIClient {
+class APIClient {
     var getTimetable: @Sendable (Int) async throws -> Timetable = { _ in
         let url = URL(string: "https://fortee.jp/iosdc-japan-2022/api/timetable")!
         let (data, _) = try await URLSession.shared.data(from: url)
