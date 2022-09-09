@@ -19,15 +19,17 @@ struct AvatarView: View {
                     .clipShape(Circle())
                 },
             placeholder: {
-                Image(systemName: "person.crop.circle.fill")
-                    .resizable()
-                    .foregroundColor(tintColor)
+                placeHolder
             })
         } else {
-            Image(systemName: "person.crop.circle.fill")
-                .resizable()
-                .foregroundColor(tintColor)
+            placeHolder
         }
+    }
+    
+    private var placeHolder: some View {
+        Image(systemName: "person.crop.circle.fill")
+            .resizable()
+            .foregroundColor(tintColor)
     }
 }
 

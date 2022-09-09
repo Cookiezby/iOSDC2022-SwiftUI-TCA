@@ -145,15 +145,16 @@ struct AppView: View {
                 ) {
                     switch viewStore.sidebar.menu {
                     case .timetable:
-                        IfLetStore(dayTimetableStore) { dayTimetableStore in
+                        IfLetStore(dayTimetableStore, then: { dayTimetableStore in
                             DayTimetableView(store: dayTimetableStore)
                                 .navigationDestination(for: Proposal.self) { value in
                                     ProposalView(proposal: value, store: proposalStore)
                                 }
                                 .toolbar {
-                                    
                                     DaySelectionView(store: daySelectStore)
                                 }
+                        }) {
+                            ProgressView()
                         }
                     case .schedule:
                         ScheduleView(store: scheduleStore)

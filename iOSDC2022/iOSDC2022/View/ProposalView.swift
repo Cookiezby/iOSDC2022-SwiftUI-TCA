@@ -60,34 +60,30 @@ struct ProposalView: View {
                         Spacer(minLength: 0)
                     }.frame(maxWidth: .infinity)
                 }
-                
+                #if os(macOS)
                 .padding(.bottom, 10)
+                #endif
                 Spacer(minLength: 0)
                 if !viewStore.schedule.overlapped(proposal: proposal).isEmpty {
                     ProposalScheduleOverlapView(proposal: proposal, store: store)
                 }
             }
+            #if os(macOS)
             .padding(EdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20))
+            #elseif os(iOS)
+            .padding(EdgeInsets(top: 10, leading: 15, bottom: 0, trailing: 15))
+            #endif
             .background(Color.white)
             .toolbar {
                 #if os(macOS)
                 Spacer(minLength: 0)
+                #endif
                 ProposalToolbar(
                     proposal: proposal,
                     store: store,
-                    fontSize: 14,
+                    fontSize: 12,
                     buttonType: viewStore.schedule.proposalIds.contains(proposal.id) ? .remove : .add
                 )
-                #elseif os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    ProposalToolbar(
-                        proposal: proposal,
-                        store: store,
-                        fontSize: 12,
-                        buttonType: viewStore.schedule.proposalIds.contains(proposal.id) ? .remove : .add
-                    )
-                }
-                #endif
             }
         }
     }
@@ -134,28 +130,22 @@ enum ProposalScheduleButtonType {
     
     var buttonTitle: String {
         switch self {
-        case .add:
-            return "スケジュールに追加"
-        case .remove:
-            return "スケジュールから削除"
+        case .add:      return "スケジュールに追加"
+        case .remove:   return "スケジュールから削除"
         }
     }
     
     var buttonBackgroundColor: Color {
         switch self {
-        case .add:
-            return Color(hex:0xD9D9D9)
-        case .remove:
-            return Color(hex:0xF96464)
+        case .add:      return Color(hex:0xD9D9D9)
+        case .remove:   return Color(hex:0xF96464)
         }
     }
     
     var buttonTitleColor: Color {
         switch self {
-        case .add:
-            return Color(hex: 0x4A4A4A)
-        case .remove:
-            return Color.white
+        case .add:      return Color(hex: 0x4A4A4A)
+        case .remove:   return Color.white
         }
     }
 }
@@ -176,10 +166,15 @@ struct ProposalToolbar: View {
                 Text(buttonType.buttonTitle)
                     .foregroundColor(buttonType.buttonTitleColor)
                     .font(Font.system(size: fontSize, weight: .bold))
+                    #if os(macOS)
                     .padding(2)
+                    #elseif os(iOS)
+                    .padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 8))
+                    #endif
             }
             .background(buttonType.buttonBackgroundColor)
             .cornerRadius(4)
+            .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
         }
     }
 }
@@ -187,6 +182,13 @@ struct ProposalToolbar: View {
 
 struct ProposalView_Previews: PreviewProvider {
     static var previews: some View {
-        ProposalView(proposal: MockData.shared.proposal, store: Store(initialState: ProposalState(schedule: Schedule()), reducer: proposalReducer, environment: ProposalEnvironment()))
+        ProposalView(
+            proposal: MockData.shared.proposal,
+            store: Store(
+                initialState: ProposalState(schedule: Schedule()),
+                reducer: proposalReducer,
+                environment: ProposalEnvironment()
+            )
+        )
     }
 }

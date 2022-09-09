@@ -157,14 +157,16 @@ struct AppView: View {
                         send: AppAction.timetableNavigationPathChanged
                     )
                 ){
-                    IfLetStore(dayTimetableStore) { dayTimetableStore in
+                    IfLetStore(dayTimetableStore, then: { dayTimetableStore in
                         DayTimetableView(store: dayTimetableStore)
-                            .toolbar {
-                                DaySelectionView(store: daySelectStore)
-                            }
                             .navigationDestination(for: Proposal.self) { value in
                                 ProposalView(proposal: value, store: proposalStore)
                             }
+                            .toolbar {
+                                DaySelectionView(store: daySelectStore)
+                            }
+                    }) {
+                        ProgressView()
                     }
                 }
                 .tabItem {

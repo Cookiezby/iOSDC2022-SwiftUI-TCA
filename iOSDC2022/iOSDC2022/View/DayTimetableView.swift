@@ -5,15 +5,11 @@ import Foundation
 import UIKit
 #endif
 
-struct DayTimetableState: Equatable {
+struct DayTimetableState: Equatable, Identifiable {
     var id = UUID()
     var dayTimetable: DayTimetable
 }
  
-extension DayTimetableState: Identifiable {
-   
-}
-
 enum DayTimetableAction: Equatable {
     case clickProposal(Proposal)
 }
@@ -74,7 +70,8 @@ struct TrackView: View {
                 VStack(spacing: 0){
                     HStack {
                         Text(timetable.track.name.displayName)
-                            .font(Font.system(size: 20, weight: .semibold))
+                            .padding(.leading, 5)
+                            .font(Font.system(size: 18, weight: .semibold))
                             .foregroundColor(Color.gray)
                         Spacer(minLength: 0)
                     }
