@@ -39,7 +39,7 @@ struct ProposalCell: View {
     
     @ViewBuilder
     func background() -> some View {
-        if proposal.isFinished {
+        if proposal.isExpired {
             Color.gray
         } else {
             proposal.track.background

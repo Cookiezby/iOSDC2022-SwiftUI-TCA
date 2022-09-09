@@ -12,7 +12,7 @@ struct TrackProposal: Equatable, Identifiable {
         self.pendingProposals = []
         self.expiredProposals = []
         for proposal in proposals {
-            if proposal.isFinished {
+            if proposal.isExpired {
                 expiredProposals.append(proposal)
             } else {
                 pendingProposals.append(proposal)

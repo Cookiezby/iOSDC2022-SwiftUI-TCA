@@ -13,7 +13,8 @@ struct Proposal: Equatable, Identifiable, Codable {
     var tags: [Tag]?
     var speaker: Speaker
     var timeRangeText: String
-    var isFinished: Bool {
+    
+    var isExpired: Bool {
         startsDate.timeIntervalSince1970 + Double(lengthMin) * 60 < Date().timeIntervalSince1970
     }
     
