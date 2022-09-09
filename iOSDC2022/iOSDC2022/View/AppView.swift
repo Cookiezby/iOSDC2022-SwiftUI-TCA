@@ -83,8 +83,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
                 state.tabNavigationPath.schedule.append(proposal)
             case .timetable:
                 state.tabNavigationPath.timetable.append(proposal)
-            default:
-                break
             }
             return .none
         case .loadTimetable:
@@ -116,8 +114,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
                 state.tabNavigationPath.schedule.append(proposal)
             case .timetable:
                 state.tabNavigationPath.timetable.append(proposal)
-            default:
-                break
             }
             return .none
         case .schedule(.clickProposal(let proposal)):
@@ -126,8 +122,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
                 state.tabNavigationPath.schedule.append(proposal)
             case .timetable:
                 state.tabNavigationPath.timetable.append(proposal)
-            default:
-                break
             }
             return .none
         case .selectTab(let tab):
@@ -139,13 +133,12 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .scheduleNavigationPathChanged(let value):
             state.tabNavigationPath.schedule = value
             return .none
-        case .aboutNavigationPathChanged(let value):
-            state.tabNavigationPath.about = value
-            return .none
         case .updateProposalState:
-            var dayTimetable = state.dayTimetable?.dayTimetable
-            dayTimetable.update()
-            state.dayTimetable = dayTimetable
+            if let dayTimetableState = state.dayTimetable {
+                var day = dayTimetableState.dayTimetable
+                day.update()
+                state.dayTimetable = DayTimetableState(dayTimetable: day)
+            }
             return .none
         }
     }
@@ -154,6 +147,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
 
 struct AppView: View {
     let store: Store<AppState, AppAction>
+    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     var body: some View {
         WithViewStore(self.store) { viewStore in
             TabView(selection: viewStore.binding(get: \.selectedTab, send: AppAction.selectTab)){
@@ -196,6 +190,9 @@ struct AppView: View {
             }
             .onAppear(perform: {
                 viewStore.send(.loadTimetable)
+            })
+            .onReceive(timer, perform: { _ in
+                viewStore.send(.updateProposalState)
             })
         }
     }

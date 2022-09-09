@@ -24,26 +24,18 @@ struct DaySelectionView: View {
     let store: Store<DaySelectState, DaySelectAction>
     var body: some View {
         WithViewStore(store) { viewStore in
-            ForEach(Array(viewStore.days.enumerated()), id: \.offset) { index, element in
+            ForEach(Array(viewStore.days.enumerated()), id: \.offset) { index, day in
                 Button {
-                    viewStore.send(.selectDate(element))
+                    viewStore.send(.selectDate(day))
                 } label: {
-                    Text(element.dayString)
+                    Text(day.dayString)
                         .font(Font.system(size: 14, weight: .bold))
                         .foregroundColor(Color(hex: 0x4A4A4A))
                         .padding(3)
                 }
-                .background(isSelected(date: element) ? Color(hex: 0xEDEDED) : Color.white)
+                .background(day == viewStore.selectedDate ? Color(hex: 0xEDEDED) : Color.white)
                 .cornerRadius(3)
             }
-        }
-    }
-    
-    func isSelected(date: Date) -> Bool {
-        if let selected = ViewStore(self.store).selectedDate, date == selected {
-            return true
-        } else {
-            return false
         }
     }
 }

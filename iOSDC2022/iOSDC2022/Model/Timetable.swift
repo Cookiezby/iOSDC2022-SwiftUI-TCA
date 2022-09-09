@@ -17,8 +17,8 @@ struct DayTimetable: Identifiable, Equatable {
     mutating func update() {
         self.trackTimetables = trackTimetables.map {
             let total = $0.proposals + $0.finished
-            var proposals = total.filter { !$0.isFinished }
-            var finished = total.filter {$0.isFinished }
+            let proposals = total.filter { !$0.isFinished }
+            let finished = total.filter {$0.isFinished }
             return TrackTimetable(track: $0.track, proposals: proposals, finished: finished)
         }
     }
