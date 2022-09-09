@@ -5,9 +5,9 @@ final class MockData {
     var timetable: Timetable
     var dayTimetable: DayTimetable
     var days: [Date]
-    var trackTimetable: TrackTimetable
+    var trackTimetable: TrackProposal
     var proposal: Proposal {
-        trackTimetable.proposals.first!
+        trackTimetable.pendingProposals.first!
     }
     
     

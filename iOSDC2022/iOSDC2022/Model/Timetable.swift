@@ -11,7 +11,7 @@ extension Timetable {
         proposals.sort(){$0.startsDate < $1.startsDate }
         
         var dic = [Date: [Track: [Proposal]]]()
-        var result: [DayTimetable] = []
+        var dayTimetables: [DayTimetable] = []
       
         for element in proposals {
             let startOfDate = Calendar.current.startOfDay(for: element.startsDate)
@@ -22,7 +22,7 @@ extension Timetable {
         
         for (key, value) in dic {
             let tracks = value.keys.sorted()
-            var trackTimetables: [TrackTimetable] = []
+            var trackProposals: [TrackProposal] = []
             for track in tracks {
                 var activeProposal: [Proposal] = []
                 var finshedProposal: [Proposal] = []
@@ -33,13 +33,14 @@ extension Timetable {
                         activeProposal.append(proposal)
                     }
                 }
-                trackTimetables.append(TrackTimetable(track: track, proposals: activeProposal, finished: finshedProposal))
+                trackProposals.append(TrackProposal(track: track, pendingProposals: activeProposal, expiredProposals: finshedProposal))
             }
-            result.append(DayTimetable(date: key, tracks: trackTimetables))
+            
+            dayTimetables.append(DayTimetable(date: key, tracks: trackProposals))
         }
         
-        result.sort() {$0.date < $1.date}
-        return result
+        dayTimetables.sort() {$0.date < $1.date}
+        return dayTimetables
     }
 }
 

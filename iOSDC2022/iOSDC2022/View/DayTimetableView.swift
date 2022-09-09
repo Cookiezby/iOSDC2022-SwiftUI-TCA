@@ -78,7 +78,7 @@ struct TrackView: View {
                     .padding(.bottom, 8)
                     ScrollView(showsIndicators: false){
                         VStack(spacing: 10) {
-                            ForEach(Array(timetable.proposals.enumerated()), id: \.offset) { index, proposal in
+                            ForEach(Array(timetable.pendingProposals.enumerated()), id: \.offset) { index, proposal in
                                 Button(action: {
                                     viewStore.send(.clickProposal(proposal))
                                 }, label: {
@@ -87,7 +87,7 @@ struct TrackView: View {
                                 })
                                 .buttonStyle(PlainButtonStyle())
                             }
-                            FinishedProposalView(store: store, proposals: timetable.finished)
+                            FinishedProposalView(store: store, proposals: timetable.expiredProposals)
                         }
                     }
                 }
