@@ -6,4 +6,17 @@ struct TrackProposal: Equatable, Identifiable {
     var track: Track
     var pendingProposals: [Proposal]
     var expiredProposals: [Proposal]
+    
+    init(track: Track, proposals: [Proposal]) {
+        self.track = track
+        self.pendingProposals = []
+        self.expiredProposals = []
+        for proposal in proposals {
+            if proposal.isFinished {
+                expiredProposals.append(proposal)
+            } else {
+                pendingProposals.append(proposal)
+            }
+        }
+    }
 }

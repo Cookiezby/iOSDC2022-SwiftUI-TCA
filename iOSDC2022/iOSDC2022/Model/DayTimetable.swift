@@ -8,10 +8,14 @@ struct DayTimetable: Identifiable, Equatable {
     
     mutating func update() {
         self.tracks = tracks.map {
-            let total = $0.pendingProposals + $0.expiredProposals
-            let proposals = total.filter { !$0.isFinished }
-            let finished = total.filter {$0.isFinished }
-            return TrackProposal(track: $0.track, pendingProposals: proposals, expiredProposals: finished)
+            let proposals = $0.pendingProposals + $0.expiredProposals
+            return TrackProposal(track: $0.track, proposals: proposals)
         }
+    }
+}
+
+extension DayTimetable: Comparable {
+    static func < (lhs: DayTimetable, rhs: DayTimetable) -> Bool {
+        lhs.date < rhs.date
     }
 }

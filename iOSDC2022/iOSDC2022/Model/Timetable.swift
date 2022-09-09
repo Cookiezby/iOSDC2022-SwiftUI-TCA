@@ -7,40 +7,28 @@ struct Timetable: Codable {
 
 extension Timetable {
     func extractDayTimetables() -> [DayTimetable] {
-        var proposals = timetable.compactMap(Proposal.init)
-        proposals.sort(){$0.startsDate < $1.startsDate }
+        let proposals = timetable.compactMap(Proposal.init).sorted()
         
         var dic = [Date: [Track: [Proposal]]]()
         var dayTimetables: [DayTimetable] = []
       
-        for element in proposals {
-            let startOfDate = Calendar.current.startOfDay(for: element.startsDate)
-            var trackDic = dic[startOfDate] ?? [Track: [Proposal]]()
-            trackDic[element.track, default: []].append(element)
-            dic[startOfDate] = trackDic
+        for proposal in proposals {
+            let startOfDate = Calendar.current.startOfDay(for: proposal.startsDate)
+            var dayDic = dic[startOfDate] ?? [Track: [Proposal]]()
+            dayDic[proposal.track, default: []].append(proposal)
+            dic[startOfDate] = dayDic
         }
         
-        for (key, value) in dic {
-            let tracks = value.keys.sorted()
-            var trackProposals: [TrackProposal] = []
-            for track in tracks {
-                var activeProposal: [Proposal] = []
-                var finshedProposal: [Proposal] = []
-                for proposal in value[track] ?? [] {
-                    if proposal.isFinished {
-                        finshedProposal.append(proposal)
-                    } else {
-                        activeProposal.append(proposal)
-                    }
-                }
-                trackProposals.append(TrackProposal(track: track, pendingProposals: activeProposal, expiredProposals: finshedProposal))
+        for (day, dayDic) in dic {
+            let trackProposals = dayDic.keys
+                .sorted()
+                .map { track in
+                TrackProposal(track: track, proposals: dayDic[track] ?? [])
             }
-            
-            dayTimetables.append(DayTimetable(date: key, tracks: trackProposals))
+            dayTimetables.append(DayTimetable(date: day, tracks: trackProposals))
         }
         
-        dayTimetables.sort() {$0.date < $1.date}
-        return dayTimetables
+        return dayTimetables.sorted()
     }
 }
 
@@ -151,7 +139,6 @@ enum TimetableElementType: String, Codable {
     case talk
     case timeslot
 }
-
 
 extension Track {
     var background: LinearGradient {
