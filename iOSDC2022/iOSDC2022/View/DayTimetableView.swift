@@ -74,7 +74,7 @@ struct TrackView: View {
                 VStack(spacing: 0){
                     HStack {
                         Text(timetable.track.name.displayName)
-                            .font(Font.system(size: 15, weight: .semibold))
+                            .font(Font.system(size: 20, weight: .semibold))
                             .foregroundColor(Color.gray)
                         Spacer(minLength: 0)
                     }

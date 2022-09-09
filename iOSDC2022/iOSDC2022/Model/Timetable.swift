@@ -231,6 +231,7 @@ enum TrackName: String, Codable {
     case trackC = "Track C"
     case trackD = "Track D"
     case trackE = "Track E"
+    case trackF = "Track F"
     
     var displayName: String {
         switch self {
@@ -244,6 +245,8 @@ enum TrackName: String, Codable {
             return "D"
         case .trackE:
             return "E"
+        case .trackF:
+            return "F"
         }
     }
 }

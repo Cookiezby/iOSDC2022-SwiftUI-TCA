@@ -10,13 +10,11 @@ struct AppEnvironment {
 enum AppTab {
     case timetable
     case schedule
-    case about
 }
 
 struct TabNavigationPath: Equatable {
     var timetable = NavigationPath()
     var schedule = NavigationPath()
-    var about = NavigationPath()
 }
 
 struct AppState: Equatable {
@@ -39,7 +37,6 @@ enum AppAction {
     case selectTab(AppTab)
     case timetableNavigationPathChanged(NavigationPath)
     case scheduleNavigationPathChanged(NavigationPath)
-    case aboutNavigationPathChanged(NavigationPath)
     case updateProposalState
 }
 
@@ -196,19 +193,6 @@ struct AppView: View {
                     Label("Schedule", systemImage: "timer.circle")
                 }
                 .tag(AppTab.schedule)
-                
-                NavigationStack(
-                    path: viewStore.binding(
-                        get: \.tabNavigationPath.about,
-                        send: AppAction.aboutNavigationPathChanged
-                    )
-                ){
-                    AboutView()
-                }
-                .tabItem {
-                    Label("About", systemImage: "questionmark.circle")
-                }
-                .tag(AppTab.about)
             }
             .onAppear(perform: {
                 viewStore.send(.loadTimetable)

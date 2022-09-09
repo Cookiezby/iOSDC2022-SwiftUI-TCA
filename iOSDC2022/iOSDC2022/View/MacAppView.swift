@@ -6,7 +6,6 @@ import SwiftUI
 enum AppSideMenu {
     case timetable
     case schedule
-    case about
 }
 
 struct AppState: Equatable {
@@ -161,8 +160,6 @@ struct AppView: View {
                             .navigationDestination(for: Proposal.self) { value in
                                 ProposalView(proposal: value, store: proposalStore)
                             }
-                    case .about:
-                        AboutView()
                     }
                 }
             }
@@ -181,5 +178,4 @@ extension AppView {
         store.scope(state: \.sidebar, action: AppAction.sidebar)
     }
 }
-
 #endif

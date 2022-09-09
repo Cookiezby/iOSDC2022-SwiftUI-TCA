@@ -48,14 +48,19 @@ struct ProposalView: View {
                         .frame(width: 40, height: 40)
                     Text(proposal.speaker.name)
                         .font(Font.system(size: 15))
+                        .padding(.leading, 4)
                     Spacer(minLength: 0)
                 }
                 .padding(.bottom, 10)
                 ScrollView(showsIndicators: true) {
-                    Text(proposal.abstract)
-                        .font(Font.system(size: 16))
-                        .lineSpacing(4)
+                    HStack {
+                        Text(proposal.abstract)
+                            .font(Font.system(size: 16))
+                            .lineSpacing(4)
+                        Spacer(minLength: 0)
+                    }.frame(maxWidth: .infinity)
                 }
+                
                 .padding(.bottom, 10)
                 Spacer(minLength: 0)
                 if !viewStore.schedule.overlapped(proposal: proposal).isEmpty {
@@ -174,7 +179,7 @@ struct ProposalToolbar: View {
                     .padding(2)
             }
             .background(buttonType.buttonBackgroundColor)
-            .cornerRadius(3)
+            .cornerRadius(4)
         }
     }
 }

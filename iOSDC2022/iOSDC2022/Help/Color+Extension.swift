@@ -32,7 +32,7 @@ extension Track {
             return Gradient(colors: [Color(hex: 0xF76B1C), Color(hex: 0xFEAD3F)])
         case .trackD:
             return Gradient(colors: [Color(hex: 0x56ab2f), Color(hex: 0xa8e063)])
-        case .trackE:
+        case .trackE, .trackF:
             return Gradient(colors: [Color(hex: 0xA707DF), Color(hex: 0xC816A1)])
         }
     }

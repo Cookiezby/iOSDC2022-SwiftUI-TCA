@@ -43,16 +43,6 @@ struct Sidebar: View {
                         Image(systemName: "timer.circle")
                     }
                 }
-                
-                Button {
-                    viewStore.send(.selectSideMenu(.about))
-                } label: {
-                    Label {
-                        Text("About")
-                    } icon: {
-                        Image(systemName: "questionmark.circle")
-                    }
-                }
             }
             .buttonStyle(PlainButtonStyle())
         }

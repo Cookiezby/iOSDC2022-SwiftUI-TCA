@@ -20,6 +20,7 @@ struct iOSDC2022App: App {
         #if os(macOS)
         WindowGroup {
             AppView(store: store)
+                .frame(minWidth: 1200, minHeight: 700)
         }
         .windowStyle(HiddenTitleBarWindowStyle())
         #else
