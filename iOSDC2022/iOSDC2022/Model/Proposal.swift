@@ -16,6 +16,30 @@ struct Proposal: Equatable, Identifiable, Codable {
     var isFinished: Bool {
         startsDate.timeIntervalSince1970 + Double(lengthMin) * 60 < Date().timeIntervalSince1970
     }
+    
+    init?(element: TimetableElement) {
+        if let startsAt = element.startsAt,
+           element.type == .talk,
+           let startsDate = ISO8601DateFormatter().date(from: startsAt),
+           let abstract = element.abstract,
+           let track = element.track,
+           let lengthMin = element.lengthMin,
+           let speaker = element.speaker {
+            self.uuid = element.uuid
+            self.title = element.title
+            self.abstract = abstract
+            self.track = track
+            self.startsDate = startsDate
+            self.lengthMin = lengthMin
+            self.speaker = speaker
+            self.timeRangeText = Proposal.genTimeRangeText(
+                startsDate: startsDate,
+                lengthMin: lengthMin
+            )
+        } else {
+            return nil
+        }
+    }
 
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()

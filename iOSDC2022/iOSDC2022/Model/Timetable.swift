@@ -7,33 +7,7 @@ struct Timetable: Codable {
 
 extension Timetable {
     func extractDayTimetables() -> [DayTimetable] {
-        let dateForamt = ISO8601DateFormatter()
-        var proposals: [Proposal] = []
-        for element in timetable {
-            if let startsAt = element.startsAt,
-               element.type == .talk,
-               let startsDate = dateForamt.date(from: startsAt),
-               let abstract = element.abstract,
-               let track = element.track,
-               let lengthMin = element.lengthMin,
-               let speaker = element.speaker {
-                let proposal = Proposal(
-                    uuid: element.uuid,
-                    title: element.title,
-                    abstract: abstract,
-                    track: track,
-                    startsDate: startsDate,
-                    lengthMin: lengthMin,
-                    speaker: speaker,
-                    timeRangeText: Proposal.genTimeRangeText(
-                        startsDate: startsDate,
-                        lengthMin: lengthMin
-                    )
-                )
-                proposals.append(proposal)
-            }
-        }
-        
+        var proposals = timetable.compactMap(Proposal.init)
         proposals.sort(){$0.startsDate < $1.startsDate }
         
         var dic = [Date: [Track: [Proposal]]]()
