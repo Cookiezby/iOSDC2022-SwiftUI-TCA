@@ -3,7 +3,7 @@ import ComposableArchitecture
 
 
 struct AppEnvironment {
-    var fetchTimetable: @Sendable (Int) async throws -> Timetable
+    var fetchTimetable: @Sendable () async throws -> Timetable
 }
 
 #if os(iOS)
@@ -24,7 +24,7 @@ struct AppState: Equatable {
     var daySelect = DaySelectState()
     var dayTimetable: DayTimetableState?
     var selectedDate: Date?
-    var dayTimetables: [DayTimetable] = []
+    var timetable: Timetable?
 }
 
 enum AppAction {
@@ -88,13 +88,13 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .loadTimetable:
             guard state.dayTimetables.isEmpty else { return .none }
             return .task {
-                let timetable = try await environment.fetchTimetable(5)
+                let timetable = try await environment.fetchTimetable()
                 return AppAction.timetableResponse(timetable)
             }
         case let .timetableResponse(timetable):
             let dayTimetables = timetable.extractDayTimetables()
-            let dates = dayTimetables.map { $0.date }
             state.dayTimetables = dayTimetables
+            let dates = dayTimetables.map { $0.date }
             state.selectedDate = dates.first
             state.daySelect = DaySelectState(selectedDate: dates.first, days: dates)
             state.dayTimetable = DayTimetableState(dayTimetable: dayTimetables[0])
@@ -135,9 +135,8 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             return .none
         case .updateProposalState:
             if let dayTimetableState = state.dayTimetable {
-                var day = dayTimetableState.dayTimetable
-                day.update()
-                state.dayTimetable = DayTimetableState(dayTimetable: day)
+                var refreshedDayTimetable = dayTimetableState.dayTimetable.refresh()
+                state.dayTimetable = DayTimetableState(dayTimetable: refreshedDayTimetable)
             }
             return .none
         }

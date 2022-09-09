@@ -83,9 +83,8 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
                 return .none
             }
             return .task {
-                let timetable = try await environment.fetchTimetable(5)
-                let action = AppAction.timetableResponse(timetable)
-                return action
+                let timetable = try await environment.fetchTimetable()
+                return AppAction.timetableResponse(timetable)
             }
         case let .timetableResponse(timetable):
             let dayTimetables = timetable.extractDayTimetables()
@@ -119,9 +118,8 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             return .none
         case .updateProposalState:
             if let dayTimetableState = state.dayTimetable {
-                var day = dayTimetableState.dayTimetable
-                day.update()
-                state.dayTimetable = DayTimetableState(dayTimetable: day)
+                var refreshedDayTimetable = dayTimetableState.dayTimetable.refresh()
+                state.dayTimetable = DayTimetableState(dayTimetable: refreshedDayTimetable)
             }
             return .none
         }
