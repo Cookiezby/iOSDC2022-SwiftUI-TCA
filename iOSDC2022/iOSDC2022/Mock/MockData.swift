@@ -18,7 +18,7 @@ final class MockData {
         self.timetable = timetable
         let dayTimetables = timetable.extractDayTimetables()
         self.dayTimetable = dayTimetables.first!
-        self.trackTimetable = self.dayTimetable.trackTimetables.first!
+        self.trackTimetable = self.dayTimetable.tracks.first!
         self.days = dayTimetables.map { $0.date }
         //self.proposal = self.trackTimetable.proposals.first!
     }

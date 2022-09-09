@@ -91,6 +91,8 @@ extension Schedule: Equatable {
     }
 }
 
+
+// MARK: DaySchedule
 struct DaySchedule: Codable, Equatable, Identifiable {
     let id: UUID
     var date: Date

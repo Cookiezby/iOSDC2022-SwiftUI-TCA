@@ -66,7 +66,7 @@ struct TrackView: View {
     var store: Store<DayTimetableState, DayTimetableAction>
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            ForEach(viewStore.dayTimetable.trackTimetables) { timetable in
+            ForEach(viewStore.dayTimetable.tracks) { timetable in
                 VStack(spacing: 0){
                     HStack {
                         Text(timetable.track.name.displayName)
