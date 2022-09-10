@@ -134,9 +134,10 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             state.tabNavigationPath.schedule = value
             return .none
         case .updateProposalState:
-            if let dayTimetableState = state.dayTimetable {
-                var refreshedDayTimetable = dayTimetableState.dayTimetable.refresh()
-                state.dayTimetable = DayTimetableState(dayTimetable: refreshedDayTimetable)
+            if let selectedDate = state.selectedDate,
+               let index = state.dayTimetables.firstIndex(where: {$0.date == selectedDate}) {
+                state.dayTimetables[index] = state.dayTimetables[index].refresh()
+                state.dayTimetable = DayTimetableState(dayTimetable: state.dayTimetables[index])
             }
             state.schedule.refresh()
             return .none
