@@ -1,10 +1,3 @@
-//
-//  AvatarView.swift
-//  iOSDC2022
-//
-//  Created by 朱冰一 on 2022/09/07.
-//
-
 import SwiftUI
 
 struct AvatarView: View {
