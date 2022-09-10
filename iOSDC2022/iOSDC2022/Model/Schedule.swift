@@ -140,7 +140,7 @@ extension Schedule {
     
     private func save() {
         let path = getLocalDataPath()
-        let data = try! JSONEncoder().encode(daySchedules)
-        try? data.write(to: URL(fileURLWithPath: path))
+        let data = try? JSONEncoder().encode(daySchedules)
+        try? data?.write(to: URL(fileURLWithPath: path))
     }
 }
