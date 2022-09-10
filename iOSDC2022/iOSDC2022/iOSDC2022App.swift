@@ -16,18 +16,22 @@ struct iOSDC2022App: App {
         let appearance = UITabBarAppearance()
         UITabBar.appearance().scrollEdgeAppearance = appearance
         #endif
+        
+        
     }
     
     var body: some Scene {
         #if os(macOS)
         WindowGroup {
             AppView(store: store)
+                .preferredColorScheme(.light)
                 .frame(minWidth: 1200, minHeight: 700)
         }
         .windowStyle(HiddenTitleBarWindowStyle())
         #else
         WindowGroup {
             AppView(store: store)
+                .preferredColorScheme(.light)
         }
         #endif
     }

@@ -36,6 +36,7 @@ struct DayTimetableView: View {
         .background(Color.white)
 #elseif os(iOS)
         MobileDayTimetableView(content: { TrackView(store: store)})
+            .navigationBarTitleDisplayMode(.inline)
 #endif
     }
     
@@ -46,7 +47,6 @@ struct DayTimetableView: View {
         if UIDevice.current.userInterfaceIdiom == .phone {
             TabView {
                 content()
-                    .navigationBarTitleDisplayMode(.inline)
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
             }
