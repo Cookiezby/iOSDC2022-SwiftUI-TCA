@@ -23,8 +23,8 @@ struct AppState: Equatable {
     var schedule = Schedule()
     var daySelect = DaySelectState()
     var dayTimetable: DayTimetableState?
+    var dayTimetables: [DayTimetable] = []
     var selectedDate: Date?
-    var timetable: Timetable?
 }
 
 enum AppAction {

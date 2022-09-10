@@ -124,15 +124,15 @@ extension Schedule {
         let path = getLocalDataPath()
         if FileManager.default.fileExists(atPath: path) {
             let data = try! Data(contentsOf: URL(fileURLWithPath: path))
-            self.daySchedules = try! JSONDecoder().decode([DaySchedule].self, from: data)
-            self.daySchedules = self.daySchedules.map { $0.refresh() }
-            for day in daySchedules {
-                for proposal in day.pendingProposals {
-                    self.proposalIds.insert(proposal.uuid)
-                }
-                
-                for proposal in day.expiredProposals {
-                    self.proposalIds.insert(proposal.uuid)
+            if let schedules = try? JSONDecoder().decode([DaySchedule].self, from: data) {
+                self.daySchedules = schedules.map { $0.refresh() }
+                for day in daySchedules {
+                    for proposal in day.pendingProposals {
+                        self.proposalIds.insert(proposal.uuid)
+                    }
+                    for proposal in day.expiredProposals {
+                        self.proposalIds.insert(proposal.uuid)
+                    }
                 }
             }
         }
