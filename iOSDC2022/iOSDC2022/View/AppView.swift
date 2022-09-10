@@ -138,6 +138,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
                 var refreshedDayTimetable = dayTimetableState.dayTimetable.refresh()
                 state.dayTimetable = DayTimetableState(dayTimetable: refreshedDayTimetable)
             }
+            
             return .none
         }
     }

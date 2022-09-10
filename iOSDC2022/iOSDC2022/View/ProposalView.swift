@@ -64,8 +64,8 @@ struct ProposalView: View {
                 .padding(.bottom, 10)
                 #endif
                 Spacer(minLength: 0)
-                if !viewStore.schedule.overlapped(proposal: proposal).isEmpty {
-                    ProposalScheduleOverlapView(proposal: proposal, store: store)
+                if let overlapped = viewStore.schedule.overlapped(proposal: proposal), !overlapped.isEmpty {
+                    ProposalScheduleOverlapView(overlapped: overlapped, store: store)
                 }
             }
             #if os(macOS)
@@ -82,15 +82,16 @@ struct ProposalView: View {
                     proposal: proposal,
                     store: store,
                     fontSize: 12,
-                    buttonType: viewStore.schedule.proposalIds.contains(proposal.id) ? .remove : .add
+                    buttonType: viewStore.schedule.contains(proposal) ? .remove : .add
                 )
             }
         }
+        
     }
 }
 
 struct ProposalScheduleOverlapView: View {
-    var proposal: Proposal
+    var overlapped: [Proposal]
     var store: Store<ProposalState, ProposalAction>
     var body: some View {
         WithViewStore(self.store) { viewStore in
@@ -104,11 +105,11 @@ struct ProposalScheduleOverlapView: View {
                         .padding(.bottom, 5)
                     HStack {
                         ScrollView(.horizontal) {
-                            ForEach(viewStore.schedule.overlapped(proposal: proposal)) { overlapped in
+                            ForEach(overlapped) { proposal in
                                 Button(action: {
-                                    viewStore.send(.clickProposal(overlapped))
+                                    viewStore.send(.clickProposal(proposal))
                                 }, label: {
-                                    ProposalCell(proposal: overlapped)
+                                    ProposalCell(proposal: proposal)
                                         .frame(width: 250, height: 80)
                                 })
                                 .buttonStyle(PlainButtonStyle())

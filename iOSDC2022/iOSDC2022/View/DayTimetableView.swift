@@ -111,7 +111,7 @@ struct FinishedProposalView: View {
                         .padding(.leading, 3)
                     Spacer()
                 }
-                Divider()
+                .padding(.top, 10)
             }.opacity(proposals.count > 0 ? 1:0)
             ForEach(Array(proposals.enumerated()), id: \.offset) { index, proposal in
                 Button(action: {

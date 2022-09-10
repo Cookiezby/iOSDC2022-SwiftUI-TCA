@@ -74,7 +74,7 @@ struct ScheduleTrackView: View {
                         Spacer(minLength: 0)
                     }
                     ScrollView {
-                        ForEach(Array(daySchedule.proposals.enumerated()), id: \.offset) { index, proposal in
+                        ForEach(Array(daySchedule.pendingProposals.enumerated()), id: \.offset) { index, proposal in
                             Button(action: {
                                 viewStore.send(.clickProposal(proposal))
                             }, label: {
@@ -83,6 +83,7 @@ struct ScheduleTrackView: View {
                             })
                             .buttonStyle(PlainButtonStyle())
                         }
+                        FinishedScheduleProposalView(store: store, proposals: daySchedule.expiredProposals)
                     }
                 }
             }
@@ -92,6 +93,34 @@ struct ScheduleTrackView: View {
         }
     }
 }
+
+struct FinishedScheduleProposalView: View {
+    var store: Store<ScheduleState, ScheduleAction>
+    var proposals: [Proposal]
+    var body: some View {
+        WithViewStore(store) { viewStore in
+            Group {
+                HStack {
+                    Text("終了したトーク")
+                        .font(Font.system(size: 12, weight: .bold))
+                        .foregroundColor(Color.gray)
+                        .padding(.leading, 3)
+                    Spacer()
+                }.padding(.top, 10)
+            }.opacity(proposals.count > 0 ? 1:0)
+            ForEach(Array(proposals.enumerated()), id: \.offset) { index, proposal in
+                Button(action: {
+                    viewStore.send(.clickProposal(proposal))
+                }, label: {
+                    ProposalCell(proposal: proposal)
+                        .frame(height: 80)
+                })
+                .buttonStyle(PlainButtonStyle())
+            }
+        }
+    }
+}
+
 
 struct Schedule_Previews: PreviewProvider {
     static var previews: some View {
