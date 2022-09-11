@@ -11,7 +11,7 @@ struct AvatarView: View {
     var urlString: String?
     var tintColor: Color
     var body: some View {
-        if let urlString = urlString, let url = URL(string: urlString){
+        if let urlString, let url = URL(string: urlString){
             AsyncImage(url: url, content: { image in
                 image
                     .resizable()

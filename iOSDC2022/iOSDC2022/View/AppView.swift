@@ -40,6 +40,7 @@ enum AppAction {
     case timetableNavigationPathChanged(NavigationPath)
     case scheduleNavigationPathChanged(NavigationPath)
     case aboutNavigationPathChanged(NavigationPath)
+    case updateProposalState
 }
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
@@ -90,9 +91,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             }
             return .none
         case .loadTimetable:
-            guard state.dayTimetables.isEmpty else {
-                return .none
-            }
+            guard state.dayTimetables.isEmpty else { return .none }
             return .task {
                 let timetable = try await environment.fetchTimetable(5)
                 return AppAction.timetableResponse(timetable)
@@ -146,6 +145,11 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .aboutNavigationPathChanged(let value):
             state.tabNavigationPath.about = value
             return .none
+        case .updateProposalState:
+            var dayTimetable = state.dayTimetable?.dayTimetable
+            dayTimetable.update()
+            state.dayTimetable = dayTimetable
+            return .none
         }
     }
 )
@@ -189,7 +193,7 @@ struct AppView: View {
                         }
                 }
                 .tabItem {
-                    Label("Schedule", systemImage: "timer")
+                    Label("Schedule", systemImage: "timer.circle")
                 }
                 .tag(AppTab.schedule)
                 

@@ -6,13 +6,12 @@ import UIKit
 #endif
 
 struct DayTimetableState: Equatable {
+    var id = UUID()
     var dayTimetable: DayTimetable
 }
  
 extension DayTimetableState: Identifiable {
-    var id: Double {
-        dayTimetable.id
-    }
+   
 }
 
 enum DayTimetableAction: Equatable {
@@ -30,6 +29,7 @@ let dayTimetableReducer = Reducer<DayTimetableState, DayTimetableAction, DayTime
 
 struct DayTimetableView: View {
     let store:Store<DayTimetableState, DayTimetableAction>
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var body: some View {
 #if os(macOS)
         HStack(spacing: 0) {
@@ -42,6 +42,7 @@ struct DayTimetableView: View {
         MobileDayTimetableView(content: { TrackView(store: store)})
 #endif
     }
+    
 
 #if os(iOS)
     @ViewBuilder

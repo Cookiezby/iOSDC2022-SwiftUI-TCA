@@ -3,20 +3,25 @@
 import Foundation
 
 struct TrackTimetable: Equatable, Identifiable {
-    var id: String {
-        track.name.rawValue
-    }
+    var id = UUID()
     var track: Track
     var proposals: [Proposal]
     var finished: [Proposal]
 }
 
 struct DayTimetable: Identifiable, Equatable {
-    var id: Double {
-        date.timeIntervalSince1970
-    }
+    var id = UUID()
     var date: Date
     var trackTimetables: [TrackTimetable]
+    
+    mutating func update() {
+        self.trackTimetables = trackTimetables.map {
+            let total = $0.proposals + $0.finished
+            var proposals = total.filter { !$0.isFinished }
+            var finished = total.filter {$0.isFinished }
+            return TrackTimetable(track: $0.track, proposals: proposals, finished: finished)
+        }
+    }
 }
 
 struct Timetable: Codable {
@@ -99,11 +104,10 @@ struct Proposal: Equatable, Identifiable, Codable {
     var tags: [Tag]?
     var speaker: Speaker
     var timeRangeText: String
-    
     var isFinished: Bool {
         startsDate.timeIntervalSince1970 + Double(lengthMin) * 60 < Date().timeIntervalSince1970
     }
-    
+
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ja_JP")

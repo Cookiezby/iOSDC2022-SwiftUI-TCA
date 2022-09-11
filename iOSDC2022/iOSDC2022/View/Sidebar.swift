@@ -40,7 +40,7 @@ struct Sidebar: View {
                     Label {
                         Text("Schedule")
                     } icon: {
-                        Image(systemName: "timer")
+                        Image(systemName: "timer.circle")
                     }
                 }
                 

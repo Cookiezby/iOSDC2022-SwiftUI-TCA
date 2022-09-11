@@ -15,8 +15,8 @@ struct AppState: Equatable {
     var schedule = Schedule()
     var daySelect = DaySelectState()
     var dayTimetable: DayTimetableState?
-    var selectedDate: Date?
     var dayTimetables: [DayTimetable] = []
+    var selectedDate: Date?
 }
 
 
@@ -29,6 +29,7 @@ enum AppAction {
     case loadTimetable
     case timetableResponse(Timetable)
     case navigationPathChanged(NavigationPath)
+    case updateProposalState
 }
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
@@ -117,6 +118,13 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .schedule(.clickProposal(let proposal)):
             state.navigationPath.append(proposal)
             return .none
+        case .updateProposalState:
+            if let dayTimetableState = state.dayTimetable {
+                var day = dayTimetableState.dayTimetable
+                day.update()
+                state.dayTimetable = DayTimetableState(dayTimetable: day)
+            }
+            return .none
         }
     }
 )
@@ -124,10 +132,10 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
 
 struct AppView: View {
     let store: Store<AppState, AppAction>
-    @State private var columnVisibility = NavigationSplitViewVisibility.automatic
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            NavigationSplitView(columnVisibility: $columnVisibility){
+            NavigationSplitView {
                 Sidebar(store: siderbarStore)
             } detail: {
                 NavigationStack(
@@ -144,6 +152,7 @@ struct AppView: View {
                                     ProposalView(proposal: value, store: proposalStore)
                                 }
                                 .toolbar {
+                                    
                                     DaySelectionView(store: daySelectStore)
                                 }
                         }
@@ -156,10 +165,13 @@ struct AppView: View {
                         Text("About")
                     }
                 }
-                .onAppear(perform: {
-                    viewStore.send(.loadTimetable)
-                })
             }
+            .onAppear(perform: {
+                viewStore.send(.loadTimetable)
+            })
+            .onReceive(timer, perform: { _ in
+                viewStore.send(.updateProposalState)
+            })
         }
     }
 }
