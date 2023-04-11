@@ -41,7 +41,7 @@ struct DaySchedule: Codable, Equatable, Identifiable {
     }
     
     func refresh() -> DaySchedule {
-        let proposals = pendingProposals + expiredProposals
+        let proposals = expiredProposals + pendingProposals
         return DaySchedule(date: date, proposals: proposals)
     }
 }
@@ -71,7 +71,7 @@ extension Schedule {
         if let index = daySchedules.firstIndex(where: {$0.date == startDate }) {
             if proposal.isExpired {
                 daySchedules[index].expiredProposals.append(proposal)
-                daySchedules[index].expiredProposals = daySchedules[index].pendingProposals.sorted()
+                daySchedules[index].expiredProposals = daySchedules[index].expiredProposals.sorted()
             } else {
                 daySchedules[index].pendingProposals.append(proposal)
                 daySchedules[index].pendingProposals = daySchedules[index].pendingProposals.sorted()
