@@ -35,11 +35,7 @@ struct DaySchedule: Codable, Equatable, Identifiable {
             }
         }
     }
-    
-    static func == (lhs: DaySchedule, rhs: DaySchedule) -> Bool {
-        lhs.pendingProposals == rhs.pendingProposals
-    }
-    
+
     func refresh() -> DaySchedule {
         let proposals = expiredProposals + pendingProposals
         return DaySchedule(date: date, proposals: proposals)
