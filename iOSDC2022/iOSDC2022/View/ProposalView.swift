@@ -165,7 +165,6 @@ struct ProposalToolbar: View {
                 }
             } label: {
                 Text(buttonType.buttonTitle)
-                    .foregroundColor(buttonType.buttonTitleColor)
                     .font(Font.system(size: fontSize, weight: .bold))
                     #if os(macOS)
                     .padding(2)
